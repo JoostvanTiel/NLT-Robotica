@@ -123,7 +123,7 @@ Aan de variabele random_getal wordt nu willekeurig een waarde toegekend tussen d
 
 4. Laat de robot naar links draaien met de linker lamp aan. Doe vervolgens hetzelfde voor de rechter kant. 
 
-5. Laat de robot rijden in een cirkel met een straal van minimaal 20cm (dus niet om zijn eigen as).   
+5. Laat de robot rijden in een cirkel met een straal van minimaal 20cm (dus niet om zijn eigen as). 
 
 6. Laat de robot vooruitrijden met een snelheid van 10 terwijl hij de lampen aan heeft. Doe dit voor 5 seconde. Zet vervolgens de lampen uit en laat de robot voor nog 5 seconde naar achter rijde.  
 

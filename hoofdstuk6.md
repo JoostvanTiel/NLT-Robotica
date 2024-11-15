@@ -1,1 +1,1 @@
-# Hoofdstuk 6: Eindopdracht
+# Hoofdstuk 6: Extra mogelijkheden van de robot

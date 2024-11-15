@@ -35,7 +35,7 @@ Met de gegevens in de map “macqueen.py” hoef je in principe niks te doen, te
 
 Nu gaan we de computer aansluiten op de micro:bit. De micro:bit is een programmeerbaar computertje. Zie de afbeelding hiernaast.
 
-We sluiten de micro:bit aan door middel van de USB-C kabel. De micro:bit ziet er hetzelfde uit als de simulator. We kunnen dus gelijke codes gebruiken om de simulator en de micro:bit aan te sturen. Als je de code klaar hebt druk je op “Send to micro:bit”. Vervolgens krijg je twee schermen waarbij je beide op “next” drukt. Je selecteert vervolgens de micro:bit en klikt op “verbinding maken”. Je code wordt uitgevoerd op de micro:bit. Let op: dit werkt alleen in de browsers ["Chrome"](https://www.google.com/chrome/), ["Opera"](https://www.opera.com/) of "Edge".
+We sluiten de micro:bit aan door middel van de micro-USB kabel. De micro:bit ziet er hetzelfde uit als de simulator. We kunnen dus gelijke codes gebruiken om de simulator en de micro:bit aan te sturen. Als je de code klaar hebt druk je op “Send to micro:bit”. Vervolgens krijg je twee schermen waarbij je beide op “next” drukt. Je selecteert vervolgens de micro:bit en klikt op “verbinding maken”. Je code wordt uitgevoerd op de micro:bit. Let op: dit werkt alleen in de browsers "[Chrome](https://www.google.com/chrome/)", "[Opera](https://www.opera.com/)" of "Edge".
 
 ```{image} /img/h2.4.png
 :alt: screenshot microbit verbinden
@@ -61,11 +61,11 @@ Stop de micro:bit in de Macqueen, zodat de opstelling er als volgt uitziet:
 
 ![image maqueen](/img/h2.6.png)
 
-Zorg dat de Maqueen uit staat en verbindt de computer door middel van de USB-C kabel met de micro:bit. Vervolgens verstuur je de code naar de micro:bit. Als dit is gelukt haal je de USB-C kabel uit de micro:bit en zet je de Maqueen aan. Had je de Maqueen al aanstaan bij het verbinden, of haal je de kabel niet uit de micro:bit, dan gaat de robot rijden met de kabel nog aangesloten. Dit is niet de bedoeling.
+Zorg dat de Maqueen uit staat (met de aanknop op de rechter zijkant, rood omcirkelt in de figuur hierboven) en verbindt de computer door middel van de micro-USB kabel met de micro:bit. Vervolgens verstuur je de code naar de micro:bit. Als dit is gelukt haal je de USB kabel uit de micro:bit en zet je de Maqueen aan. Had je de Maqueen al aanstaan bij het verbinden, of haal je de kabel niet uit de micro:bit, dan gaat de robot rijden met de kabel nog aangesloten. Dit is niet de bedoeling.
 
 ## Meer functies
 
-ot nu toe hebben we enkel de functie `motor_aan()` gebruikt om de Maqueen te besturen. Het is ook fijn als je de motor na enige tijd weer uit kunt zetten. Hiervoor maak je gebruik van de functie `motor_uit()`. Als je de while-loop vervolgens wil stoppen, kun je dit doen door middel van het commando `break`.
+Tot nu toe hebben we enkel de functie `motor_aan()` gebruikt om de Maqueen te besturen. Het is ook fijn als je de motor na enige tijd weer uit kunt zetten. Hiervoor maak je gebruik van de functie `motor_uit()`. Als je de while-loop vervolgens wil stoppen, kun je dit doen door middel van het commando `break`.
 
 	# Imports go at the top
 	from maqueen import *

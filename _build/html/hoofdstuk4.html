@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Hoofdstuk 4: Condities en loops &#8212; NLT Robotica</title>
+    <title>Hoofdstuk 4: Sensoren &#8212; NLT Robotica</title>
   
   
   
@@ -63,7 +63,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'hoofdstuk4';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Hoofdstuk 5: Extra mogelijkheden van de robot" href="hoofdstuk5.html" />
+    <link rel="next" title="Hoofdstuk 5: Condities en loops" href="hoofdstuk5.html" />
     <link rel="prev" title="Hoofdstuk 3: Functies en variabelen" href="hoofdstuk3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -172,9 +172,10 @@
 <li class="toctree-l1"><a class="reference internal" href="hoofdstuk1.html">Hoofdstuk 1: Beginnen met programmeren</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hoofdstuk2.html">Hoofdstuk 2: Kennismaken met de robot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hoofdstuk3.html">Hoofdstuk 3: Functies en variabelen</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Hoofdstuk 4: Condities en loops</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hoofdstuk5.html">Hoofdstuk 5: Extra mogelijkheden van de robot</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hoofdstuk6.html">Hoofdstuk 6: Eindopdracht</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Hoofdstuk 4: Sensoren</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hoofdstuk5.html">Hoofdstuk 5: Condities en loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hoofdstuk6.html">Hoofdstuk 6: Extra mogelijkheden van de robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hoofdstuk7.html">Hoofdstuk 7: Eindopdracht</a></li>
 </ul>
 
     </div>
@@ -229,7 +230,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/JoostvanTiel/NLT-Robotica" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -246,7 +247,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fhoofdstuk4.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/JoostvanTiel/NLT-Robotica/issues/new?title=Issue%20on%20page%20%2Fhoofdstuk4.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -339,7 +340,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -350,11 +353,21 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Hoofdstuk 4: Condities en loops</h1>
+    <h1>Hoofdstuk 4: Sensoren</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-lijnvolgsensoren">De lijnvolgsensoren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-ultrasone-afstandssensor">De ultrasone afstandssensor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opdrachten-hoofdstuk-4">Opdrachten hoofdstuk 4</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -364,8 +377,48 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="hoofdstuk-4-condities-en-loops">
-<h1>Hoofdstuk 4: Condities en loops<a class="headerlink" href="#hoofdstuk-4-condities-en-loops" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="hoofdstuk-4-sensoren">
+<h1>Hoofdstuk 4: Sensoren<a class="headerlink" href="#hoofdstuk-4-sensoren" title="Link to this heading">#</a></h1>
+<p>Robots zijn uitgerust met sensoren zoals afstandssensor, geluidsensor, kleurensensor enzovoort. Via deze sensoren kunnen robots hun omgeving observeren, waardoor een robot autonoom kan functioneren. In dit hoofdstuk behandelen we hoe je de lijnvolgsensoren en de ultrasone afstandssensor kunt gebruiken.</p>
+<section id="de-lijnvolgsensoren">
+<h2>De lijnvolgsensoren<a class="headerlink" href="#de-lijnvolgsensoren" title="Link to this heading">#</a></h2>
+<p>In de onderstaande figuur zie je de vijf lijnsensoren die op de maqueen aanwezig zijn. Elke sensor heeft een infrarood (IR) zender en een IR ontvanger. De IR zender zend infrarode straling uit. Die straling wordt door een witte ondergrond weerkaatst, maar door een zwarte ondergrond geabsorbeerd. Als de IR ontvanger teruggekaatste straling ontvangt (witte ondergrond), zal deze een 0 (<code class="docutils literal notranslate"><span class="pre">False</span></code>) terugsturen naar de micro:bit. Als het geen straling ontvangt, stuurt het een 1 (<code class="docutils literal notranslate"><span class="pre">True</span></code>) terug naar de micro:bit.</p>
+<p><img alt="lijnvolgsensoren onderaanzicht" src="_images/h4.1.png" /></p>
+<a class="reference internal image-reference" href="_images/h4.2.png"><img alt="screenshot microbit verbinden" class="align-right" src="_images/h4.2.png" style="width: 200px;" /></a>
+<p>Als de robot over een zwarte lijn rijdt, met aan weerszijden een witte ondergrond, zullen een de lijnvolgsensoren boven de witte ondergrond een 0 terugsturen en de lijnvolgsensoren boven de lijn een 1. Op die manier kan vastgesteld worden waar de lijn zich onder de robot bevindt. Zie ook de figuur hiernaast.</p>
+<p>De vijf lijnsensoren van de Maqueen zijn van links naar rechts als volgt genoemd: <code class="docutils literal notranslate"><span class="pre">lijnsensor_l2</span></code>, <code class="docutils literal notranslate"><span class="pre">lijnsensor_l1</span></code>, <code class="docutils literal notranslate"><span class="pre">lijnsensor_m</span></code>, <code class="docutils literal notranslate"><span class="pre">lijnsensor_r1</span></code>, <code class="docutils literal notranslate"><span class="pre">lijnsensor_r2</span></code>.</p>
+<p>De volgende pseudocode omschrijft hoe een lijnvolgprogramma eruit zou kunnen zien:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Lees de lijnsensoren uit
+
+# Als de middelste lijnsensor (lijnsensor_m) een 1 stuurt:
+	# Rijd vooruit
+# Anders, als linker lijnsensor (lijnsensor_l1 of lijnsensor_l2) een 1 stuurt:
+	# Draai naar links 
+# Anders, als rechter lijnsensor (lijnsensor_r1 of lijnsensor_r2) een 1 stuurt:
+	# Draai naar rechts
+</pre></div>
+</div>
+<p>In de situatie van de bovenstaande afbeelding zal <code class="docutils literal notranslate"><span class="pre">lijnsensor_r1</span></code> een 1 terugsturen en moet de robot dus naar rechts draaien.</p>
+<p>Om de waarde van een lijnvolgsensor te krijgen, kan de volgende functie worden gebruikt:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sensor_on_line(sensor) # Op de plaats van sensor moet de naam van de sensor komen te staan.
+</pre></div>
+</div>
+</section>
+<section id="de-ultrasone-afstandssensor">
+<h2>De ultrasone afstandssensor<a class="headerlink" href="#de-ultrasone-afstandssensor" title="Link to this heading">#</a></h2>
+<p>Een andere sensor waarover de Maqueen beschikt, is de ultrasone afstandssensor. Door deze sensor lijkt het net alsof de robot twee ogen heeft. In tegenstelling tot ogen, gebruikt deze sensor geen licht, maar ultrasoon geluid om te bepalen of er zich een voorwerp voor de robot bevindt. Met het linker “oog”, de verzender (T), verstuurt de sensor een ultrasoon geluidssignaal. Dat signaal beweegt zich met de snelheid van het geluid voort en tegen een voorwerp weerkaatsen. Het recht “oog”, de ontvanger (R), vangt het weerkaatste signaal op. Uit het tijdsverschil en de snelheid van het geluid, kan dan berekend worden op welke afstand het voorwerp zich van de robot bevond. Zie ook de schematische tekening hieronder.</p>
+<p><img alt="werking US sensor" src="_images/h4.3.png" /></p>
+<p>Om de afstand vanaf de US sensor te krijgen, wordt de functie <code class="docutils literal notranslate"><span class="pre">rangefinder()</span></code> gebruikt. Deze functie retourneert de afstand in cm.</p>
+</section>
+<section id="opdrachten-hoofdstuk-4">
+<h2>Opdrachten hoofdstuk 4<a class="headerlink" href="#opdrachten-hoofdstuk-4" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Schrijf een programma waarbij de waarde van <code class="docutils literal notranslate"><span class="pre">lijnsensor_m</span></code> op het scherm van de micro:bit toont. Gebruik de functie <code class="docutils literal notranslate"><span class="pre">sleep()</span></code> om te zorgen dat de waarde niet te snel verandert.</p></li>
+<li><p>Zoek in het <code class="docutils literal notranslate"><span class="pre">maqueen.py</span></code> bestand op wat de snelheid van het geluid is die de Ultrasone Afstandssensor gebruikt om de afstand te berekenen.</p></li>
+<li><p>Schrijf een programma dat de afstand tot de ultrasone afstandssensor op het scherm van de micro:bit toont.</p></li>
+<li><p>Onderzoek met behulp van de vorige opdracht wat de maximale afstand is die de maqueen kan waarnemen met de ultrasone afstandssensor.</p></li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -412,7 +465,7 @@
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Hoofdstuk 5: Extra mogelijkheden van de robot</p>
+        <p class="prev-next-title">Hoofdstuk 5: Condities en loops</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -422,6 +475,24 @@
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-lijnvolgsensoren">De lijnvolgsensoren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#de-ultrasone-afstandssensor">De ultrasone afstandssensor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opdrachten-hoofdstuk-4">Opdrachten hoofdstuk 4</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
@@ -442,7 +513,7 @@ By Joost van Tiel
 
   <p class="copyright">
     
-      © Copyright 2023.
+      © Copyright 2024.
       <br/>
     
   </p>
