@@ -443,6 +443,16 @@ pseudocode in het programma zetten, maar je moet deze eerst omzetten in de
 correcte syntax. Elke programmeertaal heeft een eigen syntax. Voor deze module
 programmeren we met de programmeertaal Python. Bij het openen van het
 programma zagen we dat er al een stukje code gegeven is.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Imports go at the top
+from microbit import *
+
+# Code in a &#39;while True:&#39; loop repeats forever
+while True:
+	display.show(Image.HEART)
+	sleep(1000)
+	display.scroll(&#39;Hello&#39;)
+</pre></div>
+</div>
 <p><img alt="screenshot default programma" src="_images/h1.3.png" /></p>
 <p>Deze regels volgen uiteraard de juiste syntax. Laten we eens kijken wat de
 code zegt. De regels met een # ervoor zijn commentaar, deze worden dus niet

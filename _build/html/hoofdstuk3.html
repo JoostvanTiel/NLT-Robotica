@@ -398,6 +398,16 @@
 <h2>Functies<a class="headerlink" href="#functies" title="Link to this heading">#</a></h2>
 <p>In het vorige hoofdstuk zijn we het commando <code class="docutils literal notranslate"><span class="pre">motor_aan()</span></code> tegengekomen. Dit is een voorbeeld van een functie. Je kunt een functie herkennen aan de haakjes die achter het commando staan. Functies gebruik je vooral bij langere codes, omdat die anders snel onoverzichtelijk worden. Je splitst in dit geval je code op in verschillende kleinere programma’s (de functies). Zo kun je complexere programma’s overzichtelijk en makkelijk te begrijpen houden. Verder kunnen functies ook helpen om geheugen te besparen, omdat je een bepaalde functie meerdere keren  kunt aanroepen. Je kunt deze functies vergelijken als een functie in de wiskunde. Je stopt er iets in (invoer), de  functie verwerkt dat, en je krijgt er weer iets uit (uitvoer).</p>
 <p>Naast de functies die we al zijn tegengekomen, en alle functies die in de map <code class="docutils literal notranslate"><span class="pre">maqueen.py</span></code> staan, kun je ook je eigen functies schrijven. Een voorbeeld van een simpele functie is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># rekent de oppervlakte van een rechthoek uit
+# hoogte: de hoogte van de rechthoek
+# breedte: de breedte van de rechthoek
+# return: de oppervlakte van de rechthoek
+
+def Oppervlakte(hoogte, breedte):
+	Opp = hoogte * breedte
+	return Opp
+</pre></div>
+</div>
 <p><img alt="screenshot oppervlakte functie" src="_images/h3.1.png" /></p>
 <p>Je ziet dat de code begint met eerst in commentaar uitleggen  wat de functie doet, welke waardes hij meekrijgt en wat hij oplevert. Dit moet je er altijd bij schrijven als je een functie maakt. Zo blijft het altijd duidelijk wat welke functie doet. Om de functie te schrijven begin je altijd met def . Hiermee vertel je aan het programma dat je een functie gaat schrijven. Daarna geef je de functie een naam en zet je tussen haakjes de parameters.</p>
 <section id="parameters">
@@ -411,12 +421,24 @@
 <section id="functies-aanroepen">
 <h3>Functies aanroepen<a class="headerlink" href="#functies-aanroepen" title="Link to this heading">#</a></h3>
 <p>Om functies te kunnen gebruiken moet je deze aanroepen. Dit doe je door de naam van de functie op te geven, gevolgd door de waarden van de parameters. Om een functie aan te roepen hoef je dus niet te weten hoe de parameters heten, als je maar weet hoeveel parameters je op moet geven.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># rekent de oppervlakte van een rechthoek uit 
+# hoogte: de hoogte van de rechthoek
+# breedte: de breedte van de rechthoek
+# return: de oppervlakte van de rechthoek
+
+def Oppervlakte(hoogte, breedte):
+	Opp = hoogte * breedte
+	return Opp
+	
+Opp_rechthoek = Oppervlakte(2,3)
+</pre></div>
+</div>
 <p><img alt="screenshot oppervlakte functie 2" src="_images/h3.2.png" /></p>
 <p>Hierin zie je een voorbeeld van het aanroepen van de eerder geschreven functie. In dit geval wordt dus het oppervlak uitgerekend van een rechthoek van 2 bij 3. De resulterende waarde wordt vervolgens opgeslagen in een variabele genoemd Opp_rechthoek. Deze variabele krijgt nu dus de waarde 6. Als je een nieuwe functie maakt, moet deze gedefinieerd zijn voordat hij wordt aangeroepen. Anders weet de compiler niet welke functie je aan probeert te roepen, want de compiler werkt van boven naar beneden.</p>
 </section>
 <section id="void-functie">
 <h3>Void-functie<a class="headerlink" href="#void-functie" title="Link to this heading">#</a></h3>
-<p>Soms wil je ook functies maken die geen variabele oplevert. In zo’n geval gebruik je een void-functie. Het type void geeft aan dat de functie geen resultaat heeft. We zijn in deze module al veel void-functies  tegen gekomen.  Bijvoorbeeld de functie  <code class="docutils literal notranslate"><span class="pre">motor_aan()</span></code>, maar ook de functie  <code class="docutils literal notranslate"><span class="pre">display.show(Image.HEART)</span></code> hebben geen returnwaarde.  In het laatste voorbeeld zie je dat ook void-functies parameters kunnen bevatten. Hoewel ze geen returnwaarde hebben, kunnen ze wel een actie in gang zetten.</p>
+<p>Soms wil je ook functies maken die geen variabele oplevert. In zo’n geval gebruik je een void-functie. Het type void geeft aan dat de functie geen resultaat heeft. We zijn in deze module al veel void-functies  tegen gekomen.  Bijvoorbeeld de functie <code class="docutils literal notranslate"><span class="pre">motor_aan()</span></code>, maar ook de functie <code class="docutils literal notranslate"><span class="pre">display.show(Image.HEART)</span></code> hebben geen returnwaarde.  In het laatste voorbeeld zie je dat ook void-functies parameters kunnen bevatten. Hoewel ze geen returnwaarde hebben, kunnen ze wel een actie in gang zetten.</p>
 </section>
 </section>
 <section id="variabelen">
@@ -443,6 +465,18 @@ string	# woord of zin
 <section id="bool">
 <h3>bool<a class="headerlink" href="#bool" title="Link to this heading">#</a></h3>
 <p>Bool is de afkorting van boolean. Boolean betekent dat het maar 2 waardes kan hebben, waar of niet waar. In een programmeertaal wordt daarvoor <code class="docutils literal notranslate"><span class="pre">true</span></code> en <code class="docutils literal notranslate"><span class="pre">false</span></code> gebruikt. De bool variabele gebruik je bijvoorbeeld om op te slaan of je iets al gedaan of gezien hebt. We zijn hem al vaker tegengekomen in de vorm <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code>. Je kunt  hem bijvoorbeeld gebruiken om aan te geven dat je iets al een keer bent tegengekomen. Zo kun je de while-loop afbreken die we in eerdere hoofdstukken gezien hebben. Een voorbeeld hiervan is:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># laat 1 sec lang een afbeelding zien van een hart
+# scroll vervolgens het woord &quot;Hello&quot;
+# De while-loop wordt afgebroken
+
+niet_gezien = True
+while niet_gezien:
+	display.show(Image.HEART)
+	sleep(1000)
+	display.scroll(&#39;Hello&#39;)
+	niet_gezien = False
+</pre></div>
+</div>
 <p><img alt="screenshot bool functie" src="_images/h3.3.png" /></p>
 </section>
 <section id="float">
@@ -465,6 +499,13 @@ string	# woord of zin
 <section id="random-getallen">
 <h2>Random getallen<a class="headerlink" href="#random-getallen" title="Link to this heading">#</a></h2>
 <p>Soms is het handig als de robot willekeurig een bepaalde actie doet. Dit maakt de robot minder voorspelbaar, waardoor hij sneller intelligenter overkomt. Om random getallen te gebruiken kun je een variabele maken die je random een getal toewijst.  Hiervoor moet je eerst de bijbehorende package importeren. Vervolgens kun je willekeurig een getal toewijzen. De random-functie heeft twee parameters: de laagste en de hoogste waarde die toegewezen mag worden. Aanroepen van de functie ziet er dan als volgt uit:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Imports go at the top
+from maqueen import *
+from random import randint
+
+random_getal = randint(0, 100)
+</pre></div>
+</div>
 <p><img alt="screenshot random functie" src="_images/h3.4.png" /></p>
 <p>Aan de variabele random_getal wordt nu willekeurig een waarde toegekend tussen de 0 en 100.</p>
 </section>

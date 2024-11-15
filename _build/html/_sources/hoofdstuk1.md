@@ -67,6 +67,15 @@ correcte syntax. Elke programmeertaal heeft een eigen syntax. Voor deze module
 programmeren we met de programmeertaal Python. Bij het openen van het 
 programma zagen we dat er al een stukje code gegeven is.
 
+	# Imports go at the top
+	from microbit import *
+	
+	# Code in a 'while True:' loop repeats forever
+	while True:
+		display.show(Image.HEART)
+		sleep(1000)
+		display.scroll('Hello')
+
 ![screenshot default programma](/img/h1.3.png)
 
 Deze regels volgen uiteraard de juiste syntax. Laten we eens kijken wat de 
