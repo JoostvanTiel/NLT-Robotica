@@ -1,0 +1,12 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: hoofdstuk1
+- file: hoofdstuk2
+- file: hoofdstuk3
+- file: hoofdstuk4
+- file: hoofdstuk5
+- file: hoofdstuk6

@@ -1,0 +1,623 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Hoofdstuk 3: Functies en variabelen &#8212; NLT Robotica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'hoofdstuk3';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Hoofdstuk 4: Condities en loops" href="hoofdstuk4.html" />
+    <link rel="prev" title="Hoofdstuk 2: Kennismaken met de robot" href="hoofdstuk2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="NLT Robotica - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="NLT Robotica - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    NLT Robotica
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="hoofdstuk1.html">Hoofdstuk 1: Beginnen met programmeren</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hoofdstuk2.html">Hoofdstuk 2: Kennismaken met de robot</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Hoofdstuk 3: Functies en variabelen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hoofdstuk4.html">Hoofdstuk 4: Condities en loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hoofdstuk5.html">Hoofdstuk 5: Extra mogelijkheden van de robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hoofdstuk6.html">Hoofdstuk 6: Eindopdracht</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fhoofdstuk3.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/hoofdstuk3.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Hoofdstuk 3: Functies en variabelen</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functies">Functies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#returnwaarde">Returnwaarde</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functies-aanroepen">Functies aanroepen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#void-functie">Void-functie</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variabelen">Variabelen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integer">integer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bool">bool</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#float">float</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string">string</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werking-motor">Werking motor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lampen">Lampen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-getallen">Random getallen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opdrachten-hoofdstuk-3">Opdrachten hoofdstuk 3</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="hoofdstuk-3-functies-en-variabelen">
+<h1>Hoofdstuk 3: Functies en variabelen<a class="headerlink" href="#hoofdstuk-3-functies-en-variabelen" title="Link to this heading">#</a></h1>
+<p>In de afgelopen twee hoofdstukken zijn we meerdere functies tegengekomen. In dit hoofdstuk gaan we dieper in op wat functies zijn en hoe je ze gebruikt. Hiervoor moeten we weten wat voor soorten functies en wat voor soorten variabelen er zijn. We zullen de belangrijkste in dit hoofdstuk bespreken. Daarna gaan we kijken naar de werking van verschillende functies die je kunt aanroepen om de Maqueen te besturen.</p>
+<section id="functies">
+<h2>Functies<a class="headerlink" href="#functies" title="Link to this heading">#</a></h2>
+<p>In het vorige hoofdstuk zijn we het commando <code class="docutils literal notranslate"><span class="pre">motor_aan()</span></code> tegengekomen. Dit is een voorbeeld van een functie. Je kunt een functie herkennen aan de haakjes die achter het commando staan. Functies gebruik je vooral bij langere codes, omdat die anders snel onoverzichtelijk worden. Je splitst in dit geval je code op in verschillende kleinere programma’s (de functies). Zo kun je complexere programma’s overzichtelijk en makkelijk te begrijpen houden. Verder kunnen functies ook helpen om geheugen te besparen, omdat je een bepaalde functie meerdere keren  kunt aanroepen. Je kunt deze functies vergelijken als een functie in de wiskunde. Je stopt er iets in (invoer), de  functie verwerkt dat, en je krijgt er weer iets uit (uitvoer).</p>
+<p>Naast de functies die we al zijn tegengekomen, en alle functies die in de map <code class="docutils literal notranslate"><span class="pre">maqueen.py</span></code> staan, kun je ook je eigen functies schrijven. Een voorbeeld van een simpele functie is:</p>
+<p><img alt="screenshot oppervlakte functie" src="_images/h3.1.png" /></p>
+<p>Je ziet dat de code begint met eerst in commentaar uitleggen  wat de functie doet, welke waardes hij meekrijgt en wat hij oplevert. Dit moet je er altijd bij schrijven als je een functie maakt. Zo blijft het altijd duidelijk wat welke functie doet. Om de functie te schrijven begin je altijd met def . Hiermee vertel je aan het programma dat je een functie gaat schrijven. Daarna geef je de functie een naam en zet je tussen haakjes de parameters.</p>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading">#</a></h3>
+<p>Tussen de haakjes staan de waardes die de functie meekrijgt. Dit worden ook wel parameters genoemd. Parameters zijn de invoer van een functie. Binnen de functie gebruik je de parameters als variabelen. De waarden van de parameters weet je niet als je de functie schrijft. Die worden pas bepaald als de functie wordt aangeroepen. Als je de functie schrijft moet je wel aangeven hoe je de parameter noemt. Het maakt niet uit hoeveel parameters een functie heeft. Als je geen parameters hebt, dan laat je het gedeelte tussen de haakjes leeg.</p>
+</section>
+<section id="returnwaarde">
+<h3>Returnwaarde<a class="headerlink" href="#returnwaarde" title="Link to this heading">#</a></h3>
+<p>Een functie kan hooguit 1 waarde als uitvoer hebben. Dit is de returnwaarde. In de code van de functie moet je aangeven welke waarde teruggegeven moet worden. Dit doe je door <code class="docutils literal notranslate"><span class="pre">return</span></code> te gebruiken. Achter return geef je aan wat je terug wilt geven. Dit kan een variabele zijn, maar ook een letterlijke waarde.</p>
+</section>
+<section id="functies-aanroepen">
+<h3>Functies aanroepen<a class="headerlink" href="#functies-aanroepen" title="Link to this heading">#</a></h3>
+<p>Om functies te kunnen gebruiken moet je deze aanroepen. Dit doe je door de naam van de functie op te geven, gevolgd door de waarden van de parameters. Om een functie aan te roepen hoef je dus niet te weten hoe de parameters heten, als je maar weet hoeveel parameters je op moet geven.</p>
+<p><img alt="screenshot oppervlakte functie 2" src="_images/h3.2.png" /></p>
+<p>Hierin zie je een voorbeeld van het aanroepen van de eerder geschreven functie. In dit geval wordt dus het oppervlak uitgerekend van een rechthoek van 2 bij 3. De resulterende waarde wordt vervolgens opgeslagen in een variabele genoemd Opp_rechthoek. Deze variabele krijgt nu dus de waarde 6. Als je een nieuwe functie maakt, moet deze gedefinieerd zijn voordat hij wordt aangeroepen. Anders weet de compiler niet welke functie je aan probeert te roepen, want de compiler werkt van boven naar beneden.</p>
+</section>
+<section id="void-functie">
+<h3>Void-functie<a class="headerlink" href="#void-functie" title="Link to this heading">#</a></h3>
+<p>Soms wil je ook functies maken die geen variabele oplevert. In zo’n geval gebruik je een void-functie. Het type void geeft aan dat de functie geen resultaat heeft. We zijn in deze module al veel void-functies  tegen gekomen.  Bijvoorbeeld de functie  <code class="docutils literal notranslate"><span class="pre">motor_aan()</span></code>, maar ook de functie  <code class="docutils literal notranslate"><span class="pre">display.show(Image.HEART)</span></code> hebben geen returnwaarde.  In het laatste voorbeeld zie je dat ook void-functies parameters kunnen bevatten. Hoewel ze geen returnwaarde hebben, kunnen ze wel een actie in gang zetten.</p>
+</section>
+</section>
+<section id="variabelen">
+<h2>Variabelen<a class="headerlink" href="#variabelen" title="Link to this heading">#</a></h2>
+<p>In een functie vul je parameters in. Deze parameters zijn variabelen, en kunnen dus verschillende waarden aannemen. Variabelen kunnen van verschillende datatypen zijn. Het is belangrijk dat je variabelen van het correcte datatype meegeeft aan een functie. Probeer een variabele altijd een naam te geven, waaruit je kan opmaken wat er in opgeslagen wordt. In Python krijgt een variabele automatisch het datatype van hetgeen je hem meegeeft. Je kent iets toe aan een variabele door het gebruik van één “=” teken. Dit betekent “krijgt de waarde”. Een dubbel “==” teken is een vergelijking. Er wordt dan nagegaan of voor en na de “==” hetzelfde staat. De meeste gebruikte datatypen zijn</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>integer	# een geheel getal 
+bool	# True of false 
+float	# kommagetal 
+string	# woord of zin 
+</pre></div>
+</div>
+<section id="integer">
+<h3>integer<a class="headerlink" href="#integer" title="Link to this heading">#</a></h3>
+<p>De integer variabele gebruik je om gehele getallen in op te slaan. Je kan er bijvoorbeeld mee bijhouden hoe vaak je een object hebt gezien. Een voorbeeld van een toekenning is</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x = 5 
+</pre></div>
+</div>
+<p>Als je de variabele wilt gebruiken kun je de variabele aanroepen door de naam te gebruiken. In dit geval is dat ‘x’. Je kunt de variabele als volgt gebruiken:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>x = 5 \* 2 x = x \* 2 
+</pre></div>
+</div>
+<p>Bij de tweede regel gebruik je de oude waarde van x, om de nieuwe waarde te berekenen. In de eerste regel heeft x de waarde 10. In de tweede regel wordt dus 10 ingevuld voor x. Zo komt er te staan: x = 10 * 2. De waarde van x wordt dan 20. De functie Oppervlakte is een voorbeeld van een functie met parameters van datatype integer.</p>
+</section>
+<section id="bool">
+<h3>bool<a class="headerlink" href="#bool" title="Link to this heading">#</a></h3>
+<p>Bool is de afkorting van boolean. Boolean betekent dat het maar 2 waardes kan hebben, waar of niet waar. In een programmeertaal wordt daarvoor <code class="docutils literal notranslate"><span class="pre">true</span></code> en <code class="docutils literal notranslate"><span class="pre">false</span></code> gebruikt. De bool variabele gebruik je bijvoorbeeld om op te slaan of je iets al gedaan of gezien hebt. We zijn hem al vaker tegengekomen in de vorm <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True</span></code>. Je kunt  hem bijvoorbeeld gebruiken om aan te geven dat je iets al een keer bent tegengekomen. Zo kun je de while-loop afbreken die we in eerdere hoofdstukken gezien hebben. Een voorbeeld hiervan is:</p>
+<p><img alt="screenshot bool functie" src="_images/h3.3.png" /></p>
+</section>
+<section id="float">
+<h3>float<a class="headerlink" href="#float" title="Link to this heading">#</a></h3>
+<p>In een float-variabele kun je een kommagetal opslaan. Dit kan handig zijn als je waardes nauwkeurig wilt bepalen. Als je getallen gebruikt van het type integer voor een berekening, wordt de waarde namelijk afgerond. Om dit te voorkomen gebruiken we het type float. Dit doe je door een kommagetal in te vullen. In de functie <code class="docutils literal notranslate"><span class="pre">Oppervlakte</span></code> kun je de parameters ook invullen in het type float. Dit doe je dan als volgt: <code class="docutils literal notranslate"><span class="pre">Oppervlakte(2.2,2.3)</span></code>. Met een float kun je verder dezelfde dingen doen als met een int-variabele.</p>
+</section>
+<section id="string">
+<h3>string<a class="headerlink" href="#string" title="Link to this heading">#</a></h3>
+<p>In een string-variabele kun je een woord of hele zin opslaan. Een string kun je bijvoorbeeld gebruiken om een zin op het schermpje van de robot te zetten. We hebben deze bijvoorbeeld eerder gezien in de vorm <code class="docutils literal notranslate"><span class="pre">Display.scroll(&quot;Hello&quot;)</span></code>. Een string zet je altijd tussen aanhalingstekens. De functie <code class="docutils literal notranslate"><span class="pre">Display.scroll()</span></code> kan dus alleen parameters verwerken met datatype string.</p>
+</section>
+</section>
+<section id="werking-motor">
+<h2>Werking motor<a class="headerlink" href="#werking-motor" title="Link to this heading">#</a></h2>
+<p>Nu we weten hoe functies en hun parameters werken, kunnen we eerder gebruikte functies beter bekijken. We zijn eerder de functie <code class="docutils literal notranslate"><span class="pre">motor_aan()</span></code> tegengekomen. Het lijkt alsof deze functie geen parameters heeft. Toch is dit niet helemaal waar. Eigenlijk heeft de functie twee parameters: de snelheid en de richting van de robot. We hebben deze waarden voorheen niet meegegeven, omdat in de functie standaardwaarden zijn gegeven. Dat houdt in dat als er geen variabelen worden meegegeven, de functie automatisch de standaardwaarde pakt. De snelheid in deze functie kan worden ingevuld van 0 (stilstaan) tot 255 (het snelst). Voor de richting kan 0 (vooruit) en 1 (achteruit) worden ingevuld. Dit betekent dat bijvoorbeeld het commando <code class="docutils literal notranslate"><span class="pre">motor_aan(10,</span> <span class="pre">1)</span></code> de robot achteruit laat rijden. De functie <code class="docutils literal notranslate"><span class="pre">motor_enkel()</span></code> heeft dan dus drie parameters: welke motor, de snelheid, en de richting.</p>
+</section>
+<section id="lampen">
+<h2>Lampen<a class="headerlink" href="#lampen" title="Link to this heading">#</a></h2>
+<p>Met de functie <code class="docutils literal notranslate"><span class="pre">headlights()</span></code> kun je de lampen van de robot besturen. De functie heeft twee parameters: de lamp (led_links, led_rechts of led_beide) en de staat (aan of uit). Om het commando te geven dat beide lampen aan moeten, roep je de functie dus aan via headlights(led_beide, aan).</p>
+</section>
+<section id="random-getallen">
+<h2>Random getallen<a class="headerlink" href="#random-getallen" title="Link to this heading">#</a></h2>
+<p>Soms is het handig als de robot willekeurig een bepaalde actie doet. Dit maakt de robot minder voorspelbaar, waardoor hij sneller intelligenter overkomt. Om random getallen te gebruiken kun je een variabele maken die je random een getal toewijst.  Hiervoor moet je eerst de bijbehorende package importeren. Vervolgens kun je willekeurig een getal toewijzen. De random-functie heeft twee parameters: de laagste en de hoogste waarde die toegewezen mag worden. Aanroepen van de functie ziet er dan als volgt uit:</p>
+<p><img alt="screenshot random functie" src="_images/h3.4.png" /></p>
+<p>Aan de variabele random_getal wordt nu willekeurig een waarde toegekend tussen de 0 en 100.</p>
+</section>
+<section id="opdrachten-hoofdstuk-3">
+<h2>Opdrachten hoofdstuk 3<a class="headerlink" href="#opdrachten-hoofdstuk-3" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Leg uit wat het verschil is tussen integer- en boolvariabelen.</p></li>
+<li><p>Wat is een void-functie en wanneer gebruik je deze?</p></li>
+<li><p>Zoek in het <code class="docutils literal notranslate"><span class="pre">maqueen.py</span></code> bestand op wat de standaard meegegeven snelheid van de robot is.</p></li>
+<li><p>Laat de robot naar links draaien met de linker lamp aan. Doe vervolgens hetzelfde voor de rechter kant.</p></li>
+<li><p>Laat de robot rijden in een cirkel met een straal van minimaal 20cm (dus niet om zijn eigen as).</p></li>
+<li><p>Laat de robot vooruitrijden met een snelheid van 10 terwijl hij de lampen aan heeft. Doe dit voor 5 seconde. Zet vervolgens de lampen uit en laat de robot voor nog 5 seconde naar achter rijde.</p></li>
+<li><p>Schrijf een functie die op de simulator een smiley met een willekeurige gezichtsuitdrukking meegeeft. Gebruik hiervoor de random-functie.</p></li>
+<li><p>Laat de robot willekeurig rondrijden, dus vooruit, achteruit, en draaien. Gebruik hiervoor de random-functie.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="hoofdstuk2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Hoofdstuk 2: Kennismaken met de robot</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="hoofdstuk4.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Hoofdstuk 4: Condities en loops</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functies">Functies</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#returnwaarde">Returnwaarde</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functies-aanroepen">Functies aanroepen</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#void-functie">Void-functie</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variabelen">Variabelen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integer">integer</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bool">bool</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#float">float</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#string">string</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#werking-motor">Werking motor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lampen">Lampen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#random-getallen">Random getallen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opdrachten-hoofdstuk-3">Opdrachten hoofdstuk 3</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joost van Tiel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

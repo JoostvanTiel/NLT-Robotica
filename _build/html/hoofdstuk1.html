@@ -1,0 +1,699 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Hoofdstuk 1: Beginnen met programmeren &#8212; NLT Robotica</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'hoofdstuk1';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Hoofdstuk 2: Kennismaken met de robot" href="hoofdstuk2.html" />
+    <link rel="prev" title="NLT Robotica" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="NLT Robotica - Home"/>
+    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="NLT Robotica - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    NLT Robotica
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Hoofdstuk 1: Beginnen met programmeren</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hoofdstuk2.html">Hoofdstuk 2: Kennismaken met de robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hoofdstuk3.html">Hoofdstuk 3: Functies en variabelen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hoofdstuk4.html">Hoofdstuk 4: Condities en loops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hoofdstuk5.html">Hoofdstuk 5: Extra mogelijkheden van de robot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hoofdstuk6.html">Hoofdstuk 6: Eindopdracht</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fhoofdstuk1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/hoofdstuk1.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Hoofdstuk 1: Beginnen met programmeren</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beginnen-met-programmeren">Beginnen met programmeren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudocode">Pseudocode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax">Syntax</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspringen">Inspringen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commentaar">Commentaar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opdrachten-h1">Opdrachten H1</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="hoofdstuk-1-beginnen-met-programmeren">
+<h1>Hoofdstuk 1: Beginnen met programmeren<a class="headerlink" href="#hoofdstuk-1-beginnen-met-programmeren" title="Link to this heading">#</a></h1>
+<p>In dit hoofdstuk behandelen we hoe je kunt beginnen met programmeren.
+Hiervoor maken we gebruik van een simulator. Allereerst leren we het
+programma kennen waarmee we in deze module gaan werken. Vervolgens
+bespreken we het geven van commando’s via het maken van pseudocode.
+Hierna kijken we naar de basissyntax van de programmeertaal Python en
+je leert hoe je een programma overzichtelijk en begrijpelijk kunt houden.</p>
+<section id="beginnen-met-programmeren">
+<h2>Beginnen met programmeren<a class="headerlink" href="#beginnen-met-programmeren" title="Link to this heading">#</a></h2>
+<p>Voor het aansturen van de robot maken we gebruik van de <a class="reference external" href="https://python.microbit.org/v/3" title="Klik hier om naar de editor te  gaan">micro:bit Python
+Editor</a>. Om te beginnen ga je naar deze website. Je krijgt nu het volgende
+scherm:
+<img alt="screenshot van hoofdscherm" src="_images/h1.1.png" /></p>
+<p>De projecten die je maakt geef je een eigen naam. Hiervoor klik je op
+“project”. Hier kun je de projectnaam wijzigen. Een project kan bestaan uit
+meerdere bestanden, in veel gevallen is dit een bestand met functies,
+bijvoorbeeld <code class="docutils literal notranslate"><span class="pre">functies.py</span></code>, en een hoofdbestand <code class="docutils literal notranslate"><span class="pre">main.py</span></code> waarin de functies
+worden aangeroepen. In latere hoofdstukken gaan we dieper in op wat functies
+zijn.
+<img alt="screenshot van de bestanden" src="_images/h1.2.png" /></p>
+</section>
+<section id="pseudocode">
+<h2>Pseudocode<a class="headerlink" href="#pseudocode" title="Link to this heading">#</a></h2>
+<p>Voordat je echt gaat programmeren is het belangrijk om te bedenken hoe je
+de robot iets moet laten doen. Het is daarom belangrijk dat je in stapjes
+opschrijft wat er precies moet gebeuren en hoe het precies moet gebeuren.
+De uitgeschreven stappen wordt ook wel pseudocode genoemd.</p>
+<p>Stel je wilt een programma schrijven om een beker melk in te schenken. Dan
+wordt de pseudocode:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Pak een beker 
+Pak het pak melk 
+Doe de melk in de beker
+</pre></div>
+</div>
+<p>Dit is nu een programma, maar de robot zou hier nog niks van snappen. De
+stappen kunnen nog specifieker uitgewerkt worden:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Pak een beker 
+  1a. Doe de kastdeur open 
+  1b. Pak de beker 
+  1c. Doe de kastdeur dicht 
+Pak het pak melk 
+  2a. Doe de koelkast open 
+  2b. Pak het pak melk 
+  2c. Doe de koelkast dicht 
+Doe de melk in de beker
+  3a. Draai de dop van het pak melk 
+  3b. Schenk de melk in de beker 
+  3c. Draai de dop op het pak`
+</pre></div>
+</div>
+<p>Het lijkt misschien overbodig om het zo specifiek uit te schrijven, maar zo
+maak je van grotere problemen kleine problemen. Als je gaat programmeren is
+dit eenvoudig te vertalen naar commando’s. Door pseudocode te schrijven spaar
+je tijdens het programmeren veel tijd uit.</p>
+</section>
+<section id="syntax">
+<h2>Syntax<a class="headerlink" href="#syntax" title="Link to this heading">#</a></h2>
+<p>De syntax van een programmeertaal zijn de regels waar je je aan moet houden
+zodat het programma begrijpt wat je bedoelt. Je kunt dus niet zomaar je
+pseudocode in het programma zetten, maar je moet deze eerst omzetten in de
+correcte syntax. Elke programmeertaal heeft een eigen syntax. Voor deze module
+programmeren we met de programmeertaal Python. Bij het openen van het
+programma zagen we dat er al een stukje code gegeven is.</p>
+<p><img alt="screenshot default programma" src="_images/h1.3.png" /></p>
+<p>Deze regels volgen uiteraard de juiste syntax. Laten we eens kijken wat de
+code zegt. De regels met een # ervoor zijn commentaar, deze worden dus niet
+uitgevoerd door het programma. De eerste regel die wordt uitgevoerd is daarmee
+regel 2. Deze regel moet in deze cursus altijd bovenaan je code staan, omdat
+deze ervoor zorgt dat de juiste functies en definities worden geïmporteerd.
+* betekent in deze programmeertaal “alles”. In mensentaal zegt regel 2 dus
+“importeer alles wat opgeslagen staat in de map microbit.”.</p>
+<p>Verder zien we in dit bestand nog een kleine commando staan. Dit stukje code
+staat in een while-statement. Wat dit precies betekent komen we later op terug,
+maar voor nu mag je aannemen dat dit ervoor zorgt dat commando’s die erin staan
+oneindig vaak worden uitgevoerd. In het while-statement staat eerst:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>display.show(image.heart)
+</pre></div>
+</div>
+<p>Hierin commandeer je het programma om een afbeelding te laten zien van een
+hart. De code wordt vervolgd met:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Sleep(1000) 
+</pre></div>
+</div>
+<p>Je zegt de computer hier om 1000 milliseconden, ofwel 1 seconde, te wachten.
+Als laatste zegt het programma:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>display.scroll(&quot;Hello&quot;) 
+</pre></div>
+</div>
+<p>Je vraagt het programma hier om het woord “Hello” te laten afspelen.</p>
+<p>In conclusie verwachten we dus dat deze code allereest een hart laat zien.
+Dit doet hij voor een tijdsduur van 1 seconde. Vervolgens wordt het woord
+“Hello” afgespeeld. Controleer dit door op de simulator te klikken.</p>
+<p>We hebben nu de eerste syntax van Python gezien. Je kunt deze eerste code
+aanpassen door bijvoorbeeld de afbeelding of het woord te veranderen. Als je
+op “reference” klikt, kun je andere voorbeelden zien van stukjes code.</p>
+</section>
+<section id="inspringen">
+<h2>Inspringen<a class="headerlink" href="#inspringen" title="Link to this heading">#</a></h2>
+<p>Het is belangrijk om je code overzichtelijk te houden. Zo wordt het
+duidelijker waar de code bij hoort en is het makkelijker te begrijpen wat er
+staat, vooral als je later langere stukken code krijgt. Ook is het dan later
+makkelijker terug te vinden en aan te passen, wat de onderhoudbaarheid van de
+code vergroot.</p>
+<p>Dit programma is niet overzichtelijk:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>while True: 
+display.show(Image.HEART) 
+sleep(1000) 
+display.scroll(&#39;Hello&#39;)
+</pre></div>
+</div>
+<p>De belangrijkste stap om te nemen om je code goed leesbaar te houden is om
+de code te laten  inspringen. Om te laten zien dat het gedeelte na de : binnen
+de while-loop staat, laten we dit stukje inspringen. We krijgen dan dus</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>while True: 
+	display.show(Image.HEART) 
+	sleep(1000) 
+	display.scroll(&#39;Hello&#39;) 
+</pre></div>
+</div>
+<p>Zo zie je duidelijk waar de code bij hoort en wat wel of niet binnen een
+bepaalde loop of functie staat.</p>
+</section>
+<section id="commentaar">
+<h2>Commentaar<a class="headerlink" href="#commentaar" title="Link to this heading">#</a></h2>
+<p>Bij elk nieuw bestand of project wat je maakt zet je bovenaan in commentaar
+de naam en een korte beschrijving van het programma. Daaronder zet je jouw
+eigen naam en die van je partner, je klas en de datum. Je kunt tekst in
+commentaar zetten door er # voor te zetten. Dit kun je overal in je programma
+doen. Commentaar is onderdeel van de code, maar wordt niet uitgevoerd door
+het programma.  Commentaar is bedoeld om aantekeningen bij je programma te
+maken. Je geeft boven elke alinea in een paar woorden aan wat dat  stukje code
+doet. Zo snap jij (en anderen) later ook nog wat dat stukje code doet. Achter
+elke regel is niet nodig, tenzij je dit zelf prettig vindt. De standaard code
+wordt in dit geval:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Naam programma en korte beschrijving
+# Naam 1 
+# Naam 2  
+# Klas  
+# Datum 
+
+# Imports go at the top 
+from microbit import *
+
+# Code in a &#39;while True:&#39; loop repeats forever 
+# Display an image of a heart for 1 sec and then scroll the word “Hello” 
+while True: 
+	display.show(Image.HEART) 
+	sleep(1000) 
+	display.scroll(&#39;Hello&#39;)
+</pre></div>
+</div>
+</section>
+<section id="opdrachten-h1">
+<h2>Opdrachten H1<a class="headerlink" href="#opdrachten-h1" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p>Ga naar <a class="reference external" href="https://python.microbit.org/v/3">de editor</a> en geef je project een projectnaam.</p></li>
+<li><p>Zet als commentaar je naam, klas, de datum en de beschrijving van de
+opdracht bovenaan in je code</p></li>
+<li><p>Verander de standaard code zodat de afbeelding van het hart niet 1 maar
+2 seconde wordt getoond.</p></li>
+<li><p>Zoek met behulp van de “reference” map de code op om een smiley te laten
+verschijnen. Toon deze smiley voor 2 seconden.</p></li>
+<li><p>Maak onderstaande code netjes. Gebruik daarvoor gebruik van inspringen en
+commentaar.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> while True: 
+ if button_a.was_pressed(): 
+ display.show(&#39;A&#39;) 
+ sleep(1000) 
+ display.show(Image.HAPPY) 
+ if button_b.was_pressed(): 
+ display.show(&#39;B&#39;) 
+ sleep(1000) 
+ display.show(Image.HAPPY) 
+</pre></div>
+</div>
+</li>
+<li><p>Bekijk de code die je hebt verbeterd bij opdracht 5. Voorspel wat deze code
+doet en test dit.</p></li>
+<li><p>Zet onderstaande pseudocode om in een code en test dit.</p>
+<ol class="arabic simple">
+<li><p>Als toets B wordt ingedrukt</p></li>
+<li><p>Toon de tekst “B”</p></li>
+<li><p>Doe dit voor 4 seconde</p></li>
+<li><p>Laat daarna het woord “klaar” over het beeld scrollen</p></li>
+<li><p>Toon daarna de afbeelding van een verdrietige smiley</p></li>
+</ol>
+</li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">NLT Robotica</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="hoofdstuk2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Hoofdstuk 2: Kennismaken met de robot</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#beginnen-met-programmeren">Beginnen met programmeren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pseudocode">Pseudocode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#syntax">Syntax</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inspringen">Inspringen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#commentaar">Commentaar</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opdrachten-h1">Opdrachten H1</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Joost van Tiel
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
