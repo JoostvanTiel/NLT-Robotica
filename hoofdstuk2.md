@@ -26,16 +26,22 @@ Met de gegevens in de map “macqueen.py” hoef je in principe niks te doen, te
 	# Initialiseer de vebinding tussen de micro:bit en alle sensoren van Maqueen
 	init_maqueen()
 
-![screenshot imports 2](/img/h2.2.png)
-
 ## De micro:bit
-Nu gaan we de computer aansluiten op de micro:bit. De micro:bit is een programmeerbaar computertje. Hij ziet er als volgt uit:
+```{image} /img/h2.3.png
+:alt: image micro:bit
+:width: 250px
+:align: right
+```
 
-![image micro:bit](/img/h2.3.png)
+Nu gaan we de computer aansluiten op de micro:bit. De micro:bit is een programmeerbaar computertje. Zie de afbeelding hiernaast.
 
-We sluiten de micro:bit aan door middel van de USB-C kabel. De micro:bit ziet er hetzelfde uit als de simulator. We kunnen dus gelijke codes gebruiken om de simulator en de micro:bit aan te sturen. Als je de code klaar hebt druk je op “Send to micro:bit”. Vervolgens krijg je twee schermen waarbij je beide op “next” drukt. Je selecteert vervolgens de micro:bit en klikt op “verbinding maken”. Je code wordt uitgevoerd op de micro:bit.
+We sluiten de micro:bit aan door middel van de USB-C kabel. De micro:bit ziet er hetzelfde uit als de simulator. We kunnen dus gelijke codes gebruiken om de simulator en de micro:bit aan te sturen. Als je de code klaar hebt druk je op “Send to micro:bit”. Vervolgens krijg je twee schermen waarbij je beide op “next” drukt. Je selecteert vervolgens de micro:bit en klikt op “verbinding maken”. Je code wordt uitgevoerd op de micro:bit. Let op: dit werkt alleen in de browsers ["Chrome"](https://www.google.com/chrome/), ["Opera"](https://www.opera.com/) of "Edge".
 
-![screenshot microbit verbinden](/img/h2.4.png)
+```{image} /img/h2.4.png
+:alt: screenshot microbit verbinden
+:width: 400px
+:align: center
+```
 
 ## De robot Maqueen
 
@@ -50,7 +56,6 @@ Om de robot aan te sturen, verstuur je een code naar de micro:bit en plug je dez
 	
 	motor_aan()
 	
-![screenshot maqueen import](/img/h2.5.png)
 
 Stop de micro:bit in de Macqueen, zodat de opstelling er als volgt uitziet:
 
@@ -62,7 +67,19 @@ Zorg dat de Maqueen uit staat en verbindt de computer door middel van de USB-C k
 
 ot nu toe hebben we enkel de functie `motor_aan()` gebruikt om de Maqueen te besturen. Het is ook fijn als je de motor na enige tijd weer uit kunt zetten. Hiervoor maak je gebruik van de functie `motor_uit()`. Als je de while-loop vervolgens wil stoppen, kun je dit doen door middel van het commando `break`.
 
-![screenshot maqueen fucnties](/img/h2.7.png)
+	# Imports go at the top
+	from maqueen import *
+	from microbit import *
+	
+	# Initialiseer de verbinding tussen de micro:bit en alle sensoren van Maqueen
+	init_maqueen()
+	
+	# Laat de robot 2 seconden rijden en vervolgens stoppen
+	while True:
+		motor_aan()
+		sleep(2000)
+		motor_uit()
+		break
 
 De functie `motor_aan()` stuurt zowel de motor van het linker als het rechter wiel aan. Als je wil dat de robot een bocht maakt, kan het zijn dat je slechts één van de twee wielen wilt aansturen. Om dit te doen gebruik je de functie `motor_enkel()`. In dit geval moet je wel aangeven welk van de twee motoren je wilt aansturen. Dit zet je tussen de haakjes. Dit ziet er als volgt uit: `motor_enkel(motor_links)`.
 

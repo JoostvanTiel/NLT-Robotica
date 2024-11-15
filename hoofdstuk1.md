@@ -76,8 +76,6 @@ programma zagen we dat er al een stukje code gegeven is.
 		sleep(1000)
 		display.scroll('Hello')
 
-![screenshot default programma](/img/h1.3.png)
-
 Deze regels volgen uiteraard de juiste syntax. Laten we eens kijken wat de 
 code zegt. De regels met een # ervoor zijn commentaar, deze worden dus niet 
 uitgevoerd door het programma. De eerste regel die wordt uitgevoerd is daarmee 

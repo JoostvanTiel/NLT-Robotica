@@ -17,8 +17,6 @@ Naast de functies die we al zijn tegengekomen, en alle functies die in de map `m
 		Opp = hoogte * breedte
 		return Opp
 
-![screenshot oppervlakte functie](/img/h3.1.png)
- 
 Je ziet dat de code begint met eerst in commentaar uitleggen  wat de functie doet, welke waardes hij meekrijgt en wat hij oplevert. Dit moet je er altijd bij schrijven als je een functie maakt. Zo blijft het altijd duidelijk wat welke functie doet. Om de functie te schrijven begin je altijd met def . Hiermee vertel je aan het programma dat je een functie gaat schrijven. Daarna geef je de functie een naam en zet je tussen haakjes de parameters.  
 
 ### Parameters 
@@ -44,8 +42,6 @@ Om functies te kunnen gebruiken moet je deze aanroepen. Dit doe je door de naam 
 		
 	Opp_rechthoek = Oppervlakte(2,3)
 
-![screenshot oppervlakte functie 2](/img/h3.2.png) 
-
 Hierin zie je een voorbeeld van het aanroepen van de eerder geschreven functie. In dit geval wordt dus het oppervlak uitgerekend van een rechthoek van 2 bij 3. De resulterende waarde wordt vervolgens opgeslagen in een variabele genoemd Opp_rechthoek. Deze variabele krijgt nu dus de waarde 6. Als je een nieuwe functie maakt, moet deze gedefinieerd zijn voordat hij wordt aangeroepen. Anders weet de compiler niet welke functie je aan probeert te roepen, want de compiler werkt van boven naar beneden. 
 
 ### Void-functie 
@@ -69,7 +65,8 @@ De integer variabele gebruik je om gehele getallen in op te slaan. Je kan er bij
 
 Als je de variabele wilt gebruiken kun je de variabele aanroepen door de naam te gebruiken. In dit geval is dat ‘x’. Je kunt de variabele als volgt gebruiken: 
 
-	x = 5 \* 2 x = x \* 2 
+	x = 5 * 2 
+	x = x * 2 
 
 Bij de tweede regel gebruik je de oude waarde van x, om de nieuwe waarde te berekenen. In de eerste regel heeft x de waarde 10. In de tweede regel wordt dus 10 ingevuld voor x. Zo komt er te staan: x = 10 \* 2. De waarde van x wordt dan 20. De functie Oppervlakte is een voorbeeld van een functie met parameters van datatype integer.  
 
@@ -87,9 +84,6 @@ Bool is de afkorting van boolean. Boolean betekent dat het maar 2 waardes kan he
 		sleep(1000)
 		display.scroll('Hello')
 		niet_gezien = False
-
-
-![screenshot bool functie](/img/h3.3.png) 
 
 ### float 
 
@@ -116,8 +110,6 @@ Soms is het handig als de robot willekeurig een bepaalde actie doet. Dit maakt d
 	from random import randint
 	
 	random_getal = randint(0, 100)
-
-![screenshot random functie](/img/h3.4.png) 
 
 Aan de variabele random_getal wordt nu willekeurig een waarde toegekend tussen de 0 en 100. 
 
