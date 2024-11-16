@@ -51,9 +51,9 @@ Meerdere condities tegelijk checken
 
 | Operator | Beschrijving                                                          | Voorbeeld             |
 |:---------|:----------------------------------------------------------------------|:----------------------|
-| and      | Retourneert `True` als beide condities waar zijn.                     | x < 5 and y > 10      |
-| or       | Retourneert `True` als één van beide condities waar is.               | x < 5 or y > 10       |
-| not      | Keert het resultaat om, retourneert `False` als het resultaat waar is.| not(x < 5 and y > 10) |
+| and      | Retourneert `True` als beide condities waar zijn.                     | x < 10 and y > 4      |
+| or       | Retourneert `True` als één van beide condities waar is.               | x < 5 or y > 4        |
+| not      | Keert het resultaat om, retourneert `False` als het resultaat waar is.| not(x < 4 and y > 10) |
 
 Bijvoorbeeld:
 ```{code-cell} ipython3
@@ -75,6 +75,8 @@ if z < y and z < x:
 	print("z is het kleinste getal.")
 elif not(z < y and z < x):
 	print("z is het grootste getal.")
+else:
+	print("z is niet het grootste en niet het kleinste getal.")
 ```
 
 ## while loops
@@ -92,7 +94,7 @@ while not done:
 	if n >= 10:
 		done = True
 	else: 
-		print(n)
+		print(n, end=' ')
 		n = n + 1
 ```
 
@@ -105,5 +107,5 @@ while not done:
 :tags: [ifStatement]
 
 for x in range(10):
-	print(x)
+	print(x, end=' ')
 ```
