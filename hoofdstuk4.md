@@ -33,6 +33,7 @@ In de situatie van de bovenstaande afbeelding zal `lijnsensor_r1` een 1 terugstu
 
 Om de waarde van een lijnvolgsensor te krijgen, kan de volgende functie worden gebruikt:
 
+	
 	sensor_on_line(sensor) # Op de plaats van sensor moet de naam van de sensor komen te staan.
 
 ## De ultrasone afstandssensor
@@ -45,7 +46,7 @@ Om de afstand vanaf de US sensor te krijgen, wordt de functie `rangefinder()` ge
 
 ## Opdrachten hoofdstuk 4
 
-1. Schrijf een programma waarbij de waarde van `lijnsensor_m` op het scherm van de micro:bit toont. Gebruik de functie `sleep()` om te zorgen dat de waarde niet te snel verandert.
+1. Schrijf een programma dat de waarde van `lijnsensor_m` op het scherm van de micro:bit toont. Gebruik de functie `sleep()` om te zorgen dat de waarde niet te snel verandert.
 
 2. Zoek in het `maqueen.py` bestand op wat de snelheid van het geluid is die de Ultrasone Afstandssensor gebruikt om de afstand te berekenen.
 
