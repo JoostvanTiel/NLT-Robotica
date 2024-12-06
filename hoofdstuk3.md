@@ -87,7 +87,7 @@ Bool is de afkorting van boolean. Boolean betekent dat het maar 2 waardes kan he
 
 ### float 
 
-In een float-variabele kun je een kommagetal opslaan. Dit kan handig zijn als je waardes nauwkeurig wilt bepalen. Als je getallen gebruikt van het type integer voor een berekening, wordt de waarde namelijk afgerond. Om dit te voorkomen gebruiken we het type float. Dit doe je door een kommagetal in te vullen. In de functie `Oppervlakte` kun je de parameters ook invullen in het type float. Dit doe je dan als volgt: `Oppervlakte(2.2,2.3)`. Met een float kun je verder dezelfde dingen doen als met een int-variabele. 
+In een float-variabele kun je een kommagetal opslaan. Dit kan handig zijn als je waardes nauwkeurig wilt bepalen. Als je getallen gebruikt van het type integer voor een berekening, wordt de waarde namelijk afgerond. Om dit te voorkomen gebruiken we het type float. Dit doe je door een kommagetal in te vullen. **LET OP: in programmeertaal kun je alleen een punt gebruiken in een kommagetal!** In de functie `Oppervlakte` kun je de parameters ook invullen in het type float. Dit doe je dan als volgt: `Oppervlakte(2.2,2.3)`. Met een float kun je verder dezelfde dingen doen als met een int-variabele. 
 
 ### string 
 

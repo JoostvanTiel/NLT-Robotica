@@ -77,7 +77,7 @@ programma zagen we dat er al een stukje code gegeven is.
 		display.scroll('Hello')
 
 Deze regels volgen uiteraard de juiste syntax. Laten we eens kijken wat de 
-code zegt. De regels met een # ervoor zijn commentaar, deze worden dus niet 
+code zegt. De regels met een `#` ervoor zijn commentaar, deze worden dus niet 
 uitgevoerd door het programma. De eerste regel die wordt uitgevoerd is daarmee 
 regel 2. Deze regel moet in deze cursus altijd bovenaan je code staan, omdat 
 deze ervoor zorgt dat de juiste functies en definities worden geïmporteerd. 

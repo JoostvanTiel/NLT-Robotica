@@ -10,10 +10,14 @@ kernelspec:
   name: python3
 ---
 
-# Hoofdstuk 5: Condities en loops
+# Hoofdstuk 5: If-statements en operatoren
 
-## operatoren
-Om condities te kunnen checken worden de volgende operatoren gebruikt:
+De omgeving van de robot verandert en hier moet de robot op kunnen reageren. Daarvoor zijn statements erg handig. Je kunt de robot specifieke acties laten uitvoeren op het juiste moment. Daarvoor kun je gebruik maken van if-statements.
+
+## Operatoren
+
+Voor alle soorten statements moeten checks uitgevoerd worden waarbij de robot controleert of er aan een bepaalde voorwaarde wordt voldaan. Om een check uit te voeren, worden operatoren gebruikt. Een operator kun je zien als het stellen van een vraag (is de afstand tot de muur kleiner dan 15 cm?). Vervolgens wordt de statement gebruikt om een vervolgactie te ondernemen.
+De basisoperatoren zijn als volgt:
 
 | Operator | Naam                      | Voorbeeld |
 |:---------|:--------------------------|:----------|
@@ -24,14 +28,43 @@ Om condities te kunnen checken worden de volgende operatoren gebruikt:
 | >=       | Groter dan of gelijk aan  | x >= y    |
 | <=       | Kleiner dan of gelijk aan | x <= y    |
 
-## if statements
+## if-statements
+
+Je wilt dat een robot in bepaalde situaties bepaald gedrag vertoont. Bijvoorbeeld: als de robot van de lijn afwijkt, moet hij kgaan bijsturen om weer op de lijn te staan. Je weet van te voren niet of de robot links of rechts van de lijn zal afwijken. Daarom moet je afhankelijk van de situatie kunnen beheersen welk gedrag de robot vertoont. Daarvoor gebruik je het if-statement. Dit ziet er zo uit:
 
 	if conditie:
 		instructies...
-	elif andere_conditie: # optioneel
+
+De conditie is waar aan voldaan moet worden. Als er aan de voorwaarde voldaan wordt, dan worden de instructies die daarop volgen uitgevoerd. Bijvoorbeeld:
+
+```{code-cell} ipython3
+:tags: [ifStatement]
+
+x = 4
+y = 7
+
+if x < y:
+	print("y is groter dan x.")
+```
+
+Hieronder zie je een voorbeeld waarin de robot naar rechts stuurt als hij links van de lijn afwijkt en andersom.
+
+	if sensor_on_line(lijnsensor_l1) == 4:
+		draaiRechts(1000)
+		
+	if sensor_on_line(lijnsensor_r1) == 4:
+		draaiLinks(1000)
+
+Een conditie kan van alles zijn en is meestal een vergelijking. In het bovenstaande voorbeeld is de conditie: De lijnsensor_l1 ziet een lijn.
+Soms wil je bij het if-statement als er niet aan de conditie wordt voldaan, dat hij altijd een ander stukje code uitvoert. Bijvoorbeeld: Als de de lijnsensor_m de lijn ziet, moet de robot vooruit rijden en anders moet de robot stoppen.
+Je kunt dan else-statements gebruiken. Een else-statement werkt alleen als het direct volgt op een if-statement of een elif-statment (zie verderop):
+
+	if conditie:
 		instructies...
-	else:		      # optioneel
+	else:
 		instructies...
+
+Bijvoorbeeld:
 
 ```{code-cell} ipython3
 :tags: [ifStatement]
@@ -41,19 +74,66 @@ y = 5
 
 if x < y:
 	print("y is groter dan x.")
+else:
+	print("x is groter dan y.")
+```
+
+In het onderstaande voorbeeld rijdt de robot rechtdoor als lijnsensor_m de lijn ziet, anders stopt hij:
+
+	if sensor_on_line(lijnsensor_m) == 4:
+		motor_aan(motor_links)
+		motor_aan(motor_rechts)
+	else:
+		motor_uit(motor_links)
+		motor_uit(motor_rechts)
+
+In het bovenstaande voorbeeld gaat de motor uit als de robot van de lijn afwijkt, maar dat is niet altijd gewenst. Soms wil je dat er verschillende acties uit worden gevoerd als er niet voldaan wordt aan de eerste voorwaarde (`lijnsensor_m == 1`). Je kunt dan een `elif`-statement gebruiken. Dit staat voor 'else if' en er kan dus nogmaals een conditie worden gecontroleert. Er kunnen meerdere `elif`-statements na elkaar gebruikt worden. Een `elif`-statement werkt alleen als het direct volgt op een if-statement of op een elif-statement:
+
+	if conditie:
+		instructies...
+	elif andere_conditie:
+		instructies...
+	else:
+		instructies...
+
+Bijvoorbeeld:
+
+```{code-cell} ipython3
+:tags: [ifStatement]
+
+x = 3
+y = 3
+
+if x < y:
+	print("y is groter dan x.")
 elif x == y:
 	print("y is gelijk aan x.")
 else:
 	print("x is groter dan y.")
 ```
 
-Meerdere condities tegelijk checken
+In het onderstaande voorbeeld rijdt de robot rechtdoor als lijnsensor_m de lijn ziet. Als dat niet het geval is, stuurt hij naar rechts als lijnsensor_l1 de lijn ziet en naar links als lijnsensor_r1 de lijn ziet. Anders zet hij de motor uit:
 
-| Operator | Beschrijving                                                          | Voorbeeld             |
-|:---------|:----------------------------------------------------------------------|:----------------------|
-| and      | Retourneert `True` als beide condities waar zijn.                     | x < 10 and y > 4      |
-| or       | Retourneert `True` als één van beide condities waar is.               | x < 5 or y > 4        |
-| not      | Keert het resultaat om, retourneert `False` als het resultaat waar is.| not(x < 4 and y > 10) |
+	if sensor_on_line(lijnsensor_m) == 4:
+		motor_aan(motor_links)
+		motor_aan(motor_rechts)
+	elif sensor_on_line(lijnsensor_l1) == 4:
+		draaiRechts(1000)
+	elif sensor_on_line(lijnsensor_r1) == 4:
+		draaiLinks(1000)
+	else:
+		motor_uit(motor_links)
+		motor_uit(motor_rechts)
+
+## Meerdere voorwaarden tegelijk
+
+Het is ook mogelijk om meerdere voorwaarden tegelijk te controleren. Daarvoor gebruiken we de volgende operatoren:
+
+| Operator | Beschrijving                                                          | Voorbeeld               |
+|:---------|:----------------------------------------------------------------------|:------------------------|
+| and      | Retourneert `True` als beide condities waar zijn.                     | x < 10 and y > 4        |
+| or       | Retourneert `True` als één van beide condities waar is.               | x < 5 or y > 4          |
+| not      | Keert het resultaat om, retourneert `False` als het resultaat waar is.| not( x < 4 and y > 10 ) |
 
 Bijvoorbeeld:
 ```{code-cell} ipython3
@@ -66,9 +146,9 @@ z = 9
 if x < y and y < z:
 	print("x is het kleinste getal.")
 
-if x > y and z > y:
+if y < x and y < z:
 	print("y is het kleinste getal.")
-elif x > y or z > y:
+elif y < x or y < z:
 	print("y is niet het grootste getal.")
 
 if z < y and z < x:
@@ -79,33 +159,58 @@ else:
 	print("z is niet het grootste en niet het kleinste getal.")
 ```
 
-## while loops
+In het onderstaande voorbeeld is nogmaals het voorbeeld van hierboven gegeven, maar nu is een extra controle toegevoegd. De robot rijdt rechtdoor als lijnsensor_m de lijn ziet **en** als er geen voorwerp binnen 30 cm van de robot staat:
 
-	while conditie:
-		instructies...
+	if sensor_on_line(lijnsensor_m) == 4 and afstand_tot_voorwerp() >= 30:
+		motor_aan(motor_links)
+		motor_aan(motor_rechts)
+	elif sensor_on_line(lijnsensor_l1) == 4:
+		draaiRechts(1000)
+	elif sensor_on_line(lijnsensor_r1) == 4:
+		draaiLinks(1000)
+	else:
+		motor_uit(motor_links)
+		motor_uit(motor_rechts)
 
-```{code-cell} ipython3
-:tags: [whileLoop]
+## Opdrachten hoofdstuk 5
 
-done = False
-n = 0
+Haal de micro:bit uit de robot en gebruik voor de eerste drie opdrachten de hulp in de 'Reference' links in het scherm.
 
-while not done:
-	if n >= 10:
-		done = True
-	else: 
-		print(n, end=' ')
-		n = n + 1
-```
+1. Schrijf een programma dat controleert of knop A of knop B wordt ingedrukt:
+	+ Als knop A wordt ingedrukt, toont de micro:bit een hartje.
+	+ Als knop B wordt ingedrukt, toont de micro:bit een lachend gezichtje.
+	+ Als geen van beide knoppen wordt ingedrukt, toont de micro:bit een streepje (-).
+	+ Onderzoek welke knop 'voorrang' krijgt.
 
-## for loops
+2. Schrijf een programma dat:
+	+ Een hart toont als zowel knop A als knop B tegelijkertijd worden ingedrukt.
+	+ Een klein hartje toont als slechts één knop wordt ingedrukt.
+	+ Niets toont als geen van de knoppen wordt ingedrukt.
 
-	for x in range(getal):
-		instructies...
+3. Maak een automatische zaklamp. Schrijf een programma dat het scherm helderder maakt als het donker is. Gebruik daarvoor de lichtsensor om te bepalen hoeveel licht er is:
+	+ Als het donkerder is dan 50 (lichtniveau), zet de micro:bit alle lampjes op het scherm maximaal aan (zelfgemaakte afbeelding).
+	+ Als het lichtniveau tussen 50 en 200 ligt, zet de micro:bit alle lampjes op niveau 5.
+	+ Als het lichtniveau boven de 200 is, maakt de micro:bit het scherm leeg.
+	+ Experimenteer met de drempelwaarden om te zien hoe de sensor reageert.
 
-```{code-cell} ipython3
-:tags: [ifStatement]
+Stop nu de micro:bit in de robot
 
-for x in range(10):
-	print(x, end=' ')
-```
+4. Schrijf een programma dat de robot vooruit laat rijden tot aan een zwarte streep.
+
+5. Schrijf een programma dat de robot vooruit laat rijden tot 30 cm van een voorwerp.
+
+6. Breidt het programma van opdracht 4 en 5 als volgt uit:
+	+ Als de robot bij een lijn is aangekomen **en** er geen voorwerp binnen 10 cm staat, moet deze zich omdraaien.
+	+ Als de robot bij een lijn is aangekomen **en** er wel een voorwerp binnen 10 cm staat, moet de robot stoppen en er moet een geluidssignaal `audio.play(Sound.GIGGLE)` worden afgespeeld.
+	+ Anders moet de robot gewoon vooruit rijden.
+	+ Test het gedrag van de robot op het speelveld.
+
+7. Schrijf een programma dat de robot laat stoppen of rijden afhankelijk van de afstand tot een object. Pas ook de kleur van de underglow `set_underglow(kleur)` aan:
+	+ Als een object dichterbij komt dan 10 cm, laat de robot stoppen en zet de underglow op rood.
+	+ Als de afstand tussen 10 en 30 cm ligt, laat de robot langzaam rijden en zet de underglow op geel.
+	+ Als de afstand groter is dan 30 cm, laat de robot normaal rijden en zet de underglow op groen.
+
+8. Schrijf een programma dat de robot obstakels laat ontwijken:
+	+ Als een object dichterbij komt dan 10 cm, moet de robot stoppen en 90 graden draaien.
+	+ Als de robot weer ruimte heeft (afstand > 10 cm), moet deze verder rijden.
+	+ Test zelf welke tijd in de functie `draaiLinks()` of `draaiRechts()` moet worden ingevuld om de robot 90 graden te laten draaien.

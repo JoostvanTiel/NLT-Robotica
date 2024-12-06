@@ -35,7 +35,7 @@ Met de gegevens in de map “macqueen.py” hoef je in principe niks te doen, te
 
 Nu gaan we de computer aansluiten op de micro:bit. De micro:bit is een programmeerbaar computertje. Zie de afbeelding hiernaast.
 
-We sluiten de micro:bit aan door middel van de micro-USB kabel. De micro:bit ziet er hetzelfde uit als de simulator. We kunnen dus gelijke codes gebruiken om de simulator en de micro:bit aan te sturen. Als je de code klaar hebt druk je op “Send to micro:bit”. Vervolgens krijg je twee schermen waarbij je beide op “next” drukt. Je selecteert vervolgens de micro:bit en klikt op “verbinding maken”. Je code wordt uitgevoerd op de micro:bit. Let op: dit werkt alleen in de browsers "[Chrome](https://www.google.com/chrome/)", "[Opera](https://www.opera.com/)" of "Edge".
+We sluiten de micro:bit aan door middel van de micro-USB kabel. De micro:bit ziet er hetzelfde uit als de simulator. We kunnen dus gelijke codes gebruiken om de simulator en de micro:bit aan te sturen. Als je de code klaar hebt druk je op “Send to micro:bit”. Vervolgens krijg je twee schermen waarbij je beide op “next” drukt. Je selecteert vervolgens de micro:bit en klikt op “verbinding maken”. Je code wordt uitgevoerd op de micro:bit. Let op: dit werkt alleen in de browsers [Chrome](https://www.google.com/chrome/), [Opera](https://www.opera.com/) of Edge.
 
 ```{image} /img/h2.4.png
 :alt: screenshot microbit verbinden
