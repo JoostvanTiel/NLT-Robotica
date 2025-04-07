@@ -10,15 +10,13 @@ de robot zelfstandig laten rijden.
 
 ## Importeren
 
-Om de voorgeprogrammeerde map te importeren zorg je allereerst dat de 
-set-up op de computer is opgeslagen. Deze set-up heeft het bestandstype
-.hex. Hierbij krijg je hulp van je docent. Vervolgens ga je naar
-“project” en druk je op “open”. Je opent nu het .hex bestand. Dit zal er
-ongeveer als volgt uitzien: 
+Om de voorgeprogrammeerde map te importeren, download je eerst het bestand
+[maqueen.hex](http://informatica.ssgn.nl/~joost/maqueen.php "Klik hier om maqueen.hex te downloaden").
+Vervolgens ga je naar “project” en druk je op “open”. Je opent nu het .hex bestand. Dit zal er ongeveer als volgt uitzien: 
 
 ![screenshot imports](/img/h2.1.png)
 
-Met de gegevens in de map “macqueen.py” hoef je in principe niks te doen, tenzij dit expliciet wordt vermeld of tenzij je de gegevens, bijvoorbeeld voor je eindproject, zelf wilt aanpassen. Je eigen code schrijf je dus in de map `main.py`. Hierin staat nu slechts de code die de map `macqueen.py` importeert en een regel die de verbinding met de robot initialiseert. Mocht je op een later moment een eigen functiemap toevoegen, denk er dan ook aan dat je deze importeert bovenaan je `main.py` bestand.  
+Met de gegevens in het bestand “macqueen.py” hoef je in principe niks te doen, tenzij dit expliciet wordt vermeld of tenzij je de gegevens, bijvoorbeeld voor je eindproject, zelf wilt aanpassen. Je eigen code schrijf je dus in het bestand `main.py`. Hierin staat nu slechts de code die het bestand `macqueen.py` importeert en een regel die de verbinding met de robot initialiseert. Mocht je op een later moment een eigen functiemap toevoegen, denk er dan ook aan dat je deze importeert bovenaan je `main.py` bestand.  
 
 	# Imports go at the top
 	from maqueen import *
