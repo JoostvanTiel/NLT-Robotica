@@ -79,7 +79,7 @@ Tot nu toe hebben we enkel de functie `motor_aan()` gebruikt om de Maqueen te be
 		motor_uit(motor_rechts)
 		break
 
-In de functie `motor_aan()` moet je tussen de haakjes aangeven welke motor je aan wil zetten. Als beide motoren aangezet worden, rijdt de robot vooruit. Als je wil dat de robot een bocht maakt, kun je één motor aanzetten. Binnen de functie `motor_aan()` kun je nog meer opties doorgeven, zoals de snelheid (getal tussen 0 en 255) en de richting (0 voor vooruit of 1 voor achteruit).
+In de functie `motor_aan()` moet je tussen de haakjes aangeven welke motor je aan wil zetten. Als beide motoren aangezet worden, rijdt de robot vooruit. Als je wil dat de robot een bocht maakt, kun je één motor aanzetten.  
 
 ## Opdrachten hoofdstuk 2
 

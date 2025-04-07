@@ -6,7 +6,7 @@ In de afgelopen twee hoofdstukken zijn we meerdere functies tegengekomen. In dit
 
 In het vorige hoofdstuk zijn we het commando `motor_aan()` tegengekomen. Dit is een voorbeeld van een functie. Je kunt een functie herkennen aan de haakjes die achter het commando staan. Functies gebruik je vooral bij langere codes, omdat die anders snel onoverzichtelijk worden. Je splitst in dit geval je code op in verschillende kleinere programma’s (de functies). Zo kun je complexere programma’s overzichtelijk en makkelijk te begrijpen houden. Verder kunnen functies ook helpen om geheugen te besparen, omdat je een bepaalde functie meerdere keren  kunt aanroepen. Je kunt deze functies vergelijken als een functie in de wiskunde. Je stopt er iets in (invoer), de  functie verwerkt dat, en je krijgt er weer iets uit (uitvoer).  
 
-Naast de functies die we al zijn tegengekomen, en alle functies die in de map `maqueen.py` staan, kun je ook je eigen functies schrijven. Een voorbeeld van een simpele functie is: 
+Naast de functies die we al zijn tegengekomen, en alle functies die in het bestand `maqueen.py` staan, kun je ook je eigen functies schrijven. Een voorbeeld van een simpele functie is: 
 
 	# rekent de oppervlakte van een rechthoek uit
 	# hoogte: de hoogte van de rechthoek
@@ -52,10 +52,10 @@ Soms wil je ook functies maken die geen variabele oplevert. In zo’n geval gebr
 
 In een functie vul je parameters in. Deze parameters zijn variabelen, en kunnen dus verschillende waarden aannemen. Variabelen kunnen van verschillende datatypen zijn. Het is belangrijk dat je variabelen van het correcte datatype meegeeft aan een functie. Probeer een variabele altijd een naam te geven, waaruit je kan opmaken wat er in opgeslagen wordt. In Python krijgt een variabele automatisch het datatype van hetgeen je hem meegeeft. Je kent iets toe aan een variabele door het gebruik van één “=” teken. Dit betekent “krijgt de waarde”. Een dubbel “==” teken is een vergelijking. Er wordt dan nagegaan of voor en na de “==” hetzelfde staat. De meeste gebruikte datatypen zijn 
 
-	integer	# een geheel getal 
-	bool	# True of false 
-	float	# kommagetal 
-	string	# woord of zin 
+	integer		# een geheel getal 
+	bool		# true of false 
+	float		# kommagetal 
+	string		# woord of zin 
 
 ### integer 
 
@@ -95,7 +95,7 @@ In een string-variabele kun je een woord of hele zin opslaan. Een string kun je 
 
 ## Werking motor 
 
-Nu we weten hoe functies en hun parameters werken, kunnen we eerder gebruikte functies beter bekijken. We zijn eerder de functie `motor_aan()` tegengekomen. Het lijkt alsof deze functie geen parameters heeft. Toch is dit niet helemaal waar. Eigenlijk heeft de functie twee parameters: de snelheid en de richting van de robot. We hebben deze waarden voorheen niet meegegeven, omdat in de functie standaardwaarden zijn gegeven. Dat houdt in dat als er geen variabelen worden meegegeven, de functie automatisch de standaardwaarde pakt. De snelheid in deze functie kan worden ingevuld van 0 (stilstaan) tot 255 (het snelst). Voor de richting kan 0 (vooruit) en 1 (achteruit) worden ingevuld. Dit betekent dat bijvoorbeeld het commando `motor_aan(10, 1)` de robot achteruit laat rijden. De functie `motor_enkel()` heeft dan dus drie parameters: welke motor, de snelheid, en de richting.  
+Nu we weten hoe functies en hun parameters werken, kunnen we eerder gebruikte functies beter bekijken. We zijn eerder de functie `motor_aan()` tegengekomen. We hebben daar toen alleen aangegeven welke motor aangezet moest worden. Het lijkt alsof deze functie naast de motor geen parameters heeft. Toch is dit niet helemaal waar. Eigenlijk heeft de functie nog twee parameters: de snelheid en de richting van de robot. We hebben deze waarden voorheen niet meegegeven, omdat in de functie standaardwaarden zijn gegeven. Dat houdt in dat als er geen variabelen worden meegegeven, de functie automatisch de standaardwaarde pakt. De snelheid in deze functie kan worden ingevuld van 0 (stilstaan) tot 255 (het snelst). Voor de richting kan 0 (vooruit) en 1 (achteruit) worden ingevuld. Dat kan als volgt gedaan worden `motor_aan(motor_links, 10, 1)`. Met dit commando laat je het linkerwiel van de robot met snelheid 10 achteruit draaien.
 
 ## Lampen 
 
