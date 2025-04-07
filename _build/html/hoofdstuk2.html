@@ -396,7 +396,7 @@ de robot zelfstandig laten rijden.</p>
 <a class="reference external" href="http://informatica.ssgn.nl/~joost/maqueen.php" title="Klik hier om maqueen.hex te downloaden">maqueen.hex</a>.
 Vervolgens ga je naar “project” en druk je op “open”. Je opent nu het .hex bestand. Dit zal er ongeveer als volgt uitzien:</p>
 <p><img alt="screenshot imports" src="_images/h2.1.png" /></p>
-<p>Met de gegevens in het bestand “<a class="reference external" href="http://macqueen.py">macqueen.py</a>” hoef je in principe niks te doen, tenzij dit expliciet wordt vermeld of tenzij je de gegevens, bijvoorbeeld voor je eindproject, zelf wilt aanpassen. Je eigen code schrijf je dus in het bestand <code class="docutils literal notranslate"><span class="pre">main.py</span></code>. Hierin staat nu slechts de code die het bestand <code class="docutils literal notranslate"><span class="pre">macqueen.py</span></code> importeert en een regel die de verbinding met de robot initialiseert. Mocht je op een later moment een eigen functiemap toevoegen, denk er dan ook aan dat je deze importeert bovenaan je <code class="docutils literal notranslate"><span class="pre">main.py</span></code> bestand.</p>
+<p>Met de gegevens in het bestand <code class="docutils literal notranslate"><span class="pre">macqueen.py</span></code> hoef je in principe niks te doen, tenzij dit expliciet wordt vermeld of tenzij je de gegevens, bijvoorbeeld voor je eindproject, zelf wilt aanpassen. Je eigen code schrijf je dus in het bestand <code class="docutils literal notranslate"><span class="pre">main.py</span></code>. Hierin staat nu slechts de code die het bestand <code class="docutils literal notranslate"><span class="pre">macqueen.py</span></code> importeert en een regel die de verbinding met de robot initialiseert. Mocht je op een later moment een eigen functiemap toevoegen, denk er dan ook aan dat je deze importeert bovenaan je <code class="docutils literal notranslate"><span class="pre">main.py</span></code> bestand.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Imports go at the top
 from maqueen import *
 
@@ -417,37 +417,38 @@ init_maqueen()
 <p>Om de robot aan te sturen, verstuur je een code naar de micro:bit en plug je deze vervolgens in de Maqueen. We laten de motor rijden door middel van de functie <code class="docutils literal notranslate"><span class="pre">motor_aan()</span></code>.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Imports go at the top
 from maqueen import *
-from microbit import *
 
 # Initialiseer de verbinding tussen de micro:bit en alle sensoren van Maqueen
 init_maqueen()
 
-motor_aan()
+motor_aan(motor_links)
+motor_aan(motor_rechts)
 </pre></div>
 </div>
 <p>Stop de micro:bit in de Macqueen, zodat de opstelling er als volgt uitziet:</p>
 <p><img alt="image maqueen" src="_images/h2.6.png" /></p>
-<p>Zorg dat de Maqueen uit staat (met de aanknop op de rechter zijkant, rood omcirkelt in de figuur hierboven) en verbindt de computer door middel van de micro-USB kabel met de micro:bit. Vervolgens verstuur je de code naar de micro:bit. Als dit is gelukt haal je de USB kabel uit de micro:bit en zet je de Maqueen aan. Had je de Maqueen al aanstaan bij het verbinden, of haal je de kabel niet uit de micro:bit, dan gaat de robot rijden met de kabel nog aangesloten. Dit is niet de bedoeling.</p>
+<p>Zorg dat de Maqueen uit staat (met de aanknop op de rechter zijkant, rood omcirkelt in de figuur hierboven) en verbindt de computer door middel van de micro-USB kabel met de micro:bit. Vervolgens verstuur je de code naar de micro:bit. Als dit is gelukt haal je de USB kabel uit de micro:bit en zet je de Maqueen aan. Had je de Maqueen al aanstaan bij het verbinden, of haal je de kabel niet uit de micro:bit, dan gaat de robot rijden met de kabel nog aangesloten. Dat is niet de bedoeling.</p>
 </section>
 <section id="meer-functies">
 <h2>Meer functies<a class="headerlink" href="#meer-functies" title="Link to this heading">#</a></h2>
 <p>Tot nu toe hebben we enkel de functie <code class="docutils literal notranslate"><span class="pre">motor_aan()</span></code> gebruikt om de Maqueen te besturen. Het is ook fijn als je de motor na enige tijd weer uit kunt zetten. Hiervoor maak je gebruik van de functie <code class="docutils literal notranslate"><span class="pre">motor_uit()</span></code>. Als je de while-loop vervolgens wil stoppen, kun je dit doen door middel van het commando <code class="docutils literal notranslate"><span class="pre">break</span></code>.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Imports go at the top
 from maqueen import *
-from microbit import *
 
 # Initialiseer de verbinding tussen de micro:bit en alle sensoren van Maqueen
 init_maqueen()
 
-# Laat de robot 2 seconden rijden en vervolgens stoppen
+# Code in a &#39;while True:&#39; loop repeats forever
 while True:
-	motor_aan()
+	motor_aan(motor_links)
+	motor_aan(motor_rechts)
 	sleep(2000)
-	motor_uit()
+	motor_uit(motor_links)
+	motor_uit(motor_rechts)
 	break
 </pre></div>
 </div>
-<p>De functie <code class="docutils literal notranslate"><span class="pre">motor_aan()</span></code> stuurt zowel de motor van het linker als het rechter wiel aan. Als je wil dat de robot een bocht maakt, kan het zijn dat je slechts één van de twee wielen wilt aansturen. Om dit te doen gebruik je de functie <code class="docutils literal notranslate"><span class="pre">motor_enkel()</span></code>. In dit geval moet je wel aangeven welk van de twee motoren je wilt aansturen. Dit zet je tussen de haakjes. Dit ziet er als volgt uit: <code class="docutils literal notranslate"><span class="pre">motor_enkel(motor_links)</span></code>.</p>
+<p>In de functie <code class="docutils literal notranslate"><span class="pre">motor_aan()</span></code> moet je tussen de haakjes aangeven welke motor je aan wil zetten. Als beide motoren aangezet worden, rijdt de robot vooruit. Als je wil dat de robot een bocht maakt, kun je één motor aanzetten. Binnen de functie <code class="docutils literal notranslate"><span class="pre">motor_aan()</span></code> kun je nog meer opties doorgeven, zoals de snelheid (getal tussen 0 en 255) en de richting (0 voor vooruit of 1 voor achteruit).</p>
 </section>
 <section id="opdrachten-hoofdstuk-2">
 <h2>Opdrachten hoofdstuk 2<a class="headerlink" href="#opdrachten-hoofdstuk-2" title="Link to this heading">#</a></h2>
@@ -458,7 +459,7 @@ while True:
 <li><p>Laat de Maqueen voor een tijdsduur van 3 seconde naar voren rijden.</p></li>
 <li><p>Zorg ervoor de de Maqueen rondjes draait om zijn as.</p></li>
 <li><p>Schrijf een code die ervoor zorgt dat de Maqueen 2 seconde naar rechts draait en en vervolgens voor 2 seconde naar links draait .</p></li>
-<li><p>Zorg ervoor dat de Maqueen 3 seconde naar voren rijdt, dan een bocht naar links maakt, en vervolgens weer 3 seconde verder rijdt.</p></li>
+<li><p>Zorg ervoor dat de Maqueen 3 seconde naar voren rijdt, dan een bocht van 90 graden naar links maakt, en vervolgens weer 3 seconde verder rijdt.</p></li>
 </ol>
 </section>
 </section>
