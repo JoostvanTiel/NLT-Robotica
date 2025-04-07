@@ -82,7 +82,7 @@ uitgevoerd door het programma. De eerste regel die wordt uitgevoerd is daarmee
 regel 2. Deze regel moet in deze cursus altijd bovenaan je code staan, omdat 
 deze ervoor zorgt dat de juiste functies en definities worden geïmporteerd. 
 \* betekent in deze programmeertaal “alles”. In mensentaal zegt regel 2 dus 
-“importeer alles wat opgeslagen staat in de map microbit.”.  
+“importeer alles wat opgeslagen staat in het bestand 'microbit'.”.  
 
 Verder zien we in dit bestand nog een kleine commando staan. Dit stukje code 
 staat in een while-statement. Wat dit precies betekent komen we later op terug, 
@@ -193,6 +193,6 @@ doet en test dit.
 7. Zet onderstaande pseudocode om in een code en test dit.
 	1. Als toets B wordt ingedrukt 
 	2. Toon de tekst "B" 
-	3. Doe dit voor 4 seconde 
+	3. Doe dit voor 4 seconden 
 	4. Laat daarna het woord "klaar" over het beeld scrollen 
 	5. Toon daarna de afbeelding van een verdrietige smiley 
