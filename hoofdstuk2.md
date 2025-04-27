@@ -83,16 +83,16 @@ In de functie `motor_aan()` moet je tussen de haakjes aangeven welke motor je aa
 
 ## Opdrachten hoofdstuk 2
 
-1. Importeer het set-up bestand “Maqueen setup v3 1.hex”. Verander vervolgens de naam van je project.  
+1. Importeer het set-up bestand “maqueen.hex” zoals hierboven uitgelegd. Verander vervolgens de naam van je project.
 
-2. Zorg dat de standaard code van hoofdstuk 1 wordt uitgevoerd op de micro:bit.  
+2. Zorg dat de standaard code van hoofdstuk 1 wordt uitgevoerd op de micro:bit.
 
-3. Schrijf een code die ervoor zorgt dat “A” wordt getoond op het moment dat je toets A indrukt op de micro:bit en “B” als je toets B indrukt. 
+3. Schrijf een code die ervoor zorgt dat “A” wordt getoond op het moment dat je toets A indrukt op de micro:bit en “B” als je toets B indrukt.
 
-4. Laat de Maqueen voor een tijdsduur van 3 seconde naar voren rijden.  
+4. Laat de Maqueen voor een tijdsduur van 3 seconde naar voren rijden.
 
-5. Zorg ervoor de de Maqueen rondjes draait om zijn as.  
+5. Zorg ervoor de de Maqueen rondjes draait om zijn as.
 
-6. Schrijf een code die ervoor zorgt dat de Maqueen 2 seconde naar rechts draait en en vervolgens voor 2 seconde naar links draait . 
+6. Schrijf een code die ervoor zorgt dat de Maqueen 2 seconde naar rechts draait en en vervolgens voor 2 seconde naar links draait .
 
 7. Zorg ervoor dat de Maqueen 3 seconde naar voren rijdt, dan een bocht van 90 graden naar links maakt, en vervolgens weer 3 seconde verder rijdt.
