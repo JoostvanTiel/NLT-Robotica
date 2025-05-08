@@ -16,33 +16,30 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
-  <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -67,7 +64,6 @@
     <link rel="prev" title="Hoofdstuk 3: Functies en variabelen" href="hoofdstuk3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -83,8 +79,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -92,6 +99,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search this book..."
          aria-label="Search this book..."
          autocomplete="off"
@@ -99,8 +107,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -116,8 +124,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -147,17 +154,21 @@
     
     
     <img src="_static/logo.png" class="logo__image only-light" alt="NLT Robotica - Home"/>
-    <img src="_static/logo.png" class="logo__image only-dark pst-js-only" alt="NLT Robotica - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="NLT Robotica - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -332,16 +343,24 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
+  </button>
+`);
+</script>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -384,25 +403,26 @@
 <p>Robots zijn uitgerust met sensoren zoals afstandssensor, geluidsensor, kleurensensor enzovoort. Via deze sensoren kunnen robots hun omgeving observeren, waardoor een robot autonoom kan functioneren. In dit hoofdstuk behandelen we hoe je de lijnvolgsensoren en de ultrasone afstandssensor kunt gebruiken.</p>
 <section id="de-lijnvolgsensoren">
 <h2>De lijnvolgsensoren<a class="headerlink" href="#de-lijnvolgsensoren" title="Link to this heading">#</a></h2>
-<p>In de onderstaande figuur zie je de vijf lijnsensoren die op de maqueen aanwezig zijn. Elke sensor heeft een infrarood (IR) zender en een IR ontvanger. De IR zender zend infrarode straling uit. Die straling wordt door een witte ondergrond weerkaatst, maar door een zwarte ondergrond geabsorbeerd. Als de IR ontvanger teruggekaatste straling ontvangt (witte ondergrond), zal deze een 0 (<code class="docutils literal notranslate"><span class="pre">False</span></code>) terugsturen naar de micro:bit. Als het geen straling ontvangt, stuurt het een 1 (<code class="docutils literal notranslate"><span class="pre">True</span></code>) terug naar de micro:bit.</p>
+<p>In de onderstaande figuur zie je de vijf lijnsensoren die op de maqueen aanwezig zijn. Elke sensor heeft een infrarood (IR) zender en een IR ontvanger. De IR zender zend infrarode straling uit. Die straling wordt door een witte ondergrond weerkaatst, maar door een zwarte ondergrond geabsorbeerd. De IR ontvanger stuurt afhankelijk van de intensiteit van de IR straling een waarde tussen de 0 (weinig straling) en 255 (zeer veel straling) terug.</p>
 <p><img alt="lijnvolgsensoren onderaanzicht" src="_images/h4.1.png" /></p>
-<a class="reference internal image-reference" href="_images/h4.2.png"><img alt="screenshot microbit verbinden" class="align-right" src="_images/h4.2.png" style="width: 200px;" /></a>
-<p>Als de robot over een zwarte lijn rijdt, met aan weerszijden een witte ondergrond, zullen een de lijnvolgsensoren boven de witte ondergrond een 0 terugsturen en de lijnvolgsensoren boven de lijn een 4. Op die manier kan vastgesteld worden waar de lijn zich onder de robot bevindt. Zie ook de figuur hiernaast.</p>
+<a class="reference internal image-reference" href="_images/h4.2.png"><img alt="screenshot microbit verbinden" class="align-right" src="_images/h4.2.png" style="width: 200px;" />
+</a>
+<p>Als de robot over een zwarte lijn rijdt, met aan weerszijden een witte ondergrond, zullen een de lijnvolgsensoren boven de witte ondergrond een hoge waarde terugsturen en de lijnvolgsensoren boven de lijn een lage waarde. Op die manier kan vastgesteld worden waar de lijn zich onder de robot bevindt. Zie ook de figuur hiernaast.</p>
 <p>De vijf lijnsensoren van de Maqueen zijn van links naar rechts als volgt genoemd: <code class="docutils literal notranslate"><span class="pre">lijnsensor_l2</span></code>, <code class="docutils literal notranslate"><span class="pre">lijnsensor_l1</span></code>, <code class="docutils literal notranslate"><span class="pre">lijnsensor_m</span></code>, <code class="docutils literal notranslate"><span class="pre">lijnsensor_r1</span></code>, <code class="docutils literal notranslate"><span class="pre">lijnsensor_r2</span></code>.</p>
 <p>De volgende pseudocode omschrijft hoe een lijnvolgprogramma eruit zou kunnen zien:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Lees de lijnsensoren uit
 
-# Als de middelste lijnsensor (lijnsensor_m) een 1 stuurt:
+# Als de middelste lijnsensor (lijnsensor_m) een hoge waarde stuurt:
 	# Rijd vooruit
-# Anders, als linker lijnsensor (lijnsensor_l1 of lijnsensor_l2) een 4 stuurt:
+# Anders, als linker lijnsensor (lijnsensor_l1 of lijnsensor_l2) een lage waarde stuurt:
 	# Draai naar links 
-# Anders, als rechter lijnsensor (lijnsensor_r1 of lijnsensor_r2) een 4 stuurt:
+# Anders, als rechter lijnsensor (lijnsensor_r1 of lijnsensor_r2) een lage waarde stuurt:
 	# Draai naar rechts
 </pre></div>
 </div>
-<p>In de situatie van de bovenstaande afbeelding zal <code class="docutils literal notranslate"><span class="pre">lijnsensor_r1</span></code> een 4 terugsturen en moet de robot dus naar rechts draaien.</p>
+<p>In de situatie van de bovenstaande afbeelding zal <code class="docutils literal notranslate"><span class="pre">lijnsensor_r1</span></code> een lage waarde terugsturen en moet de robot dus naar rechts draaien.</p>
 <p>Om de waarde van een lijnvolgsensor te krijgen, kan de volgende functie worden gebruikt:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sensor_on_line(sensor) # Op de plaats van sensor moet de naam van de sensor komen te staan.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>`read_line_sensor(sensor) # Op de plaats van sensor moet de naam van de sensor komen te staan.`
 </pre></div>
 </div>
 </section>
@@ -416,6 +436,7 @@
 <h2>Opdrachten hoofdstuk 4<a class="headerlink" href="#opdrachten-hoofdstuk-4" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
 <li><p>Schrijf een programma dat de waarde van <code class="docutils literal notranslate"><span class="pre">lijnsensor_m</span></code> op het scherm van de micro:bit toont. Gebruik de functie <code class="docutils literal notranslate"><span class="pre">sleep()</span></code> om te zorgen dat de waarde niet te snel verandert.</p></li>
+<li><p>Onderzoek met behulp van de vorige opdracht welke waardes de lijnsensor terugstuurt als deze zich boven een witte, zwarte, blauwe, groene en rode ondergrond bevindt.</p></li>
 <li><p>Zoek in het <code class="docutils literal notranslate"><span class="pre">maqueen.py</span></code> bestand op wat de snelheid van het geluid is die de Ultrasone Afstandssensor gebruikt om de afstand te berekenen.</p></li>
 <li><p>Schrijf een programma dat de afstand tot de ultrasone afstandssensor op het scherm van de micro:bit toont.</p></li>
 <li><p>Onderzoek met behulp van de vorige opdracht wat de minimale en de maximale afstand is die de maqueen kan waarnemen met de ultrasone afstandssensor.</p></li>
@@ -478,8 +499,7 @@
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -539,8 +559,8 @@ By Mariska Rood & Joost van Tiel
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
