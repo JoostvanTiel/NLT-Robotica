@@ -119,14 +119,18 @@ Aan de variabele random_getal wordt nu willekeurig een waarde toegekend tussen d
 
 2. Wat is een void-functie en wanneer gebruik je deze? 
 
-3. Zoek in het `maqueen.py` bestand op wat de standaard meegegeven snelheid van de robot is.  
+3. Zoek in het `maqueen.py` bestand op wat de standaard meegegeven snelheid van de robot is.
 
-4. Laat de robot naar links draaien met de linker lamp aan. Doe vervolgens hetzelfde voor de rechter kant. 
+4. Schrijf een functie genaamd 'draaiLinks(tijd)', waarin je de tijd als parameter kunt invoeren en de robot vervolgens gedurende die tijd naar links draait.
 
-5. Laat de robot rijden in een cirkel met een straal van minimaal 20cm (dus niet om zijn eigen as). 
+5. Doe hetzelfde als in de vorige opdracht, maar dan me een functie genaamd 'draaiRechts(tijd)'. 
 
-6. Laat de robot vooruitrijden met een snelheid van 10 terwijl hij de lampen aan heeft. Doe dit voor 5 seconde. Zet vervolgens de lampen uit en laat de robot voor nog 5 seconde naar achter rijde.  
+6. Laat de robot naar links draaien met de linker lamp aan. Doe vervolgens hetzelfde voor de rechter kant. 
 
-7. Schrijf een functie die op de simulator een smiley met een willekeurige gezichtsuitdrukking meegeeft. Gebruik hiervoor de random-functie.  
+7. Laat de robot rijden in een cirkel met een straal van minimaal 20cm (dus niet om zijn eigen as). 
 
-8. Laat de robot willekeurig rondrijden, dus vooruit, achteruit, en draaien. Gebruik hiervoor de random-functie.
+8. Laat de robot vooruitrijden met een snelheid van 10 terwijl hij de lampen aan heeft. Doe dit voor 5 seconde. Zet vervolgens de lampen uit en laat de robot voor nog 5 seconde naar achter rijde.  
+
+9. Schrijf een functie die op de simulator een smiley met een willekeurige gezichtsuitdrukking meegeeft. Gebruik hiervoor de random-functie.  
+
+10. Laat de robot willekeurig rondrijden, dus vooruit, achteruit, en draaien. Gebruik hiervoor de random-functie.

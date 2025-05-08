@@ -49,10 +49,10 @@ if x < y:
 
 Hieronder zie je een voorbeeld waarin de robot naar rechts stuurt als hij links van de lijn afwijkt en andersom.
 
-	if sensor_on_line(lijnsensor_l1) == 4:
+	if read_line_sensor(lijnsensor_l1) < 100:
 		draaiRechts(1000)
 		
-	if sensor_on_line(lijnsensor_r1) == 4:
+	if read_line_sensor(lijnsensor_r1) < 100:
 		draaiLinks(1000)
 
 Een conditie kan van alles zijn en is meestal een vergelijking. In het bovenstaande voorbeeld is de conditie: De lijnsensor_l1 ziet een lijn.
@@ -80,14 +80,14 @@ else:
 
 In het onderstaande voorbeeld rijdt de robot rechtdoor als lijnsensor_m de lijn ziet, anders stopt hij:
 
-	if sensor_on_line(lijnsensor_m) == 4:
+	if read_line_sensor(lijnsensor_m) < 100:
 		motor_aan(motor_links)
 		motor_aan(motor_rechts)
 	else:
 		motor_uit(motor_links)
 		motor_uit(motor_rechts)
 
-In het bovenstaande voorbeeld gaat de motor uit als de robot van de lijn afwijkt, maar dat is niet altijd gewenst. Soms wil je dat er verschillende acties uit worden gevoerd als er niet voldaan wordt aan de eerste voorwaarde (`lijnsensor_m == 1`). Je kunt dan een `elif`-statement gebruiken. Dit staat voor 'else if' en er kan dus nogmaals een conditie worden gecontroleert. Er kunnen meerdere `elif`-statements na elkaar gebruikt worden. Een `elif`-statement werkt alleen als het direct volgt op een if-statement of op een elif-statement:
+In het bovenstaande voorbeeld gaat de motor uit als de robot van de lijn afwijkt, maar dat is niet altijd gewenst. Soms wil je dat er verschillende acties uit worden gevoerd als er niet voldaan wordt aan de eerste voorwaarde (`lijnsensor_m < 100`). Je kunt dan een `elif`-statement gebruiken. Dit staat voor 'else if' en er kan dus nogmaals een conditie worden gecontroleert. Er kunnen meerdere `elif`-statements na elkaar gebruikt worden. Een `elif`-statement werkt alleen als het direct volgt op een if-statement of op een elif-statement:
 
 	if conditie:
 		instructies...
@@ -114,12 +114,12 @@ else:
 
 In het onderstaande voorbeeld rijdt de robot rechtdoor als lijnsensor_m de lijn ziet. Als dat niet het geval is, stuurt hij naar rechts als lijnsensor_l1 de lijn ziet en naar links als lijnsensor_r1 de lijn ziet. Anders zet hij de motor uit:
 
-	if sensor_on_line(lijnsensor_m) == 4:
+	if read_line_sensor(lijnsensor_m) < 100:
 		motor_aan(motor_links)
 		motor_aan(motor_rechts)
-	elif sensor_on_line(lijnsensor_l1) == 4:
+	elif read_line_sensor(lijnsensor_l1) < 100:
 		draaiRechts(1000)
-	elif sensor_on_line(lijnsensor_r1) == 4:
+	elif read_line_sensor(lijnsensor_r1) < 100:
 		draaiLinks(1000)
 	else:
 		motor_uit(motor_links)
@@ -161,12 +161,12 @@ else:
 
 In het onderstaande voorbeeld is nogmaals het voorbeeld van hierboven gegeven, maar nu is een extra controle toegevoegd. De robot rijdt rechtdoor als lijnsensor_m de lijn ziet **en** als er geen voorwerp binnen 30 cm van de robot staat:
 
-	if sensor_on_line(lijnsensor_m) == 4 and afstand_tot_voorwerp() >= 30:
+	if read_line_sensor(lijnsensor_m) < 100 and afstand_tot_voorwerp() >= 30:
 		motor_aan(motor_links)
 		motor_aan(motor_rechts)
-	elif sensor_on_line(lijnsensor_l1) == 4:
+	elif read_line_sensor(lijnsensor_l1) < 100:
 		draaiRechts(1000)
-	elif sensor_on_line(lijnsensor_r1) == 4:
+	elif read_line_sensor(lijnsensor_r1) < 100:
 		draaiLinks(1000)
 	else:
 		motor_uit(motor_links)
@@ -213,4 +213,4 @@ Stop nu de micro:bit in de robot
 8. Schrijf een programma dat de robot obstakels laat ontwijken:
 	+ Als een object dichterbij komt dan 10 cm, moet de robot stoppen en 90 graden draaien.
 	+ Als de robot weer ruimte heeft (afstand > 10 cm), moet deze verder rijden.
-	+ Test zelf welke tijd in de functie `draaiLinks()` of `draaiRechts()` moet worden ingevuld om de robot 90 graden te laten draaien.
+	+ Test zelf welke tijd in de functie `draaiLinks()` of `draaiRechts()` van hoofdstuk 3 moet worden ingevuld om de robot 90 graden te laten draaien.

@@ -467,10 +467,10 @@ De basisoperatoren zijn als volgt:</p>
 </div>
 </div>
 <p>Hieronder zie je een voorbeeld waarin de robot naar rechts stuurt als hij links van de lijn afwijkt en andersom.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if sensor_on_line(lijnsensor_l1) == 4:
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if read_line_sensor(lijnsensor_l1) &lt; 100:
 	draaiRechts(1000)
 	
-if sensor_on_line(lijnsensor_r1) == 4:
+if read_line_sensor(lijnsensor_r1) &lt; 100:
 	draaiLinks(1000)
 </pre></div>
 </div>
@@ -503,7 +503,7 @@ else:
 </div>
 </div>
 <p>In het onderstaande voorbeeld rijdt de robot rechtdoor als lijnsensor_m de lijn ziet, anders stopt hij:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if sensor_on_line(lijnsensor_m) == 4:
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if read_line_sensor(lijnsensor_m) &lt; 100:
 	motor_aan(motor_links)
 	motor_aan(motor_rechts)
 else:
@@ -511,7 +511,7 @@ else:
 	motor_uit(motor_rechts)
 </pre></div>
 </div>
-<p>In het bovenstaande voorbeeld gaat de motor uit als de robot van de lijn afwijkt, maar dat is niet altijd gewenst. Soms wil je dat er verschillende acties uit worden gevoerd als er niet voldaan wordt aan de eerste voorwaarde (<code class="docutils literal notranslate"><span class="pre">lijnsensor_m</span> <span class="pre">==</span> <span class="pre">1</span></code>). Je kunt dan een <code class="docutils literal notranslate"><span class="pre">elif</span></code>-statement gebruiken. Dit staat voor ‘else if’ en er kan dus nogmaals een conditie worden gecontroleert. Er kunnen meerdere <code class="docutils literal notranslate"><span class="pre">elif</span></code>-statements na elkaar gebruikt worden. Een <code class="docutils literal notranslate"><span class="pre">elif</span></code>-statement werkt alleen als het direct volgt op een if-statement of op een elif-statement:</p>
+<p>In het bovenstaande voorbeeld gaat de motor uit als de robot van de lijn afwijkt, maar dat is niet altijd gewenst. Soms wil je dat er verschillende acties uit worden gevoerd als er niet voldaan wordt aan de eerste voorwaarde (<code class="docutils literal notranslate"><span class="pre">lijnsensor_m</span> <span class="pre">&lt;</span> <span class="pre">100</span></code>). Je kunt dan een <code class="docutils literal notranslate"><span class="pre">elif</span></code>-statement gebruiken. Dit staat voor ‘else if’ en er kan dus nogmaals een conditie worden gecontroleert. Er kunnen meerdere <code class="docutils literal notranslate"><span class="pre">elif</span></code>-statements na elkaar gebruikt worden. Een <code class="docutils literal notranslate"><span class="pre">elif</span></code>-statement werkt alleen als het direct volgt op een if-statement of op een elif-statement:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if conditie:
 	instructies...
 elif andere_conditie:
@@ -542,12 +542,12 @@ else:
 </div>
 </div>
 <p>In het onderstaande voorbeeld rijdt de robot rechtdoor als lijnsensor_m de lijn ziet. Als dat niet het geval is, stuurt hij naar rechts als lijnsensor_l1 de lijn ziet en naar links als lijnsensor_r1 de lijn ziet. Anders zet hij de motor uit:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if sensor_on_line(lijnsensor_m) == 4:
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if read_line_sensor(lijnsensor_m) &lt; 100:
 	motor_aan(motor_links)
 	motor_aan(motor_rechts)
-elif sensor_on_line(lijnsensor_l1) == 4:
+elif read_line_sensor(lijnsensor_l1) &lt; 100:
 	draaiRechts(1000)
-elif sensor_on_line(lijnsensor_r1) == 4:
+elif read_line_sensor(lijnsensor_r1) &lt; 100:
 	draaiLinks(1000)
 else:
 	motor_uit(motor_links)
@@ -614,12 +614,12 @@ z is het grootste getal.
 </div>
 </div>
 <p>In het onderstaande voorbeeld is nogmaals het voorbeeld van hierboven gegeven, maar nu is een extra controle toegevoegd. De robot rijdt rechtdoor als lijnsensor_m de lijn ziet <strong>en</strong> als er geen voorwerp binnen 30 cm van de robot staat:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if sensor_on_line(lijnsensor_m) == 4 and afstand_tot_voorwerp() &gt;= 30:
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>if read_line_sensor(lijnsensor_m) &lt; 100 and afstand_tot_voorwerp() &gt;= 30:
 	motor_aan(motor_links)
 	motor_aan(motor_rechts)
-elif sensor_on_line(lijnsensor_l1) == 4:
+elif read_line_sensor(lijnsensor_l1) &lt; 100:
 	draaiRechts(1000)
-elif sensor_on_line(lijnsensor_r1) == 4:
+elif read_line_sensor(lijnsensor_r1) &lt; 100:
 	draaiLinks(1000)
 else:
 	motor_uit(motor_links)
@@ -678,7 +678,7 @@ else:
 <ul class="simple">
 <li><p>Als een object dichterbij komt dan 10 cm, moet de robot stoppen en 90 graden draaien.</p></li>
 <li><p>Als de robot weer ruimte heeft (afstand &gt; 10 cm), moet deze verder rijden.</p></li>
-<li><p>Test zelf welke tijd in de functie <code class="docutils literal notranslate"><span class="pre">draaiLinks()</span></code> of <code class="docutils literal notranslate"><span class="pre">draaiRechts()</span></code> moet worden ingevuld om de robot 90 graden te laten draaien.</p></li>
+<li><p>Test zelf welke tijd in de functie <code class="docutils literal notranslate"><span class="pre">draaiLinks()</span></code> of <code class="docutils literal notranslate"><span class="pre">draaiRechts()</span></code> van hoofdstuk 3 moet worden ingevuld om de robot 90 graden te laten draaien.</p></li>
 </ul>
 </li>
 </ol>
