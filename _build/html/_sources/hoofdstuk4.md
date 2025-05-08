@@ -33,7 +33,7 @@ In de situatie van de bovenstaande afbeelding zal `lijnsensor_r1` een lage waard
 
 Om de waarde van een lijnvolgsensor te krijgen, kan de volgende functie worden gebruikt:
 
-	`read_line_sensor(sensor) # Op de plaats van sensor moet de naam van de sensor komen te staan.`
+	read_line_sensor(sensor) # Op de plaats van sensor moet de naam van de sensor komen te staan.
 
 ## De ultrasone afstandssensor
 
