@@ -121,9 +121,9 @@ Aan de variabele random_getal wordt nu willekeurig een waarde toegekend tussen d
 
 3. Zoek in het `maqueen.py` bestand op wat de standaard meegegeven snelheid van de robot is.
 
-4. Schrijf een functie genaamd 'draaiLinks(tijd)', waarin je de tijd als parameter kunt invoeren en de robot vervolgens gedurende die tijd naar links draait.
+4. Schrijf een functie genaamd `draaiLinks(tijd)`, waarin je de tijd als parameter kunt invoeren en de robot vervolgens gedurende die tijd naar links draait.
 
-5. Doe hetzelfde als in de vorige opdracht, maar dan me een functie genaamd 'draaiRechts(tijd)'. 
+5. Doe hetzelfde als in de vorige opdracht, maar dan me een functie genaamd `draaiRechts(tijd)`. 
 
 6. Laat de robot naar links draaien met de linker lamp aan. Doe vervolgens hetzelfde voor de rechter kant. 
 
