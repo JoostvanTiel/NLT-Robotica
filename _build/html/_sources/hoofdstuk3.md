@@ -46,7 +46,7 @@ Hierin zie je een voorbeeld van het aanroepen van de eerder geschreven functie. 
 
 ### Void-functie 
 
-Soms wil je ook functies maken die geen variabele oplevert. In zo’n geval gebruik je een void-functie. Het type void geeft aan dat de functie geen resultaat heeft. We zijn in deze module al veel void-functies  tegen gekomen.  Bijvoorbeeld de functie `motor_aan()`, maar ook de functie `display.show(Image.HEART)` hebben geen returnwaarde.  In het laatste voorbeeld zie je dat ook void-functies parameters kunnen bevatten. Hoewel ze geen returnwaarde hebben, kunnen ze wel een actie in gang zetten. 
+Soms wil je ook functies maken die geen variabele oplevert. In zo’n geval gebruik je een void-functie. Het type void geeft aan dat de functie geen resultaat heeft. We zijn in deze module al veel void-functies  tegen gekomen.  Bijvoorbeeld de functie `display.show(Image.HEART)` heeft geen returnwaarde.  In het laatste voorbeeld zie je dat ook void-functies parameters kunnen bevatten. Hoewel ze geen returnwaarde hebben, kunnen ze wel een actie in gang zetten. 
 
 ## Variabelen 
 
