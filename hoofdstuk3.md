@@ -14,8 +14,8 @@ Naast de functies die we al zijn tegengekomen, en alle functies die in het besta
 	# return: de oppervlakte van de rechthoek
 	
 	def Oppervlakte(hoogte, breedte):
-		Opp = hoogte * breedte
-		return Opp
+		opp = hoogte * breedte
+		return opp
 
 Je ziet dat de code begint met eerst in commentaar uitleggen  wat de functie doet, welke waardes hij meekrijgt en wat hij oplevert. Dit moet je er altijd bij schrijven als je een functie maakt. Zo blijft het altijd duidelijk wat welke functie doet. Om de functie te schrijven begin je altijd met def . Hiermee vertel je aan het programma dat je een functie gaat schrijven. Daarna geef je de functie een naam en zet je tussen haakjes de parameters.  
 
@@ -37,10 +37,10 @@ Om functies te kunnen gebruiken moet je deze aanroepen. Dit doe je door de naam 
 	# return: de oppervlakte van de rechthoek
 	
 	def Oppervlakte(hoogte, breedte):
-		Opp = hoogte * breedte
-		return Opp
+		opp = hoogte * breedte
+		return opp
 		
-	Opp_rechthoek = Oppervlakte(2,3)
+	opp_rechthoek = Oppervlakte(2,3)
 
 Hierin zie je een voorbeeld van het aanroepen van de eerder geschreven functie. In dit geval wordt dus het oppervlak uitgerekend van een rechthoek van 2 bij 3. De resulterende waarde wordt vervolgens opgeslagen in een variabele genoemd Opp_rechthoek. Deze variabele krijgt nu dus de waarde 6. Als je een nieuwe functie maakt, moet deze gedefinieerd zijn voordat hij wordt aangeroepen. Anders weet de compiler niet welke functie je aan probeert te roepen, want de compiler werkt van boven naar beneden. 
 
