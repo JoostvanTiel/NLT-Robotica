@@ -530,11 +530,15 @@ display.clear()
 <li><p>Begin bij 0 en verhoog het getal telkens met 1. Laat het zien op de micro:bit. Stop met tellen zodra <code class="docutils literal notranslate"><span class="pre">button_a.is_pressed()</span></code> <code class="docutils literal notranslate"><span class="pre">True</span></code> is.</p></li>
 <li><p>Maak een lijst <code class="docutils literal notranslate"><span class="pre">[1,</span> <span class="pre">4,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">7]</span></code> en gebruik een <code class="docutils literal notranslate"><span class="pre">for</span></code>-lus om te kijken of het getal 3 erin zit. Als je het vindt, laat een vinkje zien.</p></li>
 <li><p>Bekijk de onderstaande code, <strong>maar voer deze nog niet uit!</strong> Bedenk welk getal er op het scherm getoond wordt.</p>
-<p>x = 0</p>
-<p>for i in range(3):
-for j in range(5):
-x = x + i + j</p>
-<p>display.scroll(x)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> x = 0
+ 
+ for i in range(3):
+ 	for j in range(5):
+ 		x = x + i + j
+ 
+ display.scroll(x)
+</pre></div>
+</div>
 </li>
 </ol>
 </section>

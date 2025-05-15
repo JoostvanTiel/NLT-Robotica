@@ -143,13 +143,13 @@ Deze instructies worden niet doorlopen als er uit de lus gebroken wordt met een 
 
 6. Bekijk de onderstaande code, **maar voer deze nog niet uit!** Bedenk welk getal er op het scherm getoond wordt.
 
-	x = 0
-
-	for i in range(3):
-		for j in range(5):
-			x = x + i + j
-
-	display.scroll(x)
+		x = 0
+		
+		for i in range(3):
+			for j in range(5):
+				x = x + i + j
+		
+		display.scroll(x)
 
 ### Met robot
 
