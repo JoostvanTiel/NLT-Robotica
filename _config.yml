@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: NLT Robotica
-author: Mariska Rood & Joost van Tiel
+author: Joost van Tiel
 logo: logo.png
 html:
   extra_footer: |
