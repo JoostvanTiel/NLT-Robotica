@@ -31,6 +31,7 @@ Hieronder zie je een voorbeeld waarin een variabele (n) in eerste nul is. Vervol
 		
 	display.clear()
 
+### break statements
 Met het `break` statement kunnen we een while loop doorbreken, ook al is de voorwaarde die gecontrolleerd wordt nog steeds waar. Probeer het stukje code hieronder maar eens uit.
 
 	n = 0
@@ -44,6 +45,7 @@ Met het `break` statement kunnen we een while loop doorbreken, ook al is de voor
 		
 	display.clear()
 
+### continue statements
 Met het `continue` statement kunnen we de huidige iteratie overslaan en doorgaan met de volgende iteratie, zoals te zien is in het volgende stukje code.
 
 	n = 0
@@ -78,13 +80,14 @@ In het voorbeeld hieronder worden twee reeksen gedeclareerd: `getallen` en `lett
 
 	display.clear()
 
+### De range() functie
 Met de `range()` functie kan snel een reeks aan getallen worden aangemaakt. Zo geeft `range(5)` de reeks `[0, 1, 2, 3, 4]`. Er wordt dus een reeks gemaakt **tot** het getal dat als parameter wordt meegegeven.
 
 ```{code-cell} ipython3
 :tags: [rangeFunction1]
 
 reeks = range(5)
-print(reeks)
+print(list(reeks))
 
 for x in range(5):
 	print(x)

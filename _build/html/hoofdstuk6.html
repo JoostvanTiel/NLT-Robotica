@@ -365,8 +365,15 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-lussen">while lussen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-lussen">for lussen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-lussen">while lussen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break-statements">break statements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continue-statements">continue statements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-lussen">for lussen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#de-range-functie">De range() functie</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opdrachten-hoofdstuk-6">Opdrachten hoofdstuk 6</a></li>
 </ul>
             </nav>
@@ -401,6 +408,8 @@ while n &lt; 10:
 display.clear()
 </pre></div>
 </div>
+<section id="break-statements">
+<h3>break statements<a class="headerlink" href="#break-statements" title="Link to this heading">#</a></h3>
 <p>Met het <code class="docutils literal notranslate"><span class="pre">break</span></code> statement kunnen we een while loop doorbreken, ook al is de voorwaarde die gecontrolleerd wordt nog steeds waar. Probeer het stukje code hieronder maar eens uit.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>n = 0
 
@@ -414,6 +423,9 @@ while n &lt; 10:
 display.clear()
 </pre></div>
 </div>
+</section>
+<section id="continue-statements">
+<h3>continue statements<a class="headerlink" href="#continue-statements" title="Link to this heading">#</a></h3>
 <p>Met het <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement kunnen we de huidige iteratie overslaan en doorgaan met de volgende iteratie, zoals te zien is in het volgende stukje code.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>n = 0
 
@@ -427,6 +439,7 @@ while n &lt; 9:
 display.clear()
 </pre></div>
 </div>
+</section>
 </section>
 <section id="for-lussen">
 <h2>for lussen<a class="headerlink" href="#for-lussen" title="Link to this heading">#</a></h2>
@@ -450,11 +463,13 @@ for letter in letters:
 display.clear()
 </pre></div>
 </div>
+<section id="de-range-functie">
+<h3>De range() functie<a class="headerlink" href="#de-range-functie" title="Link to this heading">#</a></h3>
 <p>Met de <code class="docutils literal notranslate"><span class="pre">range()</span></code> functie kan snel een reeks aan getallen worden aangemaakt. Zo geeft <code class="docutils literal notranslate"><span class="pre">range(5)</span></code> de reeks <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4]</span></code>. Er wordt dus een reeks gemaakt <strong>tot</strong> het getal dat als parameter wordt meegegeven.</p>
 <div class="cell tag_rangeFunction1 docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reeks</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">reeks</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">reeks</span><span class="p">))</span>
 
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
 	<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -462,7 +477,7 @@ display.clear()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>range(0, 5)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4]
 0
 1
 2
@@ -479,6 +494,7 @@ display.clear()
 display.clear()
 </pre></div>
 </div>
+</section>
 </section>
 <section id="opdrachten-hoofdstuk-6">
 <h2>Opdrachten hoofdstuk 6<a class="headerlink" href="#opdrachten-hoofdstuk-6" title="Link to this heading">#</a></h2>
@@ -556,8 +572,15 @@ display.clear()
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-lussen">while lussen</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-lussen">for lussen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-lussen">while lussen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#break-statements">break statements</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#continue-statements">continue statements</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-lussen">for lussen</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#de-range-functie">De range() functie</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opdrachten-hoofdstuk-6">Opdrachten hoofdstuk 6</a></li>
 </ul>
   </nav></div>
