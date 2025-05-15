@@ -174,6 +174,7 @@ In het onderstaande voorbeeld is nogmaals het voorbeeld van hierboven gegeven, m
 
 ## Opdrachten hoofdstuk 5
 
+### Zonder robot
 Haal de micro:bit uit de robot en gebruik voor de eerste drie opdrachten de hulp in de 'Reference' links in het scherm.
 
 1. Schrijf een programma dat controleert of knop A of knop B wordt ingedrukt:
@@ -193,6 +194,7 @@ Haal de micro:bit uit de robot en gebruik voor de eerste drie opdrachten de hulp
 	+ Als het lichtniveau boven de 200 is, maakt de micro:bit het scherm leeg.
 	+ Experimenteer met de drempelwaarden om te zien hoe de sensor reageert.
 
+### Met robot
 Stop nu de micro:bit in de robot
 
 4. Schrijf een programma dat de robot vooruit laat rijden tot aan een zwarte streep.
