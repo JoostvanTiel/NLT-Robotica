@@ -381,70 +381,103 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="hoofdstuk-6-lussen">
 <h1>Hoofdstuk 6: Lussen<a class="headerlink" href="#hoofdstuk-6-lussen" title="Link to this heading">#</a></h1>
-<p>In dit hoofdstuk worden while-statements en for-statements behandeld.</p>
+<p>Tot nu toe hebben we gekeken naar manieren om een stukje code van de robot eenmalig uit te voeren. Vaak is het heel handig om een bepaalde handeling te herhalen. In dit hoofdstuk leer je hoet je <code class="docutils literal notranslate"><span class="pre">while</span></code> en <code class="docutils literal notranslate"><span class="pre">for</span></code> statements kunt gebruiken om dit voor elkaar te krijgen. Het stukje code dat met zo’n statement wordt uitgevoerd wordt ook wel een <strong>lus</strong> genoemd. Het doorlopen van een lus wordt ook wel <strong>itereren</strong> genoemd. Het eenmalig doorlopen van de lus heet een <strong>iteratie</strong>.</p>
 <section id="while-lussen">
 <h2>while lussen<a class="headerlink" href="#while-lussen" title="Link to this heading">#</a></h2>
+<p>Een <code class="docutils literal notranslate"><span class="pre">while</span></code> lus herhaalt een set instructies zo lang aan een voorwaarde voldaan wordt. Achter het <code class="docutils literal notranslate"><span class="pre">while</span></code> statement moet dus een controle staan die <code class="docutils literal notranslate"><span class="pre">True</span></code> of <code class="docutils literal notranslate"><span class="pre">False</span></code> op kan leveren.
+De syntax om zo’n lus te maken is als volgt:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>while conditie:
 	instructies...
 </pre></div>
 </div>
-<div class="cell tag_whileLoop docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">done</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+<p>Hieronder zie je een voorbeeld waarin een variabele (n) in eerste nul is. Vervolgens komt de while lus, waarin de waarde van n op het scherm wordt getoond. Vervolgens wordt de waarde van n met 1 verhoogd met de code <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">n</span> <span class="pre">+</span> <span class="pre">1</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>n = 0
 
-<span class="k">while</span> <span class="ow">not</span> <span class="n">done</span><span class="p">:</span>
-	<span class="k">if</span> <span class="n">n</span> <span class="o">&gt;=</span> <span class="mi">10</span><span class="p">:</span>
-		<span class="n">done</span> <span class="o">=</span> <span class="kc">True</span>
-	<span class="k">else</span><span class="p">:</span> 
-		<span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-		<span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+while n &lt; 10:
+	n = n + 1
+	display.show(n)
+	sleep(250)
+	
+display.clear()
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-1
-2
-3
-4
-5
-6
-7
-8
-9
+<p>Met het <code class="docutils literal notranslate"><span class="pre">break</span></code> statement kunnen we een while loop doorbreken, ook al is de voorwaarde die gecontrolleerd wordt nog steeds waar. Probeer het stukje code hieronder maar eens uit.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>n = 0
+
+while n &lt; 10:
+	display.show(n)
+	sleep(250)
+	if n == 3:
+		break
+	n = n + 1
+	
+display.clear()
 </pre></div>
 </div>
-</div>
+<p>Met het <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement kunnen we de huidige iteratie overslaan en doorgaan met de volgende iteratie, zoals te zien is in het volgende stukje code.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>n = 0
+
+while n &lt; 9:
+	n = n + 1
+	if n == 3:
+		continue
+	display.show(n)
+	sleep(250)
+	
+display.clear()
+</pre></div>
 </div>
 </section>
 <section id="for-lussen">
 <h2>for lussen<a class="headerlink" href="#for-lussen" title="Link to this heading">#</a></h2>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for x in range(getal):
+<p>Met een <code class="docutils literal notranslate"><span class="pre">for</span></code> lus kan geïtereerd worden over een reeks aan waardes. Die waardes kunnen getallen zijn, maar ook andere soorten variabelen (zoals strings).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for variabele in reeks:
 	instructies...
 </pre></div>
 </div>
-<div class="cell tag_ifStatement docutils container">
+<p>In het voorbeeld hieronder worden twee reeksen gedeclareerd: <code class="docutils literal notranslate"><span class="pre">getallen</span></code> en <code class="docutils literal notranslate"><span class="pre">letters</span></code>. Een reeks wordt gedeclareerd door een aantal waardes, gescheiden door komma’s, tussen vierkante haakjes (<code class="docutils literal notranslate"><span class="pre">[</span></code> en <code class="docutils literal notranslate"><span class="pre">]</span></code>) te zetten. De <code class="docutils literal notranslate"><span class="pre">for</span></code> lus wordt voor iedere waarde in de reeks een keer doorlopen. De variabele krijgt in die iteratie de waarde van de reeks toegekend. De <code class="docutils literal notranslate"><span class="pre">for</span></code> lus wordt automatisch afgebroken als het eind van de reeks is bereikt.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>getallen = [0, 1, 2, 3, 4, 5]
+letters = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;, &quot;f&quot;]
+
+for getal in getallen:
+	display.show(getal)
+	sleep(250)
+
+for letter in letters:
+	display.show(letter)
+	sleep(250)
+
+display.clear()
+</pre></div>
+</div>
+<p>Met de <code class="docutils literal notranslate"><span class="pre">range()</span></code> functie kan snel een reeks aan getallen worden aangemaakt. Zo geeft <code class="docutils literal notranslate"><span class="pre">range(5)</span></code> de reeks <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4]</span></code>. Er wordt dus een reeks gemaakt <strong>tot</strong> het getal dat als parameter wordt meegegeven.</p>
+<div class="cell tag_rangeFunction1 docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reeks</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reeks</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
 	<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>range(0, 5)
+0
 1
 2
 3
 4
-5
-6
-7
-8
-9
 </pre></div>
 </div>
 </div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for x in range(5):
+	display.show(x)
+	sleep(250)
+
+display.clear()
+</pre></div>
 </div>
 </section>
 <section id="opdrachten-hoofdstuk-6">
