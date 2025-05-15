@@ -374,6 +374,7 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#de-range-functie">De range() functie</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#else-na-een-lus">else na een lus</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opdrachten-hoofdstuk-6">Opdrachten hoofdstuk 6</a></li>
 </ul>
             </nav>
@@ -465,28 +466,8 @@ display.clear()
 </div>
 <section id="de-range-functie">
 <h3>De range() functie<a class="headerlink" href="#de-range-functie" title="Link to this heading">#</a></h3>
-<p>Met de <code class="docutils literal notranslate"><span class="pre">range()</span></code> functie kan snel een reeks aan getallen worden aangemaakt. Zo geeft <code class="docutils literal notranslate"><span class="pre">range(5)</span></code> de reeks <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4]</span></code>. Er wordt dus een reeks gemaakt <strong>tot</strong> het getal dat als parameter wordt meegegeven.</p>
-<div class="cell tag_rangeFunction1 docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reeks</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">reeks</span><span class="p">))</span>
-
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
-	<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0, 1, 2, 3, 4]
-0
-1
-2
-3
-4
-</pre></div>
-</div>
-</div>
-</div>
+<p>Met de <code class="docutils literal notranslate"><span class="pre">range()</span></code> functie kan snel een reeks aan getallen worden aangemaakt. De functie maakt een reeks <strong>tot</strong> het getal dat als parameter wordt meegegeven.
+Zo geeft <code class="docutils literal notranslate"><span class="pre">range(5)</span></code> de reeks <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">4]</span></code>.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for x in range(5):
 	display.show(x)
 	sleep(250)
@@ -494,12 +475,50 @@ display.clear()
 display.clear()
 </pre></div>
 </div>
+<p>Er kunnen ook meerdere parameters aan de <code class="docutils literal notranslate"><span class="pre">range()</span></code> functie worden meegegeven.
+Laten we de parameters ‘a’, ‘b’ en ‘c’ noemen. In de functie <code class="docutils literal notranslate"><span class="pre">range(a,</span> <span class="pre">b,</span> <span class="pre">c)</span></code> is a het startgetal, b het eindgetal en c de stapgrootte.
+De functie <code class="docutils literal notranslate"><span class="pre">range(3,</span> <span class="pre">15,</span> <span class="pre">4)</span></code> produceert dus de reeks <code class="docutils literal notranslate"><span class="pre">[3,</span> <span class="pre">7,</span> <span class="pre">11]</span></code></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for x in range(3, 15, 4):
+	display.scroll(x)
+	sleep(250)
+
+display.clear()
+</pre></div>
+</div>
+<p>Net als bij een <code class="docutils literal notranslate"><span class="pre">while</span></code> lus, kunnen de <code class="docutils literal notranslate"><span class="pre">break</span></code> en <code class="docutils literal notranslate"><span class="pre">continue</span></code> statements ook bij een <code class="docutils literal notranslate"><span class="pre">for</span></code> lus gebruikt worden.</p>
 </section>
+</section>
+<section id="else-na-een-lus">
+<h2>else na een lus<a class="headerlink" href="#else-na-een-lus" title="Link to this heading">#</a></h2>
+<p>Zowel bij <code class="docutils literal notranslate"><span class="pre">while</span></code> lussen als bij <code class="docutils literal notranslate"><span class="pre">for</span></code> lussen kan na het itereren door de lus een afsluitende set aan instructies worden uitgevoerd met <code class="docutils literal notranslate"><span class="pre">else</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for x in range(2, 12, 2):
+	display.scroll(x)
+	sleep(250)
+else:
+	display.show(5)
+	sleep(1000)
+
+display.clear()
+</pre></div>
+</div>
+<p>Deze instructies worden niet doorlopen als er uit de lus gebroken wordt met een <code class="docutils literal notranslate"><span class="pre">break</span></code> statement.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>for x in range(2, 12, 2):
+	display.scroll(x)
+	if x &gt;= 8:
+		break
+	sleep(250)
+else:
+	display.show(5)
+	sleep(1000)
+
+display.clear()
+</pre></div>
+</div>
 </section>
 <section id="opdrachten-hoofdstuk-6">
 <h2>Opdrachten hoofdstuk 6<a class="headerlink" href="#opdrachten-hoofdstuk-6" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li></li>
+<li><p>Nadenken over de volgorde van instructies bij de verschillende voorbeelden van de while statements met break en for.</p></li>
 <li></li>
 <li></li>
 <li></li>
@@ -581,6 +600,7 @@ display.clear()
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#de-range-functie">De range() functie</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#else-na-een-lus">else na een lus</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#opdrachten-hoofdstuk-6">Opdrachten hoofdstuk 6</a></li>
 </ul>
   </nav></div>

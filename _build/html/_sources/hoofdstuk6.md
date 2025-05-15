@@ -81,17 +81,8 @@ In het voorbeeld hieronder worden twee reeksen gedeclareerd: `getallen` en `lett
 	display.clear()
 
 ### De range() functie
-Met de `range()` functie kan snel een reeks aan getallen worden aangemaakt. Zo geeft `range(5)` de reeks `[0, 1, 2, 3, 4]`. Er wordt dus een reeks gemaakt **tot** het getal dat als parameter wordt meegegeven.
-
-```{code-cell} ipython3
-:tags: [rangeFunction1]
-
-reeks = range(5)
-print(list(reeks))
-
-for x in range(5):
-	print(x)
-```
+Met de `range()` functie kan snel een reeks aan getallen worden aangemaakt. De functie maakt een reeks **tot** het getal dat als parameter wordt meegegeven.
+Zo geeft `range(5)` de reeks `[0, 1, 2, 3, 4]`. 
 
 	for x in range(5):
 		display.show(x)
@@ -99,9 +90,46 @@ for x in range(5):
 
 	display.clear()
 
+Er kunnen ook meerdere parameters aan de `range()` functie worden meegegeven.
+Laten we de parameters 'a', 'b' en 'c' noemen. In de functie `range(a, b, c)` is a het startgetal, b het eindgetal en c de stapgrootte.
+De functie `range(3, 15, 4)` produceert dus de reeks `[3, 7, 11]`
+
+	for x in range(3, 15, 4):
+		display.scroll(x)
+		sleep(250)
+
+	display.clear()
+
+Net als bij een `while` lus, kunnen de `break` en `continue` statements ook bij een `for` lus gebruikt worden. 
+
+## else na een lus
+Zowel bij `while` lussen als bij `for` lussen kan na het itereren door de lus een afsluitende set aan instructies worden uitgevoerd met `else`. 
+
+	for x in range(2, 12, 2):
+		display.scroll(x)
+		sleep(250)
+	else:
+		display.show(5)
+		sleep(1000)
+
+	display.clear()
+
+Deze instructies worden niet doorlopen als er uit de lus gebroken wordt met een `break` statement.
+
+	for x in range(2, 12, 2):
+		display.scroll(x)
+		if x >= 8:
+			break
+		sleep(250)
+	else:
+		display.show(5)
+		sleep(1000)
+
+	display.clear()
+
 ## Opdrachten hoofdstuk 6
 
-1. 
+1. Nadenken over de volgorde van instructies bij de verschillende voorbeelden van de while statements met break en for.
 
 2. 
 
