@@ -5,6 +5,10 @@ title: NLT Robotica
 author: Joost van Tiel
 logo: logo.png
 
+sphinx:
+  config:
+    html_show_copyright: false
+
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
 execute:
