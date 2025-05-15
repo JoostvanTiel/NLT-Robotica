@@ -4,7 +4,7 @@
 title: NLT Robotica
 author: Joost van Tiel
 logo: logo.png
-copyright: "NLT Robotica © 2025 by Joost van Tiel is licensed under CC BY-NC-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-sa/4.0/"
+copyright: "2025 'NLT Robotica' by Joost van Tiel is licensed under CC BY-NC-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-nc-sa/4.0/"
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
