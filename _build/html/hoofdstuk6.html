@@ -398,11 +398,11 @@
 <h2>while lussen<a class="headerlink" href="#while-lussen" title="Link to this heading">#</a></h2>
 <p>Een <code class="docutils literal notranslate"><span class="pre">while</span></code> lus herhaalt een set instructies zo lang aan een voorwaarde voldaan wordt. Achter het <code class="docutils literal notranslate"><span class="pre">while</span></code> statement moet dus een controle staan die <code class="docutils literal notranslate"><span class="pre">True</span></code> of <code class="docutils literal notranslate"><span class="pre">False</span></code> op kan leveren.
 De syntax om zo’n lus te maken is als volgt:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>while conditie:
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>while voorwaarde:
 	instructies...
 </pre></div>
 </div>
-<p>Hieronder zie je een voorbeeld waarin een variabele (n) in eerste nul is. Vervolgens komt de while lus, waarin de waarde van n op het scherm wordt getoond. Vervolgens wordt de waarde van n met 1 verhoogd met de code <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">n</span> <span class="pre">+</span> <span class="pre">1</span></code>.</p>
+<p>Hieronder zie je een voorbeeld waarin een variabele (n) in eerste instantie nul is. Vervolgens komt de while lus, waarin de waarde van n op het scherm wordt getoond en de waarde van n met 1 verhoogd met de code <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">=</span> <span class="pre">n</span> <span class="pre">+</span> <span class="pre">1</span></code>. Deze code laat dus de getallen 0 t/m 9 op het display zien. De functie <code class="docutils literal notranslate"><span class="pre">sleep(250)</span></code> is toegevoegd om tijd te hebben om het getal te lezen.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>n = 0
 
 while n &lt; 10:
@@ -544,12 +544,14 @@ display.clear()
 </section>
 <section id="met-robot">
 <h3>Met robot<a class="headerlink" href="#met-robot" title="Link to this heading">#</a></h3>
-<ol class="arabic simple" start="6">
+<ol class="arabic simple" start="7">
 <li><p>Gebruik een <code class="docutils literal notranslate"><span class="pre">for</span></code>-lus met <code class="docutils literal notranslate"><span class="pre">range(5)</span></code> en laat de robot elke seconde een beetje draaien met <code class="docutils literal notranslate"><span class="pre">motor_aan(...)</span></code> en <code class="docutils literal notranslate"><span class="pre">sleep(1000)</span></code>.</p></li>
 <li><p>Gebruik een <code class="docutils literal notranslate"><span class="pre">while</span></code>-lus. Laat de robot rijden met beide motoren aan. Stop als de robot een donkere lijn ziet.</p></li>
 <li><p>Rijd vooruit tot de robot binnen 10 cm van een voorwerp is. Laat de robot dan een willekeurige hoeveelheid draaien. Blijf dit oneindig herhalen.</p></li>
 <li><p>Gebruik een <code class="docutils literal notranslate"><span class="pre">for</span></code>-lus en toon met <code class="docutils literal notranslate"><span class="pre">display.scroll()</span></code> de waarde van elke sensor op volgorde.</p></li>
 <li><p>Gebruik een <code class="docutils literal notranslate"><span class="pre">for</span></code>-lus waarin je steeds <code class="docutils literal notranslate"><span class="pre">led_links</span></code>, <code class="docutils literal notranslate"><span class="pre">led_rechts</span></code> of <code class="docutils literal notranslate"><span class="pre">led_beide</span></code> aan- en uitzet. Wacht een halve seconde tussen de stappen.</p></li>
+<li><p>Laat de robot een vierkantje rijden. Gebruik daarvoor een <code class="docutils literal notranslate"><span class="pre">for</span></code>-lus. Sla de instructies hiervoor op een functie genaamd <code class="docutils literal notranslate"><span class="pre">rijdVierkant()</span></code>.</p></li>
+<li><p>Laat de robot vijfmaal achter elkaar een vierkantje rijden. Gebruik daarvoor de functie uit de vorige vraag.</p></li>
 </ol>
 </section>
 </section>

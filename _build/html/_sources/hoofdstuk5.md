@@ -30,22 +30,18 @@ De basisoperatoren zijn als volgt:
 
 ## if-statements
 
-Je wilt dat een robot in bepaalde situaties bepaald gedrag vertoont. Bijvoorbeeld: als de robot van de lijn afwijkt, moet hij kgaan bijsturen om weer op de lijn te staan. Je weet van te voren niet of de robot links of rechts van de lijn zal afwijken. Daarom moet je afhankelijk van de situatie kunnen beheersen welk gedrag de robot vertoont. Daarvoor gebruik je het if-statement. Dit ziet er zo uit:
+Je wilt dat een robot in bepaalde situaties bepaald gedrag vertoont. Bijvoorbeeld: als de robot van de lijn afwijkt, moet hij gaan bijsturen om weer op de lijn te staan. Je weet van te voren niet of de robot links of rechts van de lijn zal afwijken. Daarom moet je afhankelijk van de situatie kunnen beheersen welk gedrag de robot vertoont. Daarvoor gebruik je het if-statement. Dit ziet er zo uit:
 
-	if conditie:
+	if voorwaarde:
 		instructies...
 
-De conditie is waar aan voldaan moet worden. Als er aan de voorwaarde voldaan wordt, dan worden de instructies die daarop volgen uitgevoerd. Bijvoorbeeld:
+De voorwaarde is waar aan voldaan moet worden. Als er aan de voorwaarde voldaan wordt, dan worden de instructies die daarop volgen uitgevoerd. Bijvoorbeeld:
 
-```{code-cell} ipython3
-:tags: [ifStatement]
+	x = 4
+	y = 7
 
-x = 4
-y = 7
-
-if x < y:
-	print("y is groter dan x.")
-```
+	if x < y:
+		display.scroll("y is groter dan x.")
 
 Hieronder zie je een voorbeeld waarin de robot naar rechts stuurt als hij links van de lijn afwijkt en andersom.
 
@@ -55,28 +51,24 @@ Hieronder zie je een voorbeeld waarin de robot naar rechts stuurt als hij links 
 	if read_line_sensor(lijnsensor_r1) < 100:
 		draaiLinks(1000)
 
-Een conditie kan van alles zijn en is meestal een vergelijking. In het bovenstaande voorbeeld is de conditie: De lijnsensor_l1 ziet een lijn.
-Soms wil je bij het if-statement als er niet aan de conditie wordt voldaan, dat hij altijd een ander stukje code uitvoert. Bijvoorbeeld: Als de de lijnsensor_m de lijn ziet, moet de robot vooruit rijden en anders moet de robot stoppen.
+Een voorwaarde kan van alles zijn en is meestal een vergelijking. In het bovenstaande voorbeeld is de voorwaarde: De lijnsensor_l1 ziet een lijn.
+Soms wil je bij het if-statement als er niet aan de voorwaarde wordt voldaan, dat hij altijd een ander stukje code uitvoert. Bijvoorbeeld: Als de de lijnsensor_m de lijn ziet, moet de robot vooruit rijden en anders moet de robot stoppen.
 Je kunt dan else-statements gebruiken. Een else-statement werkt alleen als het direct volgt op een if-statement of een elif-statment (zie verderop):
 
-	if conditie:
+	if voorwaarde:
 		instructies...
 	else:
 		instructies...
 
 Bijvoorbeeld:
 
-```{code-cell} ipython3
-:tags: [ifStatement]
+	x = 8
+	y = 5
 
-x = 8
-y = 5
-
-if x < y:
-	print("y is groter dan x.")
-else:
-	print("x is groter dan y.")
-```
+	if x < y:
+		display.scroll("y is groter dan x.")
+	else:
+		display.scroll("x is groter dan y.")
 
 In het onderstaande voorbeeld rijdt de robot rechtdoor als lijnsensor_m de lijn ziet, anders stopt hij:
 
@@ -87,30 +79,26 @@ In het onderstaande voorbeeld rijdt de robot rechtdoor als lijnsensor_m de lijn 
 		motor_uit(motor_links)
 		motor_uit(motor_rechts)
 
-In het bovenstaande voorbeeld gaat de motor uit als de robot van de lijn afwijkt, maar dat is niet altijd gewenst. Soms wil je dat er verschillende acties uit worden gevoerd als er niet voldaan wordt aan de eerste voorwaarde (`lijnsensor_m < 100`). Je kunt dan een `elif`-statement gebruiken. Dit staat voor 'else if' en er kan dus nogmaals een conditie worden gecontroleert. Er kunnen meerdere `elif`-statements na elkaar gebruikt worden. Een `elif`-statement werkt alleen als het direct volgt op een if-statement of op een elif-statement:
+In het bovenstaande voorbeeld gaat de motor uit als de robot van de lijn afwijkt, maar dat is niet altijd gewenst. Soms wil je dat er verschillende acties uit worden gevoerd als er niet voldaan wordt aan de eerste voorwaarde (`lijnsensor_m < 100`). Je kunt dan een `elif`-statement gebruiken. Dit staat voor 'else if' en er kan dus nogmaals een voorwaarde worden gecontroleert. Er kunnen meerdere `elif`-statements na elkaar gebruikt worden. Een `elif`-statement werkt alleen als het direct volgt op een if-statement of op een elif-statement:
 
-	if conditie:
+	if voorwaarde:
 		instructies...
-	elif andere_conditie:
+	elif andere_voorwaarde:
 		instructies...
 	else:
 		instructies...
 
 Bijvoorbeeld:
 
-```{code-cell} ipython3
-:tags: [ifStatement]
+	x = 3
+	y = 3
 
-x = 3
-y = 3
-
-if x < y:
-	print("y is groter dan x.")
-elif x == y:
-	print("y is gelijk aan x.")
-else:
-	print("x is groter dan y.")
-```
+	if x < y:
+		display.scroll("y is groter dan x.")
+	elif x == y:
+		display.scroll("y is gelijk aan x.")
+	else:
+		display.scroll("x is groter dan y.")
 
 In het onderstaande voorbeeld rijdt de robot rechtdoor als lijnsensor_m de lijn ziet. Als dat niet het geval is, stuurt hij naar rechts als lijnsensor_l1 de lijn ziet en naar links als lijnsensor_r1 de lijn ziet. Anders zet hij de motor uit:
 
@@ -131,33 +119,31 @@ Het is ook mogelijk om meerdere voorwaarden tegelijk te controleren. Daarvoor ge
 
 | Operator | Beschrijving                                                          | Voorbeeld               |
 |:---------|:----------------------------------------------------------------------|:------------------------|
-| and      | Retourneert `True` als beide condities waar zijn.                     | x < 10 and y > 4        |
-| or       | Retourneert `True` als één van beide condities waar is.               | x < 5 or y > 4          |
+| and      | Retourneert `True` als beide voorwaarden waar zijn.                   | x < 10 and y > 4        |
+| or       | Retourneert `True` als één van beide voorwaarden waar is.             | x < 5 or y > 4          |
 | not      | Keert het resultaat om, retourneert `False` als het resultaat waar is.| not( x < 4 and y > 10 ) |
 
 Bijvoorbeeld:
-```{code-cell} ipython3
-:tags: [ifStatement]
 
-x = 3
-y = 6
-z = 9
+	x = 3
+	y = 6
+	z = 9
 
-if x < y and y < z:
-	print("x is het kleinste getal.")
+	if x < y and y < z:
+		display.scroll("x is het kleinste getal.")
 
-if y < x and y < z:
-	print("y is het kleinste getal.")
-elif y < x or y < z:
-	print("y is niet het grootste getal.")
+	if y < x and y < z:
+		display.scroll("y is het kleinste getal.")
+	elif y < x or y < z:
+		display.scroll("y is niet het grootste getal.")
 
-if z < y and z < x:
-	print("z is het kleinste getal.")
-elif not(z < y and z < x):
-	print("z is het grootste getal.")
-else:
-	print("z is niet het grootste en niet het kleinste getal.")
-```
+	if z < y and z < x:
+		display.scroll("z is het kleinste getal.")
+	elif not(z < y and z < x):
+		display.scroll("z is het grootste getal.")
+	else:
+		display.scroll("z is niet het grootste en niet het kleinste getal.")
+
 
 In het onderstaande voorbeeld is nogmaals het voorbeeld van hierboven gegeven, maar nu is een extra controle toegevoegd. De robot rijdt rechtdoor als lijnsensor_m de lijn ziet **en** als er geen voorwerp binnen 30 cm van de robot staat:
 

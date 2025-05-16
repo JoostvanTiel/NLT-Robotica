@@ -17,10 +17,10 @@ Tot nu toe hebben we gekeken naar manieren om een stukje code van de robot eenma
 Een `while` lus herhaalt een set instructies zo lang aan een voorwaarde voldaan wordt. Achter het `while` statement moet dus een controle staan die `True` of `False` op kan leveren. 
 De syntax om zo'n lus te maken is als volgt:
 
-	while conditie:
+	while voorwaarde:
 		instructies...
 
-Hieronder zie je een voorbeeld waarin een variabele (n) in eerste nul is. Vervolgens komt de while lus, waarin de waarde van n op het scherm wordt getoond. Vervolgens wordt de waarde van n met 1 verhoogd met de code `n = n + 1`.
+Hieronder zie je een voorbeeld waarin een variabele (n) in eerste instantie nul is. Vervolgens komt de while lus, waarin de waarde van n op het scherm wordt getoond en de waarde van n met 1 verhoogd met de code `n = n + 1`. Deze code laat dus de getallen 0 t/m 9 op het display zien. De functie `sleep(250)` is toegevoegd om tijd te hebben om het getal te lezen.
 
 	n = 0
 
@@ -153,12 +153,16 @@ Deze instructies worden niet doorlopen als er uit de lus gebroken wordt met een 
 
 ### Met robot
 
-6. Gebruik een `for`-lus met `range(5)` en laat de robot elke seconde een beetje draaien met `motor_aan(...)` en `sleep(1000)`.
+7. Gebruik een `for`-lus met `range(5)` en laat de robot elke seconde een beetje draaien met `motor_aan(...)` en `sleep(1000)`.
 
-7. Gebruik een `while`-lus. Laat de robot rijden met beide motoren aan. Stop als de robot een donkere lijn ziet.
+8. Gebruik een `while`-lus. Laat de robot rijden met beide motoren aan. Stop als de robot een donkere lijn ziet.
 
-8. Rijd vooruit tot de robot binnen 10 cm van een voorwerp is. Laat de robot dan een willekeurige hoeveelheid draaien. Blijf dit oneindig herhalen.
+9. Rijd vooruit tot de robot binnen 10 cm van een voorwerp is. Laat de robot dan een willekeurige hoeveelheid draaien. Blijf dit oneindig herhalen.
 
-9. Gebruik een `for`-lus en toon met `display.scroll()` de waarde van elke sensor op volgorde.
+10. Gebruik een `for`-lus en toon met `display.scroll()` de waarde van elke sensor op volgorde.
 
-10. Gebruik een `for`-lus waarin je steeds `led_links`, `led_rechts` of `led_beide` aan- en uitzet. Wacht een halve seconde tussen de stappen.
+11. Gebruik een `for`-lus waarin je steeds `led_links`, `led_rechts` of `led_beide` aan- en uitzet. Wacht een halve seconde tussen de stappen.
+
+12. Laat de robot een vierkantje rijden. Gebruik daarvoor een `for`-lus. Sla de instructies hiervoor op een functie genaamd `rijdVierkant()`.
+
+13. Laat de robot vijfmaal achter elkaar een vierkantje rijden. Gebruik daarvoor de functie uit de vorige vraag.

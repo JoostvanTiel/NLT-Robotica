@@ -41,7 +41,7 @@ Een andere sensor waarover de Maqueen beschikt, is de ultrasone afstandssensor. 
 
 ![werking US sensor](/img/h4.3.png)
 
-Om de afstand vanaf de US sensor te krijgen, wordt de functie `rangefinder()` gebruikt. Deze functie retourneert de afstand in cm.
+Om de afstand vanaf de US sensor te krijgen, wordt de functie `afstand_tot_voorwerp()` gebruikt. Deze functie retourneert de afstand in cm.
 
 ## Opdrachten hoofdstuk 4
 
