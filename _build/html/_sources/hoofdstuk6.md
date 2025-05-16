@@ -32,7 +32,7 @@ Hieronder zie je een voorbeeld waarin een variabele (n) in eerste instantie nul 
 	display.clear()
 
 ### break statements
-Met het `break` statement kunnen we een while loop doorbreken, ook al is de voorwaarde die gecontrolleerd wordt nog steeds waar. Probeer het stukje code hieronder maar eens uit.
+Met het `break` statement kunnen we een while lus doorbreken, ook al is de voorwaarde die gecontrolleerd wordt nog steeds waar. Probeer het stukje code hieronder maar eens uit.
 
 	n = 0
 
