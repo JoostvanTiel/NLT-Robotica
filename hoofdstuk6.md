@@ -166,3 +166,10 @@ Deze instructies worden niet doorlopen als er uit de lus gebroken wordt met een 
 12. Laat de robot een vierkantje rijden. Gebruik daarvoor een `for`-lus. Sla de instructies hiervoor op een functie genaamd `rijdVierkant()`.
 
 13. Laat de robot vijfmaal achter elkaar een vierkantje rijden. Gebruik daarvoor de functie uit de vorige vraag.
+
+14. Pak het A2-papier van de vorige hoofdstukken er weer bij en ontwerp zelf een klein doolhof. Houdt er rekening mee dat de paden niet te dicht op elkaar zitten (minimaal 1,5 robotlengtes afstand). Het doolhof moet minimaal bevatten: 
+	+ start
+	+ drie rechte bochten
+	+ een t-splitsing
+	+ een doodlopend pad
+	+ een eind (grijs vel)

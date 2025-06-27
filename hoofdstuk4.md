@@ -54,3 +54,9 @@ Om de afstand vanaf de US sensor te krijgen, wordt de functie `afstand_tot_voorw
 4. Schrijf een programma dat de afstand tot de ultrasone afstandssensor op het scherm van de micro:bit toont.
 
 5. Onderzoek met behulp van de vorige opdracht wat de minimale en de maximale afstand is die de maqueen kan waarnemen met de ultrasone afstandssensor.
+
+6. Voer de volgende opdrachten uit:
+	+ Vraag een A2-papier, een grijs A4-tje en een rol zwarte tape aan je docent. 
+	+ Maak vervolgens een rechte lijn op het papier en leg het grijze velletje aan het eind van de lijn. 
+	+ Laat de robot rechtdoor over de lijn rijden en laat de waarde van `lijnsensor_m` op het scherm zien. Noteer deze waardes op een plek waar je ze terug kan vinden. 
+	+ Zet je namen op het A2-papier en lever deze weer in bij je docent.

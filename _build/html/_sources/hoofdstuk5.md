@@ -202,3 +202,11 @@ Stop nu de micro:bit in de robot
 	+ Als een object dichterbij komt dan 10 cm, moet de robot stoppen en 90 graden draaien.
 	+ Als de robot weer ruimte heeft (afstand > 10 cm), moet deze verder rijden.
 	+ Test zelf welke tijd in de functie `draaiLinks()` of `draaiRechts()` van hoofdstuk 3 moet worden ingevuld om de robot 90 graden te laten draaien.
+
+9. Pak het A2-papier van het vorige hoofdstuk er weer bij. Laat de robot nu over de lijn rijden en bijsturen als hij van de lijn afkomt. De robot moet stoppen aan het eind van de streep.
+
+10. Pas de code van de vorige opdracht zo aan, dat de robot aan het eind van de streep omkeert en terugrijdt naar de start.
+
+11. Maak nu aan het eind van de rechte streep een rechte hoek, zodat er een bocht ontstaat. Laat de robot weer over de lijn rijden en de bocht nemen.
+
+12. Leg het grijze vel aan het eind van het pad en laat de robot stoppen als deze het grijze vel bereikt heeft.
