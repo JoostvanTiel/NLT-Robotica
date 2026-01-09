@@ -182,7 +182,7 @@ commentaar.
 		if button_a.was_pressed(): 
 		display.show('A') 
 		sleep(1000) 
-		display.show(Image.HAPPY) 
+		display.show(Image.SAD) 
 		if button_b.was_pressed(): 
 		display.show('B') 
 		sleep(1000) 
