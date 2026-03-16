@@ -5,7 +5,7 @@ Hiervoor maken we gebruik van een simulator. Allereerst leren we het programma k
 
 ## Beginnen met programmeren
 
-Voor het aansturen van de robot maken we gebruik van de <a href="https://python.microbit.org/v/3" target="_blank" rel="noopener noreferrer" title="Klik hier om naar de editor te gaan">micro:bit Python Editor</a>. Om te beginnen ga je naar deze website. Je krijgt nu het volgende scherm:
+Voor het aansturen van de robot maken we gebruik van de <a href="https://python.microbit.org/v/3" target="_blank" title="Klik hier om naar de editor te gaan">micro:bit Python Editor</a>. Om te beginnen ga je naar deze website. Je krijgt nu het volgende scherm:
 ![screenshot van hoofdscherm](/img/h1.1.png)
 
 De projecten die je maakt geef je een eigen naam. Hiervoor klik je op “project”. Hier kun je de projectnaam wijzigen. Een project kan bestaan uit meerdere bestanden, in veel gevallen is dit een bestand met functies, bijvoorbeeld `functies.py`, en een hoofdbestand `main.py` waarin de functies worden aangeroepen. In latere hoofdstukken gaan we dieper in op wat functies zijn.
