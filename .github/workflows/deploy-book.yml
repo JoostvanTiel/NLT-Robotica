@@ -31,10 +31,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install "jupyter-book<2"
 
       - name: Clean previous build output
         run: |
-          jupyter-book clean . --all
+          jupyter-book clean . --all --yes
           rm -rf _build
 
       - name: Build book
