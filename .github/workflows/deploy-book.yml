@@ -25,20 +25,21 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Clean previous build output
+        run: |
+          jupyter-book clean . --all
+          rm -rf _build
+
       - name: Build the book
         run: |
-          jupyter-book build .
-
-      - name: Toon inhoud van _build/html
-        run: |
-          echo "Inhoud van _build/html:" && ls -lR _build/html && head -n 20 _build/html/hoofdstuk1.html || true
+          jupyter-book build . --all
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
