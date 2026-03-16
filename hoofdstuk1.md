@@ -136,8 +136,8 @@ Bij elk nieuw bestand of project wat je maakt zet je bovenaan in commentaar de n
     3. Doe dit voor 4 seconde
     4. Laat daarna het woord "klaar" over het beeld scrollen
     5. Toon daarna de afbeelding van een verdrietige smiley
-8.  Extra oefening gyrosensor:
-    1. Schrijf code die in een `while True`-loop de kanteling van de micro:bit meet met de ingebouwde gyroscopische sensor.
+8.  Leer werken met de gyroscopische sensor:
+    1. Zoek in de 'Reference' naar de gyroscopische sensor (accelerometer). 2. Schrijf code die in een `while True`-loop de kanteling van de micro:bit meet met de ingebouwde gyroscopische sensor.
     2. Gebruik een drempelwaarde zodat bij kantelen naar links de letter `L` wordt getoond en bij kantelen naar rechts de letter `R`.
     3. Voeg een korte `sleep` toe zodat het scherm rustig blijft reageren.
-    4. Test je programma door de micro:bit in beide richtingen te kantelen.
+    4. Test je programma door de micro:bit in beide richtingen te kantelen. 6. Extra: zorg dat er een boos gezichtje te zien is op het scherm als de microbit te hard versneld wordt.
