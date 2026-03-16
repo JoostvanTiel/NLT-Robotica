@@ -1,54 +1,132 @@
-# Hoofdstuk 4: Sensoren
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
 
-Robots zijn uitgerust met sensoren zoals afstandssensor, geluidsensor, kleurensensor enzovoort. Via deze sensoren kunnen robots hun omgeving observeren, waardoor een robot autonoom kan functioneren. In dit hoofdstuk behandelen we hoe je de lijnvolgsensoren en de ultrasone afstandssensor kunt gebruiken.
+# Hoofdstuk 4: Condities en if-statements
 
-## De lijnvolgsensoren
+In dit hoofdstuk leer je hoe een robot keuzes maakt. Een robot moet namelijk steeds beslissen wat hij moet doen op basis van sensorwaarden. Met condities en if-statements kun je die beslissingen programmeren.
 
-In de onderstaande figuur zie je de vijf lijnsensoren die op de maqueen aanwezig zijn. Elke sensor heeft een infrarood (IR) zender en een IR ontvanger. De IR zender zend infrarode straling uit. Die straling wordt door een witte ondergrond weerkaatst, maar door een zwarte ondergrond geabsorbeerd. Als de IR ontvanger teruggekaatste straling ontvangt (witte ondergrond), zal deze een 0 (`False`) terugsturen naar de micro:bit. Als het geen straling ontvangt, stuurt het een 1 (`True`) terug naar de micro:bit.
+## operatoren
 
-![lijnvolgsensoren onderaanzicht](/img/h4.1.png)
+Om condities te kunnen checken worden de volgende operatoren gebruikt:
 
-```{image} /img/h4.2.png
-:alt: screenshot microbit verbinden
-:width: 200px
-:align: right
+| Operator | Naam                      | Voorbeeld              |
+| :------- | :------------------------ | :--------------------- |
+| ==       | Gelijk aan                | afstand == 20          |
+| !=       | Niet gelijk aan           | lijnsensor_m != 1      |
+| >        | Groter dan                | snelheid > 100         |
+| <        | Kleiner dan               | afstand < 15           |
+| >=       | Groter dan of gelijk aan  | batterij >= 3.2        |
+| <=       | Kleiner dan of gelijk aan | afstand <= stopafstand |
+
+## if statements
+
+    if conditie:
+    	instructies...
+    elif andere_conditie: # optioneel
+    	instructies...
+    else:		      # optioneel
+    	instructies...
+
+```{code-cell} ipython3
+:tags: [ifStatement]
+
+afstand = 12
+stopafstand = 15
+
+if afstand < stopafstand:
+	print("Obstakel dichtbij: stop de robot.")
+elif afstand == stopafstand:
+	print("Exact op de grens: rijd langzaam.")
+else:
+	print("Vrije weg: rijd door.")
 ```
 
-Als de robot over een zwarte lijn rijdt, met aan weerszijden een witte ondergrond, zullen een de lijnvolgsensoren boven de witte ondergrond een 0 terugsturen en de lijnvolgsensoren boven de lijn een 1. Op die manier kan vastgesteld worden waar de lijn zich onder de robot bevindt. Zie ook de figuur hiernaast.
+Meerdere condities tegelijk checken
 
-De vijf lijnsensoren van de Maqueen zijn van links naar rechts als volgt genoemd: `lijnsensor_l2`, `lijnsensor_l1`, `lijnsensor_m`, `lijnsensor_r1`, `lijnsensor_r2`.
+| Operator | Beschrijving                                                           | Voorbeeld                                |
+| :------- | :--------------------------------------------------------------------- | :--------------------------------------- |
+| and      | Retourneert `True` als beide condities waar zijn.                      | afstand < 15 and snelheid > 0            |
+| or       | Retourneert `True` als één van beide condities waar is.                | lijnsensor_l1 == 1 or lijnsensor_r1 == 1 |
+| not      | Keert het resultaat om, retourneert `False` als het resultaat waar is. | not(knop_a_ingedrukt)                    |
 
-De volgende pseudocode omschrijft hoe een lijnvolgprogramma eruit zou kunnen zien:
+Bijvoorbeeld:
 
-	# Lees de lijnsensoren uit
-	
-	# Als de middelste lijnsensor (lijnsensor_m) een 1 stuurt:
-		# Rijd vooruit
-	# Anders, als linker lijnsensor (lijnsensor_l1 of lijnsensor_l2) een 1 stuurt:
-		# Draai naar links 
-	# Anders, als rechter lijnsensor (lijnsensor_r1 of lijnsensor_r2) een 1 stuurt:
-		# Draai naar rechts
+```{code-cell} ipython3
+:tags: [ifStatement]
 
-In de situatie van de bovenstaande afbeelding zal `lijnsensor_r1` een 1 terugsturen en moet de robot dus naar rechts draaien.
+afstand = 10
+snelheid = 80
+lijnsensor_m = 1
+lijnsensor_l1 = 0
+lijnsensor_r1 = 0
 
-Om de waarde van een lijnvolgsensor te krijgen, kan de volgende functie worden gebruikt:
+if afstand < 15 and snelheid > 0:
+	print("Obstakel gedetecteerd: remmen.")
 
-	sensor_on_line(sensor) # Op de plaats van sensor moet de naam van de sensor komen te staan.
+if lijnsensor_m == 1 and afstand >= 15:
+	print("Robot volgt de lijn en rijdt door.")
+elif lijnsensor_l1 == 1 or lijnsensor_r1 == 1:
+	print("Corrigeer koers naar het midden van de lijn.")
 
-## De ultrasone afstandssensor
+if not(lijnsensor_m == 1):
+	print("Midden-sensor ziet geen lijn: zoek de lijn opnieuw.")
+```
 
-Een andere sensor waarover de Maqueen beschikt, is de ultrasone afstandssensor. Door deze sensor lijkt het net alsof de robot twee ogen heeft. In tegenstelling tot ogen, gebruikt deze sensor geen licht, maar ultrasoon geluid om te bepalen of er zich een voorwerp voor de robot bevindt. Met het linker "oog", de verzender (T), verstuurt de sensor een ultrasoon geluidssignaal. Dat signaal beweegt zich met de snelheid van het geluid voort en tegen een voorwerp weerkaatsen. Het recht "oog", de ontvanger (R), vangt het weerkaatste signaal op. Uit het tijdsverschil en de snelheid van het geluid, kan dan berekend worden op welke afstand het voorwerp zich van de robot bevond. Zie ook de schematische tekening hieronder.
+## Condities met de Maqueen
 
-![werking US sensor](/img/h4.3.png)
+In een echt robotprogramma combineer je condities met functies uit `maqueen.py` en `microbit`.
 
-Om de afstand vanaf de US sensor te krijgen, wordt de functie `rangefinder()` gebruikt. Deze functie retourneert de afstand in cm.
+Voorbeeld in pseudocode:
+
+    Als afstand kleiner is dan 15 cm:
+    	Stop de motor
+    Anders:
+    	Rijd vooruit
+
+Voorbeeldcode:
+
+    from maqueen import *
+    from microbit import *
+
+    init_maqueen()
+
+    while True:
+    	afstand = rangefinder()
+    	if afstand < 15:
+    		motor_uit()
+    	else:
+    		motor_aan(60, 0)
 
 ## Opdrachten hoofdstuk 4
 
-1. Schrijf een programma waarbij de waarde van `lijnsensor_m` op het scherm van de micro:bit toont. Gebruik de functie `sleep()` om te zorgen dat de waarde niet te snel verandert.
+1. Schrijf een programma dat op de micro:bit de tekst "STOP" toont als de afstand kleiner is dan 20 cm, en anders "RIJD".
 
-2. Zoek in het `maqueen.py` bestand op wat de snelheid van het geluid is die de Ultrasone Afstandssensor gebruikt om de afstand te berekenen.
+2. Schrijf een programma waarin de robot alleen vooruit rijdt als knop A is ingedrukt. Anders moet de robot stilstaan.
 
-3. Schrijf een programma dat de afstand tot de ultrasone afstandssensor op het scherm van de micro:bit toont.
+3. Gebruik `if`, `elif` en `else` om drie zones te maken op basis van afstand:
+   - kleiner dan 10 cm: stoppen;
+   - tussen 10 en 25 cm: langzaam rijden;
+   - groter dan 25 cm: normaal rijden.
 
-4. Onderzoek met behulp van de vorige opdracht wat de maximale afstand is die de maqueen kan waarnemen met de ultrasone afstandssensor.
+4. Schrijf een programma dat de middelste lijnsensor uitleest:
+   - als `lijnsensor_m == 1`: rijd vooruit;
+   - anders: stop de robot.
+
+5. Breid opdracht 4 uit met linker en rechter lijnsensor (`lijnsensor_l1`, `lijnsensor_r1`) zodat de robot kan bijsturen naar links of rechts.
+
+6. Maak een programma met een veiligheidsvoorwaarde: de robot mag alleen rijden als:
+   - de afstand groter is dan 15 cm, en
+   - knop B niet is ingedrukt.
+
+7. Uitdagingsopdracht: combineer lijnvolgen en obstakeldetectie.
+   - Volg de lijn zolang er geen obstakel is.
+   - Als er een obstakel binnen 15 cm is: stop, wacht 1 seconde, en probeer daarna opnieuw te rijden.

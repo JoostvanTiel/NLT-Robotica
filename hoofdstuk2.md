@@ -75,7 +75,7 @@ De functie `motor_aan()` stuurt zowel de motor van het linker als het rechter wi
 
 ## Opdrachten hoofdstuk 2
 
-1. Importeer het set-up bestand “Maqueen setup v3 1.hex”. Verander vervolgens de naam van je project.
+1. Importeer het set-up bestand “maqueen.hex”. Verander vervolgens de naam van je project.
 
 2. Zorg dat de standaard code van hoofdstuk 1 wordt uitgevoerd op de micro:bit.
 
