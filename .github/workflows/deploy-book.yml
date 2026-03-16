@@ -36,6 +36,10 @@ jobs:
         run: |
           jupyter-book build .
 
+      - name: Toon inhoud van _build/html
+        run: |
+          echo "Inhoud van _build/html:" && ls -lR _build/html && head -n 20 _build/html/hoofdstuk1.html || true
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
