@@ -113,7 +113,7 @@ Soms is het handig als de robot willekeurig een bepaalde actie doet. Dit maakt d
 
 Aan de variabele random_getal wordt nu willekeurig een waarde toegekend tussen de 0 en 100.
 
-## Opdrachten hoofdstuk 3
+## Opdrachten hoofdstuk 5
 
 1. Leg uit wat het verschil is tussen integer- en boolvariabelen.
 

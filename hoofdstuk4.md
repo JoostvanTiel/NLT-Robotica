@@ -14,18 +14,20 @@ kernelspec:
 
 In dit hoofdstuk leer je hoe een robot keuzes maakt. Een robot moet namelijk steeds beslissen wat hij moet doen op basis van sensorwaarden. Met condities en if-statements kun je die beslissingen programmeren.
 
+De gemeten sensorwaarde waarde van de lijnsensoren ligt tussen 0 en 255. In dit hoofdstuk gebruiken we bij de lijnsensoren een drempelwaarde van 150, maar de juiste drempel kan per robot verschillen en bepaal je met de kalibratie uit hoofdstuk 3.
+
 ## operatoren
 
 Om condities te kunnen checken worden de volgende operatoren gebruikt:
 
-| Operator | Naam                      | Voorbeeld              |
-| :------- | :------------------------ | :--------------------- |
-| ==       | Gelijk aan                | afstand == 20          |
-| !=       | Niet gelijk aan           | lijnsensor_m != 1      |
-| >        | Groter dan                | snelheid > 100         |
-| <        | Kleiner dan               | afstand < 15           |
-| >=       | Groter dan of gelijk aan  | batterij >= 3.2        |
-| <=       | Kleiner dan of gelijk aan | afstand <= stopafstand |
+| Operator | Naam                      | Voorbeeld           |
+| :------- | :------------------------ | :------------------ |
+| ==       | Gelijk aan                | afstand == 20       |
+| !=       | Niet gelijk aan           | afstand != 100      |
+| >        | Groter dan                | snelheid > 100      |
+| <        | Kleiner dan               | lijnsensor_r1 < 200 |
+| >=       | Groter dan of gelijk aan  | lijnsensor_m >= 75  |
+| <=       | Kleiner dan of gelijk aan | snelheid <= 50      |
 
 ## if statements
 
@@ -39,46 +41,64 @@ Om condities te kunnen checken worden de volgende operatoren gebruikt:
 ```{code-cell} ipython3
 :tags: [ifStatement]
 
-afstand = 12
-stopafstand = 15
+afstand = afstand_tot_voorwerp()
+stopafstand = 30
 
 if afstand < stopafstand:
-	print("Obstakel dichtbij: stop de robot.")
+   # Obstakel dichtbij: stop de robot.
+   motor_uit(motor_links)
+   motor_uit(motor_rechts)
 elif afstand == stopafstand:
-	print("Exact op de grens: rijd langzaam.")
+   # Exact op de grens: rijd langzaam.
+   motor_aan(motor_links, snelheid=20)
+   motor_aan(motor_rechts, snelheid=20)
 else:
-	print("Vrije weg: rijd door.")
+	# Vrije weg: rijd door.
+   motor_aan(motor_links, snelheid=100)
+   motor_aan(motor_rechts, snelheid=100)
 ```
 
 Meerdere condities tegelijk checken
 
-| Operator | Beschrijving                                                           | Voorbeeld                                |
-| :------- | :--------------------------------------------------------------------- | :--------------------------------------- |
-| and      | Retourneert `True` als beide condities waar zijn.                      | afstand < 15 and snelheid > 0            |
-| or       | Retourneert `True` als één van beide condities waar is.                | lijnsensor_l1 == 1 or lijnsensor_r1 == 1 |
-| not      | Keert het resultaat om, retourneert `False` als het resultaat waar is. | not(knop_a_ingedrukt)                    |
+| Operator | Beschrijving                                                           | Voorbeeld                                  |
+| :------- | :--------------------------------------------------------------------- | :----------------------------------------- |
+| and      | Retourneert `True` als beide condities waar zijn.                      | afstand < 15 and snelheid > 0              |
+| or       | Retourneert `True` als één van beide condities waar is.                | lijnsensor_l1 < 150 or lijnsensor_r1 < 150 |
+| not      | Keert het resultaat om, retourneert `False` als het resultaat waar is. | not(knop_a_ingedrukt)                      |
 
 Bijvoorbeeld:
 
 ```{code-cell} ipython3
 :tags: [ifStatement]
 
-afstand = 10
-snelheid = 80
-lijnsensor_m = 1
-lijnsensor_l1 = 0
-lijnsensor_r1 = 0
+afstand = afstand_tot_voorwerp()
+lijnsensor_m = read_line_sensor(lijnsensor_m)
+lijnsensor_l1 = read_line_sensor(lijnsensor_l1)
+lijnsensor_r1 = read_line_sensor(lijnsensor_r1)
 
-if afstand < 15 and snelheid > 0:
-	print("Obstakel gedetecteerd: remmen.")
-
-if lijnsensor_m == 1 and afstand >= 15:
-	print("Robot volgt de lijn en rijdt door.")
-elif lijnsensor_l1 == 1 or lijnsensor_r1 == 1:
-	print("Corrigeer koers naar het midden van de lijn.")
-
-if not(lijnsensor_m == 1):
-	print("Midden-sensor ziet geen lijn: zoek de lijn opnieuw.")
+if afstand < 25 and lijnsensor_m < 150:
+	# Robot op lijn, maar obstakel gedetecteerd: remmen.
+   motor_uit(motor_links)
+   motor_uit(motor_rechts)
+elif lijnsensor_m < 150 and afstand >= 25:
+	# Robot volgt de lijn en rijdt door.
+   motor_aan(motor_links, snelheid=100)
+   motor_aan(motor_rechts, snelheid=100)
+elif lijnsensor_l1 < 150 or lijnsensor_r1 < 150:
+   # Corrigeer koers naar het midden van de lijn.
+   if lijnsensor_l1 < 150:
+      # Draai naar links
+      motor_uit(motor_links)
+      motor_aan(motor_rechts, snelheid=100)
+   elif lijnsensor_r1 < 150:
+      # Draai naar rechts
+      motor_aan(motor_links, snelheid=100)
+      motor_uit(motor_rechts)
+else:
+   # Robot ziet geen lijn, stop maar en geef dit aan
+   motor_uit(motor_links)
+   motor_uit(motor_rechts)
+   display.show(Image.CONFUSED)
 ```
 
 ## Condities met de Maqueen
@@ -118,10 +138,10 @@ Voorbeeldcode:
    - groter dan 25 cm: normaal rijden.
 
 4. Schrijf een programma dat de middelste lijnsensor uitleest:
-   - als `lijnsensor_m == 1`: rijd vooruit;
+   - als `lijnsensor_m < 150`: rijd vooruit;
    - anders: stop de robot.
 
-5. Breid opdracht 4 uit met linker en rechter lijnsensor (`lijnsensor_l1`, `lijnsensor_r1`) zodat de robot kan bijsturen naar links of rechts.
+5. Breid opdracht 4 uit met linker en rechter lijnsensor (`lijnsensor_l1`, `lijnsensor_r1`) zodat de robot kan bijsturen naar links of rechts op basis van dezelfde drempelwaarde.
 
 6. Maak een programma met een veiligheidsvoorwaarde: de robot mag alleen rijden als:
    - de afstand groter is dan 15 cm, en

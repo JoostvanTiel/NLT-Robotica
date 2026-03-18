@@ -8,6 +8,8 @@ Om de voorgeprogrammeerde map te importeren zorg je allereerst dat de set-up op 
 
 ![screenshot imports](/img/h2.1.png)
 
+Download het bestand hier: {download}`maqueen.hex <maqueen.hex>`
+
 Met de gegevens in de map “macqueen.py” hoef je in principe niks te doen, tenzij dit expliciet wordt vermeld of tenzij je de gegevens, bijvoorbeeld voor je eindproject, zelf wilt aanpassen. Je eigen code schrijf je dus in de map `main.py`. Hierin staat nu slechts de code die de map `macqueen.py` importeert en een regel die de verbinding met de robot initialiseert. Mocht je op een later moment een eigen functiemap toevoegen, denk er dan ook aan dat je deze importeert bovenaan je `main.py` bestand.
 
     # Imports go at the top
@@ -36,7 +38,7 @@ We sluiten de micro:bit aan door middel van de micro-USB kabel. De micro:bit zie
 
 ## De robot Maqueen
 
-Om de robot aan te sturen, verstuur je een code naar de micro:bit en plug je deze vervolgens in de Maqueen. We laten de motor rijden door middel van de functie `motor_aan()`.
+Om de robot aan te sturen, verstuur je een code naar de micro:bit en plug je deze vervolgens in de Maqueen. We laten de motoren rijden door middel van de functies `motor_links(aan)` en `motor_rechts(aan)`.
 
     # Imports go at the top
     from maqueen import *
@@ -45,7 +47,8 @@ Om de robot aan te sturen, verstuur je een code naar de micro:bit en plug je dez
     # Initialiseer de verbinding tussen de micro:bit en alle sensoren van Maqueen
     init_maqueen()
 
-    motor_aan()
+    motor_links(aan)
+    motor_rechts(aan)
 
 Stop de micro:bit in de Macqueen, zodat de opstelling er als volgt uitziet:
 
@@ -53,9 +56,18 @@ Stop de micro:bit in de Macqueen, zodat de opstelling er als volgt uitziet:
 
 Zorg dat de Maqueen uit staat (met de aanknop op de rechter zijkant, rood omcirkelt in de figuur hierboven) en verbindt de computer door middel van de micro-USB kabel met de micro:bit. Vervolgens verstuur je de code naar de micro:bit. Als dit is gelukt haal je de USB kabel uit de micro:bit en zet je de Maqueen aan. Had je de Maqueen al aanstaan bij het verbinden, of haal je de kabel niet uit de micro:bit, dan gaat de robot rijden met de kabel nog aangesloten. Dit is niet de bedoeling.
 
-## Meer functies
+## De motor functies
 
-Tot nu toe hebben we enkel de functie `motor_aan()` gebruikt om de Maqueen te besturen. Het is ook fijn als je de motor na enige tijd weer uit kunt zetten. Hiervoor maak je gebruik van de functie `motor_uit()`. Als je de while-loop vervolgens wil stoppen, kun je dit doen door middel van het commando `break`.
+De commando's `motor_links()` en `motor_rechts()` noemen we **functies**, dit kun je herkennen aan het haakje openen en sluiten achter het commando. Tussen de haakjes kun je meer informatie doorgeven met behulp van zogenaamde **parameters**.
+Voor de functies `motor_links()` en `motor_rechts()` kunnen drie parameters doorgegeven kunnen worden:
+
+1. De staat van de motor. Deze is verplicht om mee te geven. De staat kan `aan` of `uit` zijn. Bijvoorbeeld: `motor_links(aan)` om de linkermotor aan te zetten.
+2. De snelheid van de motor. Deze waarde moet tussen de 0 en 255 liggen. Het doorgeven van de snelheid is optioneel. Als je niets doorgeeft, zoals bij het voorbeeld in het vorige punt, wordt de standaardwaarde 50 meegegeven. Als je de snelheid wel doorgeeft, moet deze ná de staat komen. Bijvoorbeeld: `motor_rechts(aan, snelheid=125)` om de rechtermotor aan te zetten met een snelheid van 125.
+3. De richting waarin de motor draait. Hier kun je de richting op `vooruit` of `achteruit` zetten. Standaard staat deze waarde op `vooruit`. Als je de motor achteruit wil laten draaien, specificeer je de richting nadat je de snelheid hebt gespecificeerd. Bijvoorbeeld: `motor_links(aan, snelheid=75, richting=achteruit)`.
+
+Er bestaan nog veel meer standaard functies om de maqueen aan te sturen en je kunt zelfs je eigen functies schrijven. Je leert hier meer over in [hoofdstuk 5](hoofdstuk5.md).
+
+Als je de while-loop vervolgens wil stoppen, kun je dit doen door middel van het commando `break`. Je stopt dan het 'hoofdprogramma' op de robot.
 
     # Imports go at the top
     from maqueen import *
@@ -66,25 +78,23 @@ Tot nu toe hebben we enkel de functie `motor_aan()` gebruikt om de Maqueen te be
 
     # Laat de robot 2 seconden rijden en vervolgens stoppen
     while True:
-    	motor_aan()
+    	motor_links(aan)
+        motor_rechts(aan)
     	sleep(2000)
-    	motor_uit()
+    	motor_links(uit)
+        motor_rechts(uit)
     	break
 
-De functie `motor_aan()` stuurt zowel de motor van het linker als het rechter wiel aan. Als je wil dat de robot een bocht maakt, kan het zijn dat je slechts één van de twee wielen wilt aansturen. Om dit te doen gebruik je de functie `motor_enkel()`. In dit geval moet je wel aangeven welk van de twee motoren je wilt aansturen. Dit zet je tussen de haakjes. Dit ziet er als volgt uit: `motor_enkel(motor_links)`.
+In deze code rijdt de robot een eindje rechtdoor. Als je wil dat de robot een bocht maakt, wil je dat slechts één van de twee wielen vooruit draait.
 
 ## Opdrachten hoofdstuk 2
 
 1. Importeer het set-up bestand “maqueen.hex”. Verander vervolgens de naam van je project.
-
-2. Zorg dat de standaard code van hoofdstuk 1 wordt uitgevoerd op de micro:bit.
-
-3. Schrijf een code die ervoor zorgt dat “A” wordt getoond op het moment dat je toets A indrukt op de micro:bit en “B” als je toets B indrukt.
-
-4. Laat de Maqueen voor een tijdsduur van 3 seconde naar voren rijden.
-
-5. Zorg ervoor de de Maqueen rondjes draait om zijn as.
-
-6. Schrijf een code die ervoor zorgt dat de Maqueen 2 seconde naar rechts draait en en vervolgens voor 2 seconde naar links draait .
-
-7. Zorg ervoor dat de Maqueen 3 seconde naar voren rijdt, dan een bocht naar links maakt, en vervolgens weer 3 seconde verder rijdt.
+2. Zorg dat de code van opdracht 7 uit hoofdstuk 1 wordt uitgevoerd op de micro:bit.
+3. Laat de Maqueen voor een tijdsduur van 3 seconde naar voren rijden.
+4. Schrijf een code die ervoor zorgt dat de Maqueen 2 seconde naar rechts draait en en vervolgens voor 2 seconde naar links draait .
+5. Zorg ervoor dat de Maqueen 3 seconde naar voren rijdt, dan een bocht naar links maakt, en vervolgens weer 3 seconde verder rijdt.
+6. Zorg er op drie verschillende manier voor dat de Maqueen een rondje draait om zijn as (dus 360 graden).
+   1. Door beide wielen vooruit te laten draaien, maar op een andere snelheid.
+   2. Door één van de wielen aan te zetten.
+   3. Door één van de wielen vooruit te laten draaien en de ander achteruit te laten draaien.
