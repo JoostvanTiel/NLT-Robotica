@@ -45,11 +45,7 @@ Om de afstand vanaf de US sensor te krijgen, wordt de functie `afstand_tot_voorw
 ## Opdrachten hoofdstuk 3
 
 1. Schrijf een programma waarbij de waarde van lijnsensor `m` op het scherm van de micro:bit toont. Gebruik de functie `sleep()` om te zorgen dat de waarde niet te snel verandert en gebruik `display.clear()` om het scherm een tijdje leeg te maken, zodat je weet welke getallen bij elkaar horen.
-
 2. Kalibreer de lijnsensoren: onderzoek met behulp van de code van de vorige opdracht welke waardes de lijnsensoren meten als ze boven een wit oppervlakte staan en welke waardes als ze boven een zwart oppervlakte staan. Schrijf deze waardes ergens op, je gaat ze in de volgende hoofdstukken vaak nodig hebben.
-
 3. Klik in het linkermenu op 'Project' en zoek in het bestand `maqueen.py` op wat de snelheid van het geluid is die de Ultrasone Afstandssensor gebruikt om de afstand te berekenen.
-
 4. Schrijf een programma dat de afstand tot de ultrasone afstandssensor op het scherm van de micro:bit toont.
-
 5. Onderzoek met behulp van de vorige opdracht wat de maximale afstand is die de maqueen kan waarnemen met de ultrasone afstandssensor.

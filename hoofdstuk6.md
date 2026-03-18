@@ -1,23 +1,29 @@
 # Hoofdstuk 6: Herhalingen en loops
 
-In eerdere hoofdstukken heb je al gezien dat je met `while True:` code steeds opnieuw kunt uitvoeren. In dit hoofdstuk leer je hoe je herhalingen bewust en gecontroleerd gebruikt. We behandelen twee soorten loops: de `while`-loop en de `for`-loop. Daarna combineren we loops met sensoren en motoren van de Maqueen.
+In hoofdstuk 4 heb je gewerkt met condities en in hoofdstuk 5 met functies. In dit hoofdstuk combineren we die kennis met **loops**. Daarmee laat je de robot acties herhalen zonder steeds dezelfde regels opnieuw te schrijven.
+
+Je leert twee soorten loops:
+
+- `while`-loops: herhalen zolang een conditie waar is;
+- `for`-loops: herhalen een vast aantal keer.
+
+Daarna pas je dit toe op de Maqueen met sensoren, motoren en veiligheid.
 
 ## Waarom loops?
 
-Zonder loops zou je dezelfde regels code steeds opnieuw moeten typen. Met loops maak je programma's korter, overzichtelijker en makkelijker aan te passen.
+Zonder loops zou je veel code moeten kopiëren en plakken. Met loops maak je je programma:
 
-Gebruik een loop bijvoorbeeld om:
+- korter;
+- overzichtelijker;
+- makkelijker aan te passen;
+- minder foutgevoelig.
 
-- een sensor meerdere keren uit te lezen;
-- een actie exact een bepaald aantal keer uit te voeren;
-- code te blijven uitvoeren totdat aan een voorwaarde is voldaan.
-
-## while-loops
-
-    while conditie:
-    	instructies...
+## while-loop
 
 Een `while`-loop blijft doorgaan zolang de conditie `True` is.
+
+    while conditie:
+        instructies...
 
 Voorbeeld: tel van 0 tot en met 9.
 
@@ -27,23 +33,25 @@ Voorbeeld: tel van 0 tot en met 9.
 n = 0
 
 while n < 10:
-	print(n)
-	n = n + 1
+    print(n)
+    n = n + 1
 ```
 
-Vaak zie je in robotcode ook deze vorm:
+### Oneindige while-loop
 
-	while True:
-		instructies...
+Bij robots zie je vaak:
 
-Deze loop stopt niet vanzelf. Dat is handig als je robot continu moet blijven reageren op sensoren.
+    while True:
+        instructies...
+
+Dat is handig, omdat de robot dan continu kan blijven reageren op sensoren.
 
 ## break en continue
 
-In een loop kun je twee extra commando's gebruiken:
+In loops gebruik je vaak deze twee commando's:
 
-- `break`: stopt de hele loop direct.
-- `continue`: slaat de rest van de huidige ronde over en gaat door met de volgende ronde.
+- `break`: stopt de hele loop direct;
+- `continue`: slaat de rest van deze ronde over en gaat direct naar de volgende ronde.
 
 ```{code-cell} ipython3
 :tags: [whileLoop]
@@ -51,108 +59,151 @@ In een loop kun je twee extra commando's gebruiken:
 n = 0
 
 while True:
-	n = n + 1
+    n = n + 1
 
-	if n == 3:
-		continue
+    if n == 3:
+        continue
 
-	print(n)
+    print(n)
 
-	if n == 6:
-		break
+    if n == 6:
+        break
 ```
 
-In dit voorbeeld wordt 3 niet geprint (door `continue`) en stopt de loop bij 6 (door `break`).
+In dit voorbeeld wordt 3 niet geprint en stopt de loop bij 6.
 
-## for-loops
+## for-loop
+
+Een `for`-loop gebruik je als je vooraf weet hoe vaak iets moet gebeuren.
 
     for x in range(getal):
-    	instructies...
+        instructies...
 
-Een `for`-loop gebruik je als je van tevoren weet hoe vaak iets moet gebeuren.
+Voorbeeld:
 
 ```{code-cell} ipython3
 :tags: [forLoop]
 
 for x in range(10):
-	print(x)
+    print(x)
 ```
 
 `range(10)` geeft de getallen 0 tot en met 9.
 
-Je kunt ook een begin- en eindwaarde opgeven:
+Je kunt ook een begin- en eindwaarde gebruiken:
 
 ```{code-cell} ipython3
 :tags: [forLoop]
 
 for x in range(2, 7):
-	print(x)
+    print(x)
 ```
 
 Dit print 2, 3, 4, 5 en 6.
 
 ## while of for?
 
-- Gebruik `while` als het aantal herhalingen afhangt van een conditie of sensorwaarde.
-- Gebruik `for` als je een actie een vast aantal keer wilt uitvoeren.
+- Gebruik `while` als het aantal herhalingen afhangt van een conditie (bijvoorbeeld sensorwaarde).
+- Gebruik `for` als je een actie exact een vast aantal keer wilt herhalen.
 
-## Loops bij de Maqueen
+## Loops met de Maqueen
 
-Bij robotica gebruik je loops bijna altijd samen met functies uit `maqueen.py` en `microbit`.
+In robotprogramma's combineer je loops bijna altijd met functies uit `maqueen.py` en `microbit`.
 
-Voorbeeld: laat de robot 5 keer kort vooruit rijden.
+### Voorbeeld 1: 5 keer kort vooruit rijden
 
-	from maqueen import *
-	from microbit import *
+    from maqueen import *
+    from microbit import *
 
-	init_maqueen()
+    init_maqueen()
 
-	for i in range(5):
-		motor_aan(80, 0)
-		sleep(500)
-		motor_uit()
-		sleep(300)
+    for i in range(5):
+        motor_links(aan, snelheid=80)
+        motor_rechts(aan, snelheid=80)
+        sleep(500)
+        motor_links(uit)
+        motor_rechts(uit)
+        sleep(300)
 
-Voorbeeld: blijf rijden tot een voorwerp dichtbij is.
+### Voorbeeld 2: rijden tot obstakel
 
-	from maqueen import *
-	from microbit import *
+    from maqueen import *
+    from microbit import *
 
-	init_maqueen()
+    init_maqueen()
 
-	while True:
-		afstand = rangefinder()
-		if afstand < 15:
-			motor_uit()
-			break
-		motor_aan(60, 0)
+    while True:
+        afstand = afstand_tot_voorwerp()
+        if afstand < 15:
+            motor_links(uit)
+            motor_rechts(uit)
+            break
+
+        motor_links(aan, snelheid=60)
+        motor_rechts(aan, snelheid=60)
+
+### Voorbeeld 3: lijn volgen met drempelwaarde
+
+Gebruik de drempelwaarde die je in hoofdstuk 3 hebt gekalibreerd (bijvoorbeeld `150`).
+
+    from maqueen import *
+    from microbit import *
+
+    init_maqueen()
+
+    drempelwaarde = 150
+
+    while True:
+        if lees_lijnsensor(m) < drempelwaarde:
+            motor_links(aan, snelheid=70)
+            motor_rechts(aan, snelheid=70)
+        else:
+            motor_links(uit)
+            motor_rechts(uit)
 
 ## Opdrachten hoofdstuk 6
 
-1. Schrijf een programma met een `for`-loop dat de getallen 1 tot en met 10 op het scherm van de simulator print.
+1. Schrijf een programma met een `for`-loop dat de getallen 1 tot en met 10 print.
 
 2. Schrijf een programma met een `while`-loop dat start bij `n = 20` en aftelt naar 0.
 
 3. Schrijf een programma met een `for`-loop dat alleen de even getallen tussen 0 en 20 print.
 
-4. Maak een programma dat met een `while True`-loop steeds de afstand van de ultrasone sensor toont op de micro:bit. Voeg `sleep(200)` toe zodat de waarde rustig vernieuwt.
+4. Maak een programma met een `while True`-loop dat steeds de afstand (`afstand_tot_voorwerp()`) op de micro:bit toont. Voeg `sleep(200)` toe zodat de waarde rustig vernieuwt.
 
-5. Laat de Maqueen vooruit rijden totdat `rangefinder()` kleiner is dan 20 cm. Stop dan met `motor_uit()`.
+5. Laat de Maqueen vooruit rijden totdat de afstand kleiner is dan 20 cm. Stop daarna met beide motoren.
 
-6. Laat de Maqueen een vierkant rijden: 4 keer een stuk vooruit, daarna een kwartslag draaien.
+6. Schrijf een programma dat de robot 4 keer een vierkant-hoek laat maken:
+   - rijd 1 seconde vooruit;
+   - draai ongeveer 0,4 seconde naar rechts;
+   - herhaal dit 4 keer.
 
-7. Gebruik een `for`-loop om de robot eerst 3 keer naar links te laten draaien en daarna 3 keer naar rechts.
+7. Gebruik een `for`-loop om de robot eerst 3 keer kort naar links te laten draaien en daarna 3 keer kort naar rechts.
 
-8. Maak een programma waarin de robot blijft rijden met `while True`, maar stopt met `break` als knop A wordt ingedrukt op de micro:bit.
+8. Maak een programma met `while True` waarin de robot blijft rijden, maar stopt met `break` zodra knop A is ingedrukt.
 
-9. Combineer lijnsensoren en loops: laat de robot in een `while True`-loop de middelste lijnsensor uitlezen en:
-   - vooruit rijden als `lijnsensor_m` op de lijn staat;
-   - anders stoppen.
+9. Gebruik de middelste lijnsensor in een `while True`-loop met drempelwaarde:
+   - als `lees_lijnsensor(m) < drempelwaarde`: rijd vooruit;
+   - anders: stop.
 
-10. Uitdagingsopdracht: schrijf een programma dat de robot autonoom laat rondrijden en obstakels ontwijkt. Gebruik minstens:
-    - 1 `while`-loop;
-    - 1 `for`-loop;
-    - 1 `break` of `continue`.
+10. Breid opdracht 9 uit met bijsturen:
+
+- als `lees_lijnsensor(l1) < drempelwaarde`: stuur naar links;
+- als `lees_lijnsensor(r1) < drempelwaarde`: stuur naar rechts;
+- anders: stop.
+
+11. Maak een programma dat twee veiligheidsregels combineert in een loop:
+
+- stop als afstand < 15 cm;
+- stop ook als knop B wordt ingedrukt.
+
+12. Uitdagingsopdracht: laat de robot 30 seconden autonoom rijden en obstakels ontwijken.
+    Gebruik minimaal:
+
+- 1 `while`-loop;
+- 1 `for`-loop;
+- 1 `break` of `continue`;
+- 1 lijnsensor met drempelwaarde.
 
 ## Reflectie
 
@@ -160,4 +211,5 @@ Leg in je eigen woorden uit:
 
 1. Wanneer kies je voor een `while`-loop?
 2. Wanneer kies je voor een `for`-loop?
-3. Wat doet `break` in een loop?
+3. Wat is het verschil tussen `break` en `continue`?
+4. Waarom is een drempelwaarde belangrijk bij lijnsensoren?
