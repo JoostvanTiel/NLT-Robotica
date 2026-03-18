@@ -163,53 +163,51 @@ Gebruik de drempelwaarde die je in hoofdstuk 3 hebt gekalibreerd (bijvoorbeeld `
 
 ## Opdrachten hoofdstuk 6
 
+1. Leg in je eigen woorden uit:
+1. Wanneer kies je voor een `while`-loop?
+1. Wanneer kies je voor een `for`-loop?
+1. Wat is het verschil tussen `break` en `continue`?
+1. Waarom is een drempelwaarde belangrijk bij lijnsensoren?
+
 1. Schrijf een programma met een `for`-loop dat de getallen 1 tot en met 10 print.
 
-2. Schrijf een programma met een `while`-loop dat start bij `n = 20` en aftelt naar 0.
+1. Schrijf een programma met een `while`-loop dat start bij `n = 20` en aftelt naar 0.
 
-3. Schrijf een programma met een `for`-loop dat alleen de even getallen tussen 0 en 20 print.
+1. Schrijf een programma met een `for`-loop dat alleen de even getallen tussen 0 en 20 print.
 
-4. Maak een programma met een `while True`-loop dat steeds de afstand (`afstand_tot_voorwerp()`) op de micro:bit toont. Voeg `sleep(200)` toe zodat de waarde rustig vernieuwt.
+1. Maak een programma met een `while True`-loop dat steeds de afstand (`afstand_tot_voorwerp()`) op de micro:bit toont. Voeg `sleep(200)` toe zodat de waarde rustig vernieuwt.
 
-5. Laat de Maqueen vooruit rijden totdat de afstand kleiner is dan 20 cm. Stop daarna met beide motoren.
+1. Laat de Maqueen vooruit rijden totdat de afstand kleiner is dan 20 cm. Stop daarna met beide motoren.
 
-6. Schrijf een programma dat de robot 4 keer een vierkant-hoek laat maken:
+1. Schrijf een programma dat de robot 4 keer een vierkant-hoek laat maken:
    - rijd 1 seconde vooruit;
    - draai ongeveer 0,4 seconde naar rechts;
    - herhaal dit 4 keer.
 
-7. Gebruik een `for`-loop om de robot eerst 3 keer kort naar links te laten draaien en daarna 3 keer kort naar rechts.
+1. Gebruik een `for`-loop om de robot eerst 3 keer kort naar links te laten draaien en daarna 3 keer kort naar rechts.
 
-8. Maak een programma met `while True` waarin de robot blijft rijden, maar stopt met `break` zodra knop A is ingedrukt.
+1. Maak een programma met `while True` waarin de robot blijft rijden, maar stopt met `break` zodra knop A is ingedrukt.
 
-9. Gebruik de middelste lijnsensor in een `while True`-loop met drempelwaarde:
-   - als `lees_lijnsensor(m) < drempelwaarde`: rijd vooruit;
-   - anders: stop.
+1. Gebruik de middelste lijnsensor in een `while True`-loop met drempelwaarde:
 
-10. Breid opdracht 9 uit met bijsturen:
+- als `lees_lijnsensor(m) < drempelwaarde`: rijd vooruit;
+- anders: stop.
+
+11. Breid de vorige opdracht uit met bijsturen:
 
 - als `lees_lijnsensor(l1) < drempelwaarde`: stuur naar links;
 - als `lees_lijnsensor(r1) < drempelwaarde`: stuur naar rechts;
 - anders: stop.
 
-11. Maak een programma dat twee veiligheidsregels combineert in een loop:
+12. Maak een programma dat twee veiligheidsregels combineert in een loop:
 
 - stop als afstand < 15 cm;
 - stop ook als knop B wordt ingedrukt.
 
-12. Uitdagingsopdracht: laat de robot 30 seconden autonoom rijden en obstakels ontwijken.
+13. Uitdagingsopdracht: laat de robot 30 seconden autonoom rijden en obstakels ontwijken.
     Gebruik minimaal:
 
 - 1 `while`-loop;
 - 1 `for`-loop;
 - 1 `break` of `continue`;
 - 1 lijnsensor met drempelwaarde.
-
-## Reflectie
-
-Leg in je eigen woorden uit:
-
-1. Wanneer kies je voor een `while`-loop?
-2. Wanneer kies je voor een `for`-loop?
-3. Wat is het verschil tussen `break` en `continue`?
-4. Waarom is een drempelwaarde belangrijk bij lijnsensoren?

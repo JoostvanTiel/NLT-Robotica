@@ -25,17 +25,18 @@ Naast de functies die we al zijn tegengekomen, en alle functies die in het besta
 
 Je ziet dat de code begint met eerst in commentaar uitleggen wat de functie doet, welke waardes hij meekrijgt en wat hij oplevert. Dit moet je er altijd bij schrijven als je een functie maakt. Zo blijft het altijd duidelijk wat welke functie doet. Om de functie te schrijven begin je altijd met def . Hiermee vertel je aan het programma dat je een functie gaat definiëren. Daarna geef je de functie een naam en zet je tussen haakjes de parameters.
 Je kunt de bovenstaande functie op de volgende manier gebruiken:
-from maqueen import _
-from microbit import _
 
-    init_maqueen()
+    from maqueen import *
+    from microbit import *
 
-    if op_lijn(m):
-        motor_links(aan, snelheid=80)
-        motor_rechts(aan, snelheid=80)
-    else:
-        motor_links(uit)
-        motor_rechts(uit)
+        init_maqueen()
+
+        if op_lijn(m):
+            motor_links(aan, snelheid=80)
+            motor_rechts(aan, snelheid=80)
+        else:
+            motor_links(uit)
+            motor_rechts(uit)
 
 ### Parameters
 
@@ -171,7 +172,18 @@ Aan de variabele random_getal wordt nu willekeurig een waarde toegekend tussen d
 
 3.  Wat is het datatype van de returnwaarde van `lees_lijnsensor(m)`? Leg kort uit hoe je dat weet.
 
-4.  Bekijk de functie hieronder:
+4.  Kijk nog eens naar de functie `op_lijn()` die uitgelegd staat aan het begin van dit hoofdstuk. Ga na dat je het stukje code:
+    if sensorwaarde < drempelwaarde:
+    return True
+    else:
+    return False
+
+    kunt vervangen door:
+    return sensorwaarde < drempelwaarde
+
+    Leg dit in je eigen woorden uit.
+
+5.  Bekijk de functie hieronder:
 
           def blokkade():
                 if afstand_tot_voorwerp() < 15:
@@ -182,31 +194,36 @@ Aan de variabele random_getal wordt nu willekeurig een waarde toegekend tussen d
     - Welk datatype wordt teruggegeven?
     - Schrijf een kort programma dat deze functie gebruikt om de robot te laten stoppen of rijden.
 
-5.  Schrijf een eigen functie `rij_rechtdoor(snelheid, tijd_ms)` die:
+6.  Schrijf een eigen functie `rij_rechtdoor(snelheid, tijd_ms)` die:
     - beide motoren vooruit laat rijden op de opgegeven snelheid;
     - na `tijd_ms` milliseconden stopt.
 
-6.  Schrijf een void-functie `draai_links(snelheid, tijd_ms)` en een void-functie `draai_rechts(snelheid, tijd_ms)`.
+7.  Schrijf een void-functie `draai_links(snelheid, tijd_ms)` en een void-functie `draai_rechts(snelheid, tijd_ms)`.
     - Laat daarna de robot het volgende patroon rijden door deze functies slim te combineren.
-      ![Patroon](/img/h5.1.png)
 
-7.  Schrijf een functie `veilig_rijden(snelheid)` die alleen rijdt als de afstand groter is dan 20 cm.
+    ```{image} /img/h5.1.png
+    :alt: patroon rijden
+    :width: 400px
+    :align: center
+    ```
+
+8.  Schrijf een functie `veilig_rijden(snelheid)` die alleen rijdt als de afstand groter is dan 20 cm.
     - Gebruik `afstand_tot_voorwerp()`.
     - Laat de functie `True` teruggeven als er gereden wordt, anders `False`.
 
-8.  Gebruik de functie `koplampen()`:
+9.  Gebruik de functie `koplampen()`:
     - laat de robot 2 seconden naar links draaien met de linker lamp aan;
     - laat daarna 2 seconden naar rechts draaien met de rechter lamp aan;
     - zet daarna beide lampen uit.
 
-9.  Gebruik `set_underglow()`:
+10. Gebruik `set_underglow()`:
     - kies drie verschillende kleuren;
     - toon elke kleur 1 seconde;
     - eindig met onderglow uit.
 
-10. Maak op het A2 vel van jou en je partner een bocht (hoek van ongeveer 90 graden) naar links, laat die weg een stukje doorlopen en maak vervolgens een bocht naar rechts. Schrijf een programma dat de robot een bocht laat nemen als hij deze tegenkomt.
+11. Maak op het A2 vel van jou en je partner een bocht (hoek van ongeveer 90 graden) naar links, laat die weg een stukje doorlopen en maak vervolgens een bocht naar rechts. Schrijf een programma dat de robot een bocht laat nemen als hij deze tegenkomt.
 
-11. Extra: schrijf een functie `willekeurige_actie()` die een getal kiest tussen 1 en 4 en dan:
+12. Uitdagingsopdracht: schrijf een functie `willekeurige_actie()` die een getal kiest tussen 1 en 4 en dan:
     - vooruit rijdt;
     - achteruit rijdt;
     - links draait;
