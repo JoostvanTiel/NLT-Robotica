@@ -23,16 +23,17 @@ Belangrijk: je krijgt hieronder geen complete kant-en-klare oplossing. Je werkt 
 
 ## Opstelling van het doolhof
 
-Maak met je groep een doolhof op een wit A2- of groter vel met zwarte tape.
+Maak met je groep een doolhof op een wit A2-vel met zwarte tape. Werk verder met de lijnen die je al hebt gemaakt in de eerdere hoofdstukken.
 
 Gebruik minimaal:
 
-- 1 startvak;
-- 1 eindvak;
+- 1 startpunt;
+- 1 eindpunt (zet hier het doosje van de robot en klein eindje vandaan);
+- 2 T-splitsingen;
 - 2 kruispunten;
 - 2 doodlopende wegen.
 
-Zorg dat de lijnen breed genoeg zijn voor betrouwbare detectie met de lijnsensoren.
+Zorg ervoor dat de lijnen niet te dicht op elkaar komen, dan kan de robot lastig onderscheid maken tussen de verschillende 'wegen'.
 
 ## Nieuwe situaties in het doolhof
 
@@ -47,13 +48,12 @@ Denkvraag:
 
 ### Kruispunt
 
-Een kruispunt is een plek waar meerdere richtingen mogelijk zijn.
+Een kruispunt is een plek waar vier richtingen mogelijk zijn.
 
 Denkvraag:
 
 - Wanneer noem je iets een kruispunt in sensorwaarden?
 - Welke keuzevolgorde gebruik je (bijvoorbeeld links-eerst, rechts-eerst, of iets anders)?
-- Hoe voorkom je dat je eindeloos blijft rondjes rijden?
 
 ## Van idee naar logica
 
@@ -91,45 +91,28 @@ Tip: bouw dit op met kleine hulpfuncties, bijvoorbeeld:
 
 Werk deze opdrachten in volgorde uit. Stop pas met een opdracht als deze stabiel werkt.
 
-1. Basiscontrole
-   - Laat de robot een rechte lijn en een enkele bocht betrouwbaar volgen.
-   - Gebruik jouw gekalibreerde drempelwaarde uit hoofdstuk 3.
+1. Laat de robot een rechte lijn en een enkele bocht betrouwbaar volgen. Gebruik jouw gekalibreerde drempelwaarde uit hoofdstuk 3.
 
-2. Kruispunt detecteren
-   - Schrijf code die een kruispunt herkent.
-   - Laat op de micro:bit zien wanneer een kruispunt gedetecteerd is (bijvoorbeeld met een icoon of letter).
+2. Schrijf code die een doodlopende weg herkent. Laat de robot omkeren en terugrijden tot het vorige keuzepunt.
 
-3. Doodlopende weg detecteren
-   - Schrijf code die een doodlopende weg herkent.
-   - Laat de robot omkeren en terugrijden tot het vorige keuzepunt.
+3. Schrijf code die een kruispunt herkent. Laat op de micro:bit zien wanneer een kruispunt gedetecteerd is (bijvoorbeeld met een icoon of letter). Dus nog geen actie ondernemen!
 
-4. Keuzelogica ontwerpen
-   - Kies een vaste strategie (bijvoorbeeld links-eerst of rechts-eerst).
-   - Leg in 4-6 regels uit waarom je voor deze strategie kiest.
+4. Denk na over het oplossen van een doolhof. Zoek eventueel op internet naar goede strategieën. Kies een vaste strategie die de robot moet volgen bij keuzepunten (T-splitsingen en kruispunten).
 
-5. Keuzelogica programmeren
-   - Programmeer je strategie op kruispunten.
-   - Zorg dat de robot na een keuze weer netjes op de lijn komt.
+5. Laat de robot detecteren wanneer het eindpunt bereikt is. Bedenk een leuke manier om duidelijk te maken dat de robot het eindpunt heeft gevonden (gebruik beweging, display, lampen en/of geluid).
 
-6. Geheugen toevoegen
-   - Gebruik minstens 1 variabele om bij te houden wat de robot al gedaan heeft.
-   - Voorbeelden: aantal kruispunten, aantal omkeringen, gevonden vakken.
+6. Schrijf het uiteindelijke programma:
 
-7. Eindpunt detecteren
-   - Laat de robot detecteren wanneer het eindpunt bereikt is.
-   - Geef dit duidelijk aan (bijvoorbeeld met tekst, icoon, lampen of pieptoon).
+- Maak op papier een belisboom voor de strategie van de vorige opdrachten;
+- Zet de beslisboom van de vorige opdracht om in pseudocode;
+- Zet de pseudocode om in programmeertaal.
 
-8. Herstelgedrag testen
-   - Test wat je robot doet als hij kort van de lijn raakt of een verkeerde afslag neemt.
-   - Laat zien hoe je programma daarna terugkeert naar bruikbare doolhoflogica.
+7. Test wat je robot doet als hij kort van de lijn raakt (geen van de lijnsensoren ziet een lijn) en pas de code aan zodat de robot de lijn weer terug weet te vinden.
 
-9. Robuustheidstest
+8. Trial and error
    - Laat het programma 3 keer achter elkaar starten vanuit hetzelfde startpunt.
    - Noteer per run wat goed ging en wat nog fout ging.
-
-10. Verbeterronde
-    - Verbeter je code op basis van je testresultaten.
-    - Beschrijf minimaal 2 concrete verbeteringen die je hebt gedaan.
+   - Verbeter je code op basis van je testresultaten.
 
 ## Eindopdracht
 
@@ -137,7 +120,7 @@ Laat je robot zelfstandig door het doolhof rijden van start naar eindpunt.
 
 Voorwaarden:
 
-- De robot blijft binnen het doolhof.
+- De robot blijft binnen het doolhof en kan de lijn terugvinden als deze eraf raakt.
 - De robot kan omgaan met kruispunten.
 - De robot kan uit doodlopende wegen terugkomen.
 - De robot stopt correct bij het eindpunt met een duidelijke eindmelding.
