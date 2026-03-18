@@ -219,11 +219,13 @@ Aan de variabele random_getal wordt nu willekeurig een waarde toegekend tussen d
 10. Gebruik `set_underglow()`:
     - kies drie verschillende kleuren;
     - toon elke kleur 1 seconde;
-    - eindig met onderglow uit.
+    - eindig door de underglow uit te zetten.
 
 11. Maak op het A2 vel van jou en je partner een bocht (hoek van ongeveer 90 graden) naar links, laat die weg een stukje doorlopen en maak vervolgens een bocht naar rechts. Schrijf een programma dat de robot een bocht laat nemen als hij deze tegenkomt.
 
-12. Uitdagingsopdracht: schrijf een functie `willekeurige_actie()` die een getal kiest tussen 1 en 4 en dan:
+12. Breid de vorige opdracht uit door een T-splitsing te maken op het vel. Bedenk hoe de robot kan detecteren of deze op een T-splitsing staat en schrijf een functie die de robot een kant laat kiezen als hij een T-splitsing tegen komt.
+
+13. Uitdagingsopdracht: schrijf een functie `willekeurige_actie()` die een getal kiest tussen 1 en 4 en dan:
     - vooruit rijdt;
     - achteruit rijdt;
     - links draait;
