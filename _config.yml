@@ -4,6 +4,7 @@
 title: NLT Robotica
 author: Joost van Tiel
 logo: logo.png
+copyright: "2026, Joost van Tiel"
 
 # See https://jupyterbook.org/content/execute.html
 execute:
@@ -29,7 +30,3 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
-
-sphinx:
-  extra_extensions:
-    - auto_copyright
