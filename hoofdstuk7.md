@@ -17,7 +17,7 @@ Je maakt een programma dat:
 1. binnen de lijnen van het doolhof blijft;
 2. kruispunten en doodlopende wegen herkent;
 3. met eigen logica keuzes maakt;
-4. meerdere gemarkeerde vakken in het doolhof vindt.
+4. zelfstandig van start naar eindpunt rijdt.
 
 Belangrijk: je krijgt hieronder geen complete kant-en-klare oplossing. Je werkt er in stappen naartoe en bedenkt zelf de strategie.
 
@@ -29,7 +29,6 @@ Gebruik minimaal:
 
 - 1 startvak;
 - 1 eindvak;
-- 3 gemarkeerde vakken (bijvoorbeeld met kleursticker);
 - 2 kruispunten;
 - 2 doodlopende wegen.
 
@@ -116,13 +115,13 @@ Werk deze opdrachten in volgorde uit. Stop pas met een opdracht als deze stabiel
    - Gebruik minstens 1 variabele om bij te houden wat de robot al gedaan heeft.
    - Voorbeelden: aantal kruispunten, aantal omkeringen, gevonden vakken.
 
-7. Gemarkeerde vakken vinden
-   - Laat de robot detecteren wanneer een gemarkeerd vak bereikt is.
-   - Tel op hoeveel vakken gevonden zijn.
-
-8. Stopvoorwaarde
-   - Stop het programma pas als alle 3 de gemarkeerde vakken gevonden zijn.
+7. Eindpunt detecteren
+   - Laat de robot detecteren wanneer het eindpunt bereikt is.
    - Geef dit duidelijk aan (bijvoorbeeld met tekst, icoon, lampen of pieptoon).
+
+8. Herstelgedrag testen
+   - Test wat je robot doet als hij kort van de lijn raakt of een verkeerde afslag neemt.
+   - Laat zien hoe je programma daarna terugkeert naar bruikbare doolhoflogica.
 
 9. Robuustheidstest
    - Laat het programma 3 keer achter elkaar starten vanuit hetzelfde startpunt.
@@ -134,21 +133,21 @@ Werk deze opdrachten in volgorde uit. Stop pas met een opdracht als deze stabiel
 
 ## Eindopdracht
 
-Laat je robot zelfstandig door het doolhof rijden en de 3 gemarkeerde vakken vinden.
+Laat je robot zelfstandig door het doolhof rijden van start naar eindpunt.
 
 Voorwaarden:
 
 - De robot blijft binnen het doolhof.
 - De robot kan omgaan met kruispunten.
 - De robot kan uit doodlopende wegen terugkomen.
-- De robot stopt wanneer alle 3 vakken gevonden zijn.
+- De robot stopt correct bij het eindpunt met een duidelijke eindmelding.
 
 ## Beoordelingsrubric
 
-| Onderdeel                     | Onvoldoende                                                                                                                         | Voldoende                                                                                                   | Goed                                                                                               | Score                  |
-| :---------------------------- | :---------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------- | :--------------------- |
-| Voldoen aan minimale opdracht | Rijdt het veld in en blijft binnen de lijnen.                                                                                       | Vindt de gekleurde vakken en stopt wanneer alle drie de vakken gevonden zijn. Ook brandt er dan een lampje. | Print een boodschap naar het scherm en laat een pieptoon horen wanneer alle kleuren gevonden zijn. |                        |
-| Kwaliteit software            | Gebruikt `#define`-achtige vaste waarden. Gebruikt commentaar. Nette inspringing.                                                   | Zinvol gebruik van `if/while/until/repeat`. Zinvol gebruik van variabelen. Gebruikt functies.               | Zinvol gebruik van meerdere functies.                                                              |                        |
-| Extra opdracht                | Zinvol gebruik van US-sensor. Zinvol gebruik van druksensor.                                                                        | Communicatie tussen twee robots. Oppakken van voorwerpen.                                                   | Eigen initiatief.                                                                                  |                        |
-| Proces en eigen inzicht       | **Onvoldoende (max -1p):** verstoort het onderwijsproces, oneigenlijk gebruik van laptop/pc, storend gebruik mobiele telefoon, etc. | **Voldoende (0p):** actieve participatie, eigen inzicht.                                                    | **Goed (1p):** opmerkelijke groei, sterk eigen inzicht.                                            |                        |
-| Totaal                        |                                                                                                                                     |                                                                                                             |                                                                                                    | Cijfer = aantal punten |
+| Onderdeel                     | Onvoldoende (1p)                                                                                                                    | Voldoende (2p)                                                                                                                            | Goed (3p)                                                                                                                                          | Score                  |
+| :---------------------------- | :---------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------- |
+| Voldoen aan minimale opdracht | Volgt de lijn deels, maar loopt vast in het doolhof of verlaat de route regelmatig.                                                 | Rijdt een groot deel van het doolhof zelfstandig, herkent minimaal kruispunten of doodlopende wegen, en kan na een fout deels herstellen. | Lost het doolhof zelfstandig op van start tot eind, blijft stabiel binnen de route en stopt correct bij het eindpunt (met duidelijke eindmelding). |                        |
+| Kwaliteit software            | Code werkt alleen in eenvoudige situaties, met weinig structuur en beperkte leesbaarheid.                                           | Zinvol gebruik van `if`/`while`/`for`, variabelen en minstens 1 zelfgeschreven functie; code is grotendeels overzichtelijk.               | Duidelijke modulaire opbouw met meerdere functies, goede naamgeving, nette structuur en logica die ook in complexere situaties robuust blijft.     |                        |
+| Extra opdracht                | Zinvol gebruik van extra sensorgegevens (bijvoorbeeld gyrosensor) om de doolhoflogica te verbeteren.                                | Extra functionaliteit die verder gaat dan de basis, bijvoorbeeld route-optimalisatie, foutdetectie of samenwerking tussen twee robots.    | Sterk eigen initiatief met creatieve en technisch goed uitgewerkte uitbreiding, aantoonbaar getest.                                                |                        |
+| Proces en eigen inzicht       | **Onvoldoende (max -1p):** verstoort het onderwijsproces, oneigenlijk gebruik van laptop/pc, storend gebruik mobiele telefoon, etc. | **Voldoende (0p):** actieve participatie, eigen inzicht.                                                                                  | **Goed (1p):** opmerkelijke groei, sterk eigen inzicht.                                                                                            |                        |
+| Totaal                        |                                                                                                                                     |                                                                                                                                           |                                                                                                                                                    | Cijfer = aantal punten |
