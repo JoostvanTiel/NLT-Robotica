@@ -65,19 +65,19 @@ Voorbeeld van een beslisboom:
 [Start loop]
    |
    v
-[Obstakel dichtbij?] -- ja --> [Stop of ontwijk] --> [Terug naar start loop]
+[Obstakel dichtbij?] -- ja --> [Stop of ontwijk] -------------------> [Terug naar start loop]
    |
     nee
    v
-[Kruispunt?] --------- ja --> [Kies richting volgens jouw regel] --> [Terug naar start loop]
+[Kruispunt?] ---------- ja --> [Kies richting volgens jouw regel] --> [Terug naar start loop]
    |
     nee
    v
-[Doodlopende weg?] --- ja --> [Keer om] --> [Terug naar start loop]
+[Doodlopende weg?] ---- ja --> [Keer om] ---------------------------> [Terug naar start loop]
    |
     nee
    v
-[Volg de lijn] -------------------------------> [Terug naar start loop]
+[Volg de lijn] -----------------------------------------------------> [Terug naar start loop]
 ```
 
 Tip: bouw dit op met kleine hulpfuncties, bijvoorbeeld:
